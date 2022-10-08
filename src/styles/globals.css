@@ -1,0 +1,59 @@
+:root {
+  --primary-color: #A60000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.scroll-line {
+  height: 170px;
+  border-left: 2px solid black;
+}
+
+.scroll-down > p {
+  transform: rotate(90deg);
+}
+
+.nav-line {
+  width: 40px;
+  border-top: 3px solid black;
+}
+
+.nav-line.active {
+  width: 70px;
+}
+
+.nav-item {
+  visibility: hidden;
+}
+
+.painting {
+  left: 220px;
+  top: -90px;
+  opacity: 40%;
+}
+
+.statue {
+  left: 150px;
+  top: 50px;
+  filter: drop-shadow(0 0 0.75rem rgb(174, 174, 174));
+}
+
+.circle {
+  left: 90px;
+  top: 130px;
+}/*# sourceMappingURL=globals.css.map */
