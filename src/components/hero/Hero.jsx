@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
@@ -6,8 +6,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import Navigation from '../Navigation'
 import WaveImage from './WaveImage'
+import { MouseParallax } from 'react-just-parallax'
 
 export default function Hero() {
+    const parRef = useRef()
+
     return (
         <div className="vh-100 pt-5">
             <Row className='pt-5 h-100'>
@@ -17,7 +20,7 @@ export default function Hero() {
                     <div></div>
                 </Col>
                 <Col xs={11} md={10}>
-                    <Row>
+                    <Row ref={parRef}>
                         <Col xs={12} md={6} className='p-5'>
                             <p className='m-0'>デザイン</p>
                             <h1 className='display-1 m-0'>Keelan</h1>
@@ -25,13 +28,27 @@ export default function Hero() {
                             <p className='fs-2'>web developer.</p>
                             <Button variant="outline-secondary" size="lg" className='mt-5'>download cv</Button>
                         </Col>
-                        <Col xs={12} md={6} className="position-relative">
-                            <div className="position-absolute painting" style={{width: '700px', height: '800px'}}>
-                                <WaveImage /> 
-                            </div>
-                            <div className='bg-primary rounded-circle position-absolute circle' style={{ width: '150px', height: '150px' }}></div>
-                            <div className="position-absolute statue">
-                                <img src="/images/statue.png" alt="statue" width={400} />
+                        <Col xs={12} md={6}>
+                            <div className="position-relative">
+                                <div className="position-absolute painting">
+                                    <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.01} parallaxContainerRef={parRef}>
+                                        <div style={{ width: '700px', height: '800px' }}>
+                                            <WaveImage />
+                                        </div>
+                                    </MouseParallax>
+                                </div>
+                                <div className="position-absolute circle">
+                                    <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.03} parallaxContainerRef={parRef}>
+                                        <div className='bg-primary rounded-circle' style={{ width: '150px', height: '150px' }}></div>
+                                    </MouseParallax>
+                                </div>
+                                <div className="position-absolute statue">
+                                    <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.05} parallaxContainerRef={parRef}>
+                                        <div>
+                                            <img src="/images/statue.png" alt="statue" width={400} />
+                                        </div>
+                                    </MouseParallax>
+                                </div>
                             </div>
                         </Col>
                     </Row>
