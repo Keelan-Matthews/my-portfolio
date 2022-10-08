@@ -39,8 +39,10 @@ export default function Hero() {
                     <Row ref={parRef}>
                         <Col xs={12} md={6} className='p-5'>
                             <p className='m-0 japanese'>デザイン</p>
-                            <h1 className='display-1 m-0'>Keelan</h1>
-                            <h1 className='display-1'>Matthews</h1>
+                            <div className="text-outline">
+                                <h1 className='display-1 m-0'>Keelan</h1>
+                                <h1 className='display-1'>Matthews</h1>
+                            </div>
                             <p className='fs-2'>
                                 <TextTransition springConfig={presets.wobbly} inline>
                                     {TEXTS[index % TEXTS.length]}
