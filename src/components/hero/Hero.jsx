@@ -12,8 +12,8 @@ import TextTransition, { presets } from "react-text-transition"
 export default function Hero() {
     const parRef = useRef()
     const [index, setIndex] = useState(0)
-    const [showHero, setShowHero] = useState(false)
-    const [hideCircle, setHideCircle] = useState(false)
+    const [showHero, setShowHero] = useState(true)
+    const [hideCircle, setHideCircle] = useState(true)
 
     useEffect(() => {
         const intervalId = setInterval(() =>
@@ -21,15 +21,15 @@ export default function Hero() {
             3000 // every 2 seconds
         )
 
-        if (hideCircle) {
+        // if (hideCircle) {
 
-            setTimeout(() => {
-                setShowHero(true)
-            }, 1000)
-        }
+        //     setTimeout(() => {
+        //         setShowHero(true)
+        //     }, 1000)
+        // }
 
         return () => clearTimeout(intervalId)
-    }, [hideCircle])
+    }, [])
 
     const TEXTS = [
         "web ",
