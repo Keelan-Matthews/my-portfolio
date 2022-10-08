@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
@@ -7,9 +7,25 @@ import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import Navigation from '../Navigation'
 import WaveImage from './WaveImage'
 import { MouseParallax } from 'react-just-parallax'
+import TextTransition, { presets } from "react-text-transition";
 
 export default function Hero() {
     const parRef = useRef()
+    const [index, setIndex] = useState(0)
+
+    useEffect(() => {
+        const intervalId = setInterval(() =>
+            setIndex(index => index + 1),
+            3000 // every 2 seconds
+        )
+        return () => clearTimeout(intervalId)
+    }, [])
+
+    const TEXTS = [
+        "web developer",
+        "ui/ux designer",
+        "graphic designer"
+    ];
 
     return (
         <div className="vh-100 pt-5">
@@ -22,10 +38,15 @@ export default function Hero() {
                 <Col xs={11} md={10}>
                     <Row ref={parRef}>
                         <Col xs={12} md={6} className='p-5'>
-                            <p className='m-0'>デザイン</p>
+                            <p className='m-0 japanese'>デザイン</p>
                             <h1 className='display-1 m-0'>Keelan</h1>
                             <h1 className='display-1'>Matthews</h1>
-                            <p className='fs-2'>web developer.</p>
+                            <p className='fs-2'>
+                                <TextTransition springConfig={presets.wobbly} inline>
+                                    {TEXTS[index % TEXTS.length]}
+                                </TextTransition>
+                                .
+                            </p>
                             <Button variant="outline-secondary" size="lg" className='mt-5'>download cv</Button>
                         </Col>
                         <Col xs={12} md={6}>

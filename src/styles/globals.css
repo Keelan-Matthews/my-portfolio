@@ -56,4 +56,8 @@ body {
 .circle {
   left: 90px;
   top: 130px;
+}
+
+.japanese {
+  transform: translateY(30px);
 }/*# sourceMappingURL=globals.css.map */

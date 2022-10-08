@@ -38,7 +38,7 @@ const WaveMaterial = shaderMaterial(
         uniform sampler2D uTexture;
 
         void main() {
-            float wave = vWave * 0.1;
+            float wave = vWave * 0.08;
             vec3 texture = texture2D(uTexture, vUv + wave).rgb;
             gl_FragColor = vec4(texture, 1.0);
         }
