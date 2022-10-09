@@ -20,12 +20,13 @@ body {
 }
 
 .scroll-line {
-  height: 170px;
+  height: 0px;
   border-left: 2px solid black;
+  transition: 1s ease-in-out 3s;
 }
 
-.scroll-down > p {
-  transform: rotate(90deg);
+.scroll-line.visible {
+  height: 170px;
 }
 
 .nav-line {
@@ -51,6 +52,15 @@ body {
           animation: slide-painting 2s ease-in-out 1s forwards;
 }
 
+.scroll-down-text {
+  opacity: 0;
+}
+
+.scroll-down-text.visible {
+  -webkit-animation: slide-scroll 1s ease-in-out 2s forwards;
+          animation: slide-scroll 1s ease-in-out 2s forwards;
+}
+
 @-webkit-keyframes slide {
   0% {
     transform: translateY(30px);
@@ -69,6 +79,26 @@ body {
   }
   100% {
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slide-scroll {
+  0% {
+    transform: translateY(-30px) rotate(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotate(90deg);
+    opacity: 1;
+  }
+}
+@keyframes slide-scroll {
+  0% {
+    transform: translateY(-30px) rotate(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotate(90deg);
     opacity: 1;
   }
 }
