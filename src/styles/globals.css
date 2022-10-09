@@ -42,24 +42,106 @@ body {
 }
 
 .painting {
-  left: 220px;
-  top: -90px;
-  opacity: 40%;
+  left: 2000px;
+  top: -17%;
 }
 
+.painting.visible {
+  -webkit-animation: slide-painting 2s ease-in-out 1s forwards;
+          animation: slide-painting 2s ease-in-out 1s forwards;
+}
+
+@-webkit-keyframes slide {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slide-painting {
+  0% {
+    left: 2000px;
+    opacity: 0;
+  }
+  100% {
+    left: 30%;
+    top: -17%;
+    opacity: 0.4;
+  }
+}
+@keyframes slide-painting {
+  0% {
+    left: 2000px;
+    opacity: 0;
+  }
+  100% {
+    left: 30%;
+    top: -17%;
+    opacity: 0.4;
+  }
+}
 .statue {
-  left: 150px;
-  top: 50px;
-  filter: drop-shadow(0 0 0.75rem rgb(174, 174, 174));
+  left: 20%;
+  top: 8%;
+  filter: drop-shadow(0 0 0.75rem rgb(74, 74, 74));
+  opacity: 0;
+}
+
+.statue.visible {
+  -webkit-animation: slide 2s ease-in-out 1s forwards;
+          animation: slide 2s ease-in-out 1s forwards;
 }
 
 .circle {
-  left: 90px;
-  top: 130px;
+  left: 12%;
+  top: 25%;
+  opacity: 0;
+}
+
+.circle.visible {
+  opacity: 1;
+}
+
+.slogan {
+  opacity: 0;
+}
+
+.slogan.visible {
+  -webkit-animation: slide 1s ease-in-out 0.7s forwards;
+          animation: slide 1s ease-in-out 0.7s forwards;
 }
 
 .japanese {
   transform: translateY(30px);
+  opacity: 0;
+}
+
+.japanese.visible {
+  -webkit-animation: slide 1s ease-in-out 1.5s forwards;
+          animation: slide 1s ease-in-out 1.5s forwards;
+}
+
+.button {
+  opacity: 0;
+}
+
+.button.visible {
+  -webkit-animation: slide 1s ease-in-out 3s forwards;
+          animation: slide 1s ease-in-out 3s forwards;
 }
 
 .text-outline h1 {
@@ -75,13 +157,14 @@ body {
 }
 
 .click-circle {
-  width: 150px;
-  height: 150px;
   -webkit-animation: pulse 2s infinite;
           animation: pulse 2s infinite;
   transition: 0.5s ease;
   border-radius: 100%;
   cursor: pointer;
+  position: absolute;
+  left: -15%;
+  top: 50%;
 }
 
 .click-circle:before,
@@ -93,7 +176,7 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  border: 1px solid white;
+  border: 1px solid rgb(255, 108, 108);
   border-radius: 50%;
 }
 
@@ -156,10 +239,43 @@ body {
     transform: scale(1);
   }
 }
+@-webkit-keyframes move-circle {
+  0% {
+    left: -15%;
+    top: 50%;
+  }
+  99% {
+    left: 12%;
+    top: 28%;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes move-circle {
+  0% {
+    left: -15%;
+    top: 50%;
+  }
+  99% {
+    left: 12%;
+    top: 28%;
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .click-circle.clicked {
-  border-radius: 0%;
+  -webkit-animation: move-circle 2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+          animation: move-circle 2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+.click-circle.clicked:before,
+.click-circle.clicked:after {
+  content: "";
+  opacity: 0;
   -webkit-animation: none;
           animation: none;
-  width: 2000px;
-  height: 2000px;
 }/*# sourceMappingURL=globals.css.map */

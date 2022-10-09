@@ -8,12 +8,13 @@ import Navigation from '../Navigation'
 import WaveImage from './WaveImage'
 import { MouseParallax } from 'react-just-parallax'
 import TextTransition, { presets } from "react-text-transition"
+import TextReveal from '../animations/TextReveal'
 
 export default function Hero() {
     const parRef = useRef()
     const [index, setIndex] = useState(0)
-    const [showHero, setShowHero] = useState(true)
-    const [hideCircle, setHideCircle] = useState(true)
+    const [hideCircle, setHideCircle] = useState(false)
+    const [showHero, setShowHero] = useState(false)
 
     useEffect(() => {
         const intervalId = setInterval(() =>
@@ -21,15 +22,15 @@ export default function Hero() {
             3000 // every 2 seconds
         )
 
-        // if (hideCircle) {
-
-        //     setTimeout(() => {
-        //         setShowHero(true)
-        //     }, 1000)
-        // }
-
         return () => clearTimeout(intervalId)
     }, [])
+
+    const revealHero = () => {
+        setHideCircle(true)
+        setTimeout(() => {
+            setShowHero(true)
+        }, 1500)
+    }
 
     const TEXTS = [
         "web ",
@@ -44,8 +45,8 @@ export default function Hero() {
     ];
 
     return (
-        <div className={`vh-100 ${showHero ? '' : 'bg-dark'}`}>
-            <div className={`pt-5 ${showHero ? '' : 'd-none'}`}>
+        <div className='vh-100'>
+            <div className='pt-5'>
                 <Row className='pt-5 h-100'>
                     <Col xs={12} md={1} className='d-flex flex-column justify-content-between align-items-center'>
                         <FontAwesomeIcon icon={faEnvelope} className='fs-1' />
@@ -53,14 +54,14 @@ export default function Hero() {
                         <div></div>
                     </Col>
                     <Col xs={11} md={10}>
-                        <Row ref={parRef}>
+                        <Row ref={parRef} className='position-relative'>
                             <Col xs={12} md={6} className='p-5'>
-                                <p className='m-0 japanese'>デザイン</p>
+                                <p className={`m-0 japanese ${showHero ? 'visible' : ''}`}>デザイン</p>
                                 <div className="text-outline">
-                                    <h1 className='display-1 m-0'>Keelan</h1>
-                                    <h1 className='display-1'>Matthews</h1>
+                                    <TextReveal text="Keelan" visible={showHero} />
+                                    <TextReveal text="Matthews" visible={showHero} />
                                 </div>
-                                <p className='fs-2'>
+                                <p className={`fs-2 slogan ${showHero ? 'visible' : ''}`}>
                                     <TextTransition springConfig={presets.gentle} inline>
                                         {TEXTS[index % TEXTS.length]}
                                     </TextTransition>
@@ -70,23 +71,24 @@ export default function Hero() {
                                     </TextTransition>
                                     er.
                                 </p>
-                                <Button variant="outline-secondary" size="lg" className='mt-5'>download cv</Button>
+                                <Button variant={`outline-secondary button ${showHero ? 'visible' : ''}`} size="lg" className='mt-5'>download cv</Button>
                             </Col>
                             <Col xs={12} md={6}>
-                                <div className="position-relative">
-                                    <div className="position-absolute painting">
+                                <div className="position-relative h-100 w-100">
+                                    <div className={`position-absolute painting ${showHero ? 'visible' : ''}`}>
                                         <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.01} parallaxContainerRef={parRef}>
                                             <div style={{ width: '700px', height: '800px' }}>
                                                 <WaveImage />
                                             </div>
                                         </MouseParallax>
                                     </div>
-                                    <div className="position-absolute circle">
+                                    <div className={`position-absolute circle ${showHero ? 'visible' : ''}`}>
                                         <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.03} parallaxContainerRef={parRef}>
                                             <div className='bg-primary rounded-circle' style={{ width: '150px', height: '150px' }}></div>
                                         </MouseParallax>
                                     </div>
-                                    <div className="position-absolute statue">
+                                    <div className={`bg-primary rounded-circle click-circle ${hideCircle ? 'clicked' : ''} ${showHero ? 'd-none' : ''}`} onClick={() => revealHero()} style={{ width: '150px', height: '150px' }}></div>
+                                    <div className={`position-absolute statue ${showHero ? 'visible' : ''}`}>
                                         <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.05} parallaxContainerRef={parRef}>
                                             <div>
                                                 <img src="/images/statue.png" alt="statue" width={400} />
@@ -107,10 +109,6 @@ export default function Hero() {
                         </div>
                     </Col>
                 </Row>
-            </div>
-
-            <div className={`click-me h-100 w-100 d-flex flex-column justify-content-center align-items-center ${showHero ? 'd-none' : ''}`}>
-                <div className={`bg-white click-circle ${hideCircle ? 'clicked' : ''}`} onClick={() => setHideCircle(true)}></div>
             </div>
         </div>
     )

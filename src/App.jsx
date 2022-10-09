@@ -1,3 +1,4 @@
+import React from 'react';
 import Hero from './components/hero/Hero';
 import Layout from './components/Layout';
 function App() {
