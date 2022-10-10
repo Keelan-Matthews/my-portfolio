@@ -24,7 +24,6 @@ body {
   border-left: 2px solid black;
   transition: 1s ease-in-out 3s;
 }
-
 .scroll-line.visible {
   height: 170px;
 }
@@ -33,7 +32,6 @@ body {
   width: 40px;
   border-top: 3px solid black;
 }
-
 .nav-line.active {
   width: 70px;
 }
@@ -46,7 +44,6 @@ body {
   left: 2000px;
   top: -17%;
 }
-
 .painting.visible {
   -webkit-animation: slide-painting 2s ease-in-out 1s forwards;
           animation: slide-painting 2s ease-in-out 1s forwards;
@@ -55,7 +52,6 @@ body {
 .scroll-down-text {
   opacity: 0;
 }
-
 .scroll-down-text.visible {
   -webkit-animation: slide-scroll 1s ease-in-out 2s forwards;
           animation: slide-scroll 1s ease-in-out 2s forwards;
@@ -130,7 +126,6 @@ body {
   filter: drop-shadow(0 0 0.75rem rgb(74, 74, 74));
   opacity: 0;
 }
-
 .statue.visible {
   -webkit-animation: slide 2s ease-in-out 1s forwards;
           animation: slide 2s ease-in-out 1s forwards;
@@ -141,7 +136,6 @@ body {
   top: 25%;
   opacity: 0;
 }
-
 .circle.visible {
   opacity: 1;
 }
@@ -149,7 +143,6 @@ body {
 .slogan {
   opacity: 0;
 }
-
 .slogan.visible {
   -webkit-animation: slide 1s ease-in-out 0.7s forwards;
           animation: slide 1s ease-in-out 0.7s forwards;
@@ -159,7 +152,6 @@ body {
   transform: translateY(30px);
   opacity: 0;
 }
-
 .japanese.visible {
   -webkit-animation: slide 1s ease-in-out 1.5s forwards;
           animation: slide 1s ease-in-out 1.5s forwards;
@@ -168,7 +160,6 @@ body {
 .button {
   opacity: 0;
 }
-
 .button.visible {
   -webkit-animation: slide 1s ease-in-out 3s forwards;
           animation: slide 1s ease-in-out 3s forwards;
@@ -180,10 +171,9 @@ body {
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
   cursor: pointer;
 }
-
 .text-outline:hover h2 {
-  color: transparent;
   -webkit-text-stroke: 1px black;
+  color: transparent;
 }
 
 .click-circle {
@@ -196,9 +186,7 @@ body {
   left: -15%;
   top: 50%;
 }
-
-.click-circle:before,
-.click-circle:after {
+.click-circle:before, .click-circle:after {
   content: "";
   display: block;
   position: absolute;
@@ -209,15 +197,23 @@ body {
   border: 1px solid rgb(255, 108, 108);
   border-radius: 50%;
 }
-
 .click-circle:before {
   -webkit-animation: ripple 2s linear infinite;
           animation: ripple 2s linear infinite;
 }
-
 .click-circle:after {
   -webkit-animation: ripple 2s linear 1s infinite;
           animation: ripple 2s linear 1s infinite;
+}
+.click-circle.clicked {
+  -webkit-animation: move-circle 2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+          animation: move-circle 2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+.click-circle.clicked:before, .click-circle.clicked:after {
+  content: "";
+  opacity: 0;
+  -webkit-animation: none;
+          animation: none;
 }
 
 @-webkit-keyframes ripple {
@@ -296,16 +292,4 @@ body {
   100% {
     opacity: 0;
   }
-}
-.click-circle.clicked {
-  -webkit-animation: move-circle 2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-          animation: move-circle 2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-}
-
-.click-circle.clicked:before,
-.click-circle.clicked:after {
-  content: "";
-  opacity: 0;
-  -webkit-animation: none;
-          animation: none;
 }/*# sourceMappingURL=globals.css.map */

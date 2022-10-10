@@ -23,19 +23,19 @@ body {
 	height: 0px;
 	border-left: 2px solid black;
 	transition: 1s ease-in-out 3s;
-}
 
-.scroll-line.visible {
-	height: 170px;
+	&.visible {
+		height: 170px;
+	}
 }
 
 .nav-line {
 	width: 40px;
 	border-top: 3px solid black;
-}
 
-.nav-line.active {
-	width: 70px;
+	&.active {
+		width: 70px;
+	}
 }
 
 .nav-item {
@@ -45,18 +45,18 @@ body {
 .painting {
 	left: 2000px;
 	top: -17%;
-}
 
-.painting.visible {
-	animation: slide-painting 2s ease-in-out 1s forwards;
+	&.visible {
+		animation: slide-painting 2s ease-in-out 1s forwards;
+	}
 }
 
 .scroll-down-text {
 	opacity: 0;
-}
 
-.scroll-down-text.visible {
-	animation: slide-scroll 1s ease-in-out 2s forwards;
+	&.visible {
+		animation: slide-scroll 1s ease-in-out 2s forwards;
+	}
 }
 
 @keyframes slide {
@@ -101,57 +101,59 @@ body {
 	top: 8%;
 	filter: drop-shadow(0 0 0.75rem rgb(74, 74, 74));
 	opacity: 0;
-}
 
-.statue.visible {
-	animation: slide 2s ease-in-out 1s forwards;
+	&.visible {
+		animation: slide 2s ease-in-out 1s forwards;
+	}
 }
 
 .circle {
 	left: 12%;
 	top: 25%;
 	opacity: 0;
-}
 
-.circle.visible {
-	opacity: 1;
+	&.visible {
+		opacity: 1;
+	}
 }
 
 .slogan {
 	opacity: 0;
-}
 
-.slogan.visible {
-	animation: slide 1s ease-in-out 0.7s forwards;
+	&.visible {
+		animation: slide 1s ease-in-out 0.7s forwards;
+	}
 }
 
 .japanese {
 	transform: translateY(30px);
 	opacity: 0;
-}
 
-.japanese.visible {
-	animation: slide 1s ease-in-out 1.5s forwards;
+	&.visible {
+		animation: slide 1s ease-in-out 1.5s forwards;
+	}
 }
 
 .button {
 	opacity: 0;
+
+	&.visible {
+		animation: slide 1s ease-in-out 3s forwards;
+	}
 }
 
-.button.visible {
-	animation: slide 1s ease-in-out 3s forwards;
-}
+.text-outline {
+	h2 {
+		color: black;
+		-webkit-text-stroke: 0px black;
+		transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+		cursor: pointer;
+	}
 
-.text-outline h2 {
-	color: black;
-	-webkit-text-stroke: 0px black;
-	transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
-	cursor: pointer;
-}
-
-.text-outline:hover h2 {
-	color: transparent;
-	-webkit-text-stroke: 1px black;
+	&:hover h2 {
+		-webkit-text-stroke: 1px black;
+		color: transparent;
+	}
 }
 
 .click-circle {
@@ -162,27 +164,38 @@ body {
 	position: absolute;
 	left: -15%;
 	top: 50%;
-}
 
-.click-circle:before,
-.click-circle:after {
-	content: '';
-	display: block;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	border: 1px solid rgb(255, 108, 108);
-	border-radius: 50%;
-}
+	&:before,
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		border: 1px solid rgb(255, 108, 108);
+		border-radius: 50%;
+	}
 
-.click-circle:before {
-	animation: ripple 2s linear infinite;
-}
+	&:before {
+		animation: ripple 2s linear infinite;
+	}
 
-.click-circle:after {
-	animation: ripple 2s linear 1s infinite;
+	&:after {
+		animation: ripple 2s linear 1s infinite;
+	}
+
+	&.clicked {
+		animation: move-circle 2s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
+
+		&:before,
+		&:after {
+			content: '';
+			opacity: 0;
+			animation: none;
+		}
+	}
 }
 
 @keyframes ripple {
@@ -230,15 +243,4 @@ body {
 	100% {
 		opacity: 0;
 	}
-}
-
-.click-circle.clicked {
-	animation: move-circle 2s cubic-bezier(0.215, 0.610, 0.355, 1) forwards;
-}
-
-.click-circle.clicked:before,
-.click-circle.clicked:after {
-	content: '';
-	opacity: 0;
-	animation: none;
 }

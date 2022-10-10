@@ -44,12 +44,12 @@ export default function Hero() {
     ];
 
     return (
-        <div className='vh-100 pt-5'>
-            <Row className='pt-5 h-100'>
-                <Col xs={12} md={1} className='d-flex flex-column justify-content-between align-items-center'>
+        <div className='vh-100 pt-md-5'>
+            <Row className='pt-md-5 h-100'>
+                <Col xs={12} md={1} className='d-flex flex-md-column justify-content-between align-items-center px-3 px-md-0'>
                     <RiMailLine size={37} />
                     <Navigation />
-                    <div></div>
+                    <div className="d-none d-md-block"></div>
                 </Col>
                 <Col xs={11} md={10}>
                     <Row ref={parRef} className='position-relative'>
