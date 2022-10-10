@@ -2,8 +2,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons'
+import { RiMailLine } from 'react-icons/ri'
 import Navigation from '../Navigation'
 import WaveImage from './WaveImage'
 import { MouseParallax } from 'react-just-parallax'
@@ -48,7 +47,7 @@ export default function Hero() {
         <div className='vh-100 pt-5'>
             <Row className='pt-5 h-100'>
                 <Col xs={12} md={1} className='d-flex flex-column justify-content-between align-items-center'>
-                    <FontAwesomeIcon icon={faEnvelope} className='fs-1' />
+                    <RiMailLine size={37} />
                     <Navigation />
                     <div></div>
                 </Col>
