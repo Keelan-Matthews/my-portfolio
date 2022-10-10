@@ -51,7 +51,7 @@ export default function Hero() {
                     <Navigation />
                     <div className="d-none d-md-block"></div>
                 </Col>
-                <Col xs={11} md={10}>
+                <Col xs={10}>
                     <Row ref={parRef} className='position-relative'>
                         <Col xs={12} md={6} className='p-5'>
                             <p className={`m-0 japanese ${showHero ? 'visible' : ''}`}>デザイン</p>
@@ -75,14 +75,14 @@ export default function Hero() {
                             <div className="position-relative h-100 w-100">
                                 <div className={`position-absolute painting ${showHero ? 'visible' : ''}`}>
                                     <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.01} parallaxContainerRef={parRef}>
-                                        <div style={{ width: '700px', height: '800px' }}>
+                                        <div className="painting-container">
                                             <WaveImage />
                                         </div>
                                     </MouseParallax>
                                 </div>
                                 <div className={`position-absolute circle ${showHero ? 'visible' : ''}`}>
                                     <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.03} parallaxContainerRef={parRef}>
-                                        <div className='bg-primary rounded-circle' style={{ width: '150px', height: '150px' }}></div>
+                                        <div className='bg-primary rounded-circle circle-container'></div>
                                     </MouseParallax>
                                 </div>
                                 <div className={`bg-primary rounded-circle click-circle ${hideCircle ? 'clicked' : ''} ${showHero ? 'd-none' : ''}`} onClick={() => revealHero()} style={{ width: '150px', height: '150px' }}></div>
@@ -97,7 +97,7 @@ export default function Hero() {
                         </Col>
                     </Row>
                 </Col>
-                <Col xs={1} className="d-flex flex-column justify-content-between align-items-center h-100">
+                <Col xs={2} className="d-flex flex-column justify-content-between align-items-center h-100">
                     <div className="page-number">
                         <p className='fs-1'>00</p>
                     </div>

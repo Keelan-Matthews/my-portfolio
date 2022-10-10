@@ -48,78 +48,26 @@ body {
   -webkit-animation: slide-painting 2s ease-in-out 1s forwards;
           animation: slide-painting 2s ease-in-out 1s forwards;
 }
+.painting .painting-container {
+  width: 700px;
+  height: 800px;
+}
+@media (max-width: 768px) {
+  .painting .painting-container {
+    width: 370px;
+    height: 470px;
+  }
+}
 
 .scroll-down-text {
   opacity: 0;
+  width: 130px;
 }
 .scroll-down-text.visible {
   -webkit-animation: slide-scroll 1s ease-in-out 2s forwards;
           animation: slide-scroll 1s ease-in-out 2s forwards;
 }
 
-@-webkit-keyframes slide {
-  0% {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slide {
-  0% {
-    transform: translateY(30px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@-webkit-keyframes slide-scroll {
-  0% {
-    transform: translateY(-30px) rotate(90deg);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0) rotate(90deg);
-    opacity: 1;
-  }
-}
-@keyframes slide-scroll {
-  0% {
-    transform: translateY(-30px) rotate(90deg);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0) rotate(90deg);
-    opacity: 1;
-  }
-}
-@-webkit-keyframes slide-painting {
-  0% {
-    left: 2000px;
-    opacity: 0;
-  }
-  100% {
-    left: 30%;
-    top: -17%;
-    opacity: 0.4;
-  }
-}
-@keyframes slide-painting {
-  0% {
-    left: 2000px;
-    opacity: 0;
-  }
-  100% {
-    left: 30%;
-    top: -17%;
-    opacity: 0.4;
-  }
-}
 .statue {
   left: 20%;
   top: 8%;
@@ -130,6 +78,11 @@ body {
   -webkit-animation: slide 2s ease-in-out 1s forwards;
           animation: slide 2s ease-in-out 1s forwards;
 }
+@media (max-width: 768px) {
+  .statue img {
+    width: 300px;
+  }
+}
 
 .circle {
   left: 12%;
@@ -138,6 +91,10 @@ body {
 }
 .circle.visible {
   opacity: 1;
+}
+.circle .circle-container {
+  width: 150px;
+  height: 150px;
 }
 
 .slogan {
@@ -170,6 +127,11 @@ body {
   -webkit-text-stroke: 0px black;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
   cursor: pointer;
+}
+@media (max-width: 768px) {
+  .text-outline h2 {
+    font-size: 5.6rem;
+  }
 }
 .text-outline:hover h2 {
   -webkit-text-stroke: 1px black;
@@ -291,5 +253,67 @@ body {
   }
   100% {
     opacity: 0;
+  }
+}
+@-webkit-keyframes slide {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slide {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slide-scroll {
+  0% {
+    transform: translateY(-30px) rotate(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotate(90deg);
+    opacity: 1;
+  }
+}
+@keyframes slide-scroll {
+  0% {
+    transform: translateY(-30px) rotate(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotate(90deg);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes slide-painting {
+  0% {
+    left: 2000px;
+    opacity: 0;
+  }
+  100% {
+    left: 30%;
+    top: -17%;
+    opacity: 0.4;
+  }
+}
+@keyframes slide-painting {
+  0% {
+    left: 2000px;
+    opacity: 0;
+  }
+  100% {
+    left: 30%;
+    top: -17%;
+    opacity: 0.4;
   }
 }/*# sourceMappingURL=globals.css.map */
