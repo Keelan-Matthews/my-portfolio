@@ -7,8 +7,8 @@ export default function Navigation() {
     return (
         <Navbar expand="md">
             <Container>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+                <Navbar.Toggle aria-controls="nav-collapse" />
+                <Navbar.Collapse id="nav-collapse">
                     <Nav className='d-flex flex-column'>
                         <Nav.Link href="#home" className='p-0'>
                             <p className='m-0 nav-item'>hero</p>

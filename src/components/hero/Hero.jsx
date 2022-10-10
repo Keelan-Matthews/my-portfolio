@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
-import { RiMailLine } from 'react-icons/ri'
+import { AiOutlineMail } from 'react-icons/ai'
 import Navigation from '../Navigation'
 import WaveImage from './WaveImage'
 import { MouseParallax } from 'react-just-parallax'
@@ -46,8 +46,8 @@ export default function Hero() {
     return (
         <div className='vh-100 pt-md-5'>
             <Row className='pt-md-5 h-100'>
-                <Col xs={12} md={1} className='d-flex flex-md-column justify-content-between align-items-center px-3 px-md-0'>
-                    <RiMailLine size={37} />
+                <Col xs={12} md={1} className='d-flex flex-md-column justify-content-between align-items-center'>
+                    <AiOutlineMail size={37} />
                     <Navigation />
                     <div className="d-none d-md-block"></div>
                 </Col>
