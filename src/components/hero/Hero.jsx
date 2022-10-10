@@ -46,7 +46,7 @@ export default function Hero() {
     return (
         <div className='vh-100 pt-md-5'>
             <Row className='pt-md-5 h-100'>
-                <Col xs={12} md={1} className='d-flex flex-md-column justify-content-between align-items-center'>
+                <Col xs={12} md={1} className='d-flex flex-md-column justify-content-between align-items-center ps-4 pt-3 p-md-0'>
                     <AiOutlineMail size={37} />
                     <Navigation />
                     <div className="d-none d-md-block"></div>
@@ -56,7 +56,7 @@ export default function Hero() {
                         <Col xs={12} md={6} className='p-5'>
                             <p className={`m-0 japanese ${showHero ? 'visible' : ''}`}>デザイン</p>
                             <div className="text-outline">
-                                <TextReveal text="Keelan" visible={showHero} />
+                                <TextReveal text="Keelan" visible={showHero} className="mb-0" />
                                 <TextReveal text="Matthews" visible={showHero} />
                             </div>
                             <p className={`fs-2 slogan ${showHero ? 'visible' : ''}`}>

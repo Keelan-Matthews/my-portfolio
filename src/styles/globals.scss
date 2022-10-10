@@ -63,8 +63,8 @@ body {
 
 	@media (max-width: 768px) {
 		.painting-container {
-			width: 370px;
-			height: 470px;
+			width: 80vw;
+			height: 90vw;
 		}
 	}
 }
@@ -90,7 +90,7 @@ body {
 
 	@media (max-width: 768px) {
 		img {
-			width: 300px;
+			width: 60vw;
 		}
 	}
 }
@@ -119,11 +119,11 @@ body {
 }
 
 .japanese {
-	transform: translateY(30px);
 	opacity: 0;
+	font-size: 0.9rem;
 
 	&.visible {
-		animation: slide 1s ease-in-out 1.5s forwards;
+		animation: slide-japanese 1s ease-in-out 1.5s forwards;
 	}
 }
 
@@ -276,6 +276,18 @@ body {
 
 	100% {
 		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+@keyframes slide-japanese {
+	0% {
+		transform: translateY(50px);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(10px);
 		opacity: 1;
 	}
 }
