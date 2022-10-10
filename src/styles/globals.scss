@@ -19,6 +19,12 @@ body {
 	overflow-x: hidden;
 }
 
+.page-number {
+	@media (max-width: 768px) {
+		visibility: hidden;
+	}
+}
+
 .scroll-line {
 	height: 0px;
 	border-left: 2px solid black;

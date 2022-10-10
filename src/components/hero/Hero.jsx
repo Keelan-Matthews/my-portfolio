@@ -97,7 +97,7 @@ export default function Hero() {
                         </Col>
                     </Row>
                 </Col>
-                <Col xs={2} className="d-flex flex-column justify-content-between align-items-center h-100">
+                <Col xs={2} md={1} className="d-flex flex-column justify-content-between align-items-center h-100">
                     <div className="page-number">
                         <p className='fs-1'>00</p>
                     </div>
