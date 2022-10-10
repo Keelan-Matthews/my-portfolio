@@ -174,14 +174,14 @@ body {
           animation: slide 1s ease-in-out 3s forwards;
 }
 
-.text-outline h1 {
+.text-outline h2 {
   color: black;
   -webkit-text-stroke: 0px black;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
   cursor: pointer;
 }
 
-.text-outline:hover h1 {
+.text-outline:hover h2 {
   color: transparent;
   -webkit-text-stroke: 1px black;
 }
