@@ -35,6 +35,10 @@ body {
 	}
 }
 
+.navigation {
+	transition: 0.3s ease-in-out;
+}
+
 .nav-line {
 	width: 40px;
 	border-top: 3px solid black;
@@ -103,11 +107,11 @@ body {
 	&.visible {
 		opacity: 1;
 	}
+}
 
-	.circle-container {
-		width: 150px;
-		height: 150px;
-	}
+.circle-container {
+	width: 150px;
+	height: 150px;
 }
 
 .slogan {
@@ -288,7 +292,7 @@ body {
 	}
 
 	100% {
-		transform: translateY(10px);
+		transform: translateY(60px);
 		opacity: 1;
 	}
 }
@@ -336,4 +340,22 @@ body {
 	&::-webkit-scrollbar {
 		display: none;
 	}
+}
+
+.image-height {
+	width: 550px;
+}
+
+.rotate {
+	writing-mode: vertical-rl;
+}
+
+.circle-1 {
+	left: 22%;
+	bottom: 5%;
+}
+
+.bigger-text h2 {
+	font-size: 9rem !important;
+	transform: translate(-150px, 20px);
 }

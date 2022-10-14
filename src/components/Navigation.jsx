@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container'
 
 export default function Navigation() {
     return (
-        <Navbar expand="md">
+        <Navbar expand="md" className="navigation">
             <Container fluid={true} className="p-0">
                 <Navbar.Toggle aria-controls="nav-collapse" className="p-0" />
                 <Navbar.Collapse id="nav-collapse">
