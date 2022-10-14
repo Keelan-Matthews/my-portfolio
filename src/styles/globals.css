@@ -16,7 +16,7 @@ body,
 }
 
 body {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 @media (max-width: 768px) {
@@ -133,6 +133,7 @@ body {
   -webkit-text-stroke: 0px black;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
   cursor: pointer;
+  letter-spacing: 0.2rem;
 }
 @media (max-width: 768px) {
   .text-outline h2 {
@@ -382,4 +383,22 @@ body {
     top: -17%;
     opacity: 0.4;
   }
+}
+.scroll-none {
+  overflow-y: hidden;
+}
+
+.keelan-text h2 span {
+  transform: translateY(40px);
+}
+
+.scrollable {
+  height: 100vh;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+}
+.scrollable::-webkit-scrollbar {
+  display: none;
 }/*# sourceMappingURL=globals.css.map */

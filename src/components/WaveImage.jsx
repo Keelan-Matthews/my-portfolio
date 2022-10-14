@@ -1,7 +1,7 @@
-import React, { useRef, Suspense } from 'react'
+import React, { useRef, Suspense, useState } from 'react'
 import { Canvas, extend, useFrame, useLoader } from '@react-three/fiber'
 import { shaderMaterial } from '@react-three/drei'
-import glsl from 'babel-plugin-glsl/macro' 
+import glsl from 'babel-plugin-glsl/macro'
 import * as THREE from 'three'
 
 const WaveMaterial = shaderMaterial(
@@ -47,11 +47,13 @@ const WaveMaterial = shaderMaterial(
 
 extend({ WaveMaterial });
 
+let myImg = '';
+
 const Wave = () => {
     const ref = useRef();
     useFrame(({ clock }) => (ref.current.uTime = clock.getElapsedTime()));
 
-    const [image] = useLoader(THREE.TextureLoader, ['/images/painting.jpg']);
+    const [image] = useLoader(THREE.TextureLoader, [`/images/${myImg}`]);
 
     return (
         <mesh>
@@ -61,12 +63,13 @@ const Wave = () => {
     );
 }
 
-export default function WaveImage() {
-  return (
-    <Canvas camera={{ fov: 10 }}>
-        <Suspense fallback={null}>
-            <Wave />
-        </Suspense>
-    </Canvas>
-  )
+export default function WaveImage(props) {
+    myImg = props.img;
+    return (
+        <Canvas camera={{ fov: 10 }}>
+            <Suspense fallback={null}>
+                <Wave />
+            </Suspense>
+        </Canvas>
+    )
 }
