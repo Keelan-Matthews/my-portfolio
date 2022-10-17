@@ -1,4 +1,4 @@
-import React, { useRef, Suspense, useState } from 'react'
+import React, { useRef, Suspense } from 'react'
 import { Canvas, extend, useFrame, useLoader } from '@react-three/fiber'
 import { shaderMaterial } from '@react-three/drei'
 import glsl from 'babel-plugin-glsl/macro'

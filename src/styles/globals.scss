@@ -42,9 +42,18 @@ body {
 .nav-line {
 	width: 40px;
 	border-top: 3px solid black;
+	transition: width 0.3s ease-in-out;
 
 	&.active {
 		width: 70px;
+	}
+}
+
+.nav-group {
+	&:hover {
+		.nav-item {
+			visibility: visible;
+		}
 	}
 }
 

@@ -1,49 +1,37 @@
 import React, { useState } from 'react';
-import Hero from './components/Hero';
-import AboutMe from './components/AboutMe';
-import Projects from './components/Projects';
 import Layout from './components/Layout';
-import Row from 'react-bootstrap/Row';
+import SideColumns from './components/SideColumns';
 import Col from 'react-bootstrap/Col';
-import { AiOutlineMail } from 'react-icons/ai'
-import Navigation from './components/Navigation'
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import AboutPage from './pages/AboutPage';
+import ProjectPage from './pages/ProjectPage';
 
 function App() {
 	const [scrollY, setScrollY] = useState(false);
+	const [hideScroll, setHideScroll] = useState(false);
+	const [activeSection, setActiveSection] = useState('hero');
+
+	const overrideScrollY = (flag) => {
+		setScrollY(flag);
+		setHideScroll(flag);
+	}
+
+	const handleScroll = (e) => {
+		setHideScroll(e.target.scrollTop < 100)
+	}
 
 	return (
 		<Layout title="Keelan Matthews | Welcome">
-			<Row className='pt-md-5 vh-100'>
-				<Col xs={12} md={1}>
-					<Row className='d-flex flex-md-column justify-content-between align-items-center ps-4 pt-3 p-md-0 h-100'>
-						<AiOutlineMail size={37} />
-						<Navigation />
-						<div className="d-none d-md-block"></div>
-					</Row>
+			<SideColumns scrollY={hideScroll} activeSection={activeSection}>
+				<Col xs={10} className={scrollY ? 'scrollable' : ''} onScroll={handleScroll}>
+					<Routes>
+						<Route path="/" element={<Home setScrollY={overrideScrollY} setActiveSection={setActiveSection} />} />
+						<Route path="/about" element={<AboutPage />} />
+						<Route path="/projects" element={<ProjectPage />} />
+					</Routes>
 				</Col>
-				<Col xs={10} className={scrollY ? 'scrollable' : ''}>
-					<Row>
-						<Hero setScrollY={setScrollY} />
-					</Row>
-					<Row>
-						<AboutMe />
-					</Row>
-					<Row>
-						<Projects />
-					</Row>
-				</Col>
-				<Col xs={2} md={1}>
-					<Row className="d-flex flex-column justify-content-between align-items-center h-100">
-						<div className="page-number">
-							<p className='fs-1'>00</p>
-						</div>
-						<div className='scroll-down d-flex flex-column justify-content-center align-items-center'>
-							<p className={`fs-5 scroll-down-text ${scrollY ? 'visible' : ''}`}>scroll down</p>
-							<div className={`mt-5 scroll-line ${scrollY ? 'visible' : ''}`}></div>
-						</div>
-					</Row>
-				</Col>
-			</Row>
+			</SideColumns>
 		</Layout>
 	);
 }

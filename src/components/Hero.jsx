@@ -43,7 +43,7 @@ export default function Hero(props) {
     ];
 
     return (
-        <div className='vh-100 pt-md-5'>
+        <div className='vh-100 pt-md-5' id="hero" ref={props.innerRef}>
             <Row ref={parRef} className='position-relative'>
                 <Col xs={12} md={6} className='p-5'>
                     <p className={`m-0 japanese ${showHero ? 'visible' : ''}`}>デザイン</p>

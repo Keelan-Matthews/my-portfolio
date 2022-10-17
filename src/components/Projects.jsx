@@ -1,12 +1,12 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import TextReveal from './animations/TextReveal'
 
-export default function AboutMe() {
+export default function AboutMe({ innerRef }) {
     return (
-        <div className="vh-100">
+        <div className="vh-100" id="projects" ref={innerRef}>
             <Row className="d-flex align-items-center">
                 <Col xs={12} md={6} className="d-flex position-relative justify-content-end">
                     <p className='fs-4 rotate'>事業</p>
@@ -20,7 +20,7 @@ export default function AboutMe() {
                         </div>
                         
                         <p className="fs-2">view my top websites</p>
-                        <Button variant={`outline-secondary button visible`} size="lg" className='mt-4'>catalogue</Button>
+                        <Button href="/projects" variant={`outline-secondary button visible`} size="lg" className='mt-4'>catalogue</Button>
                     </div>
                 </Col>
             </Row>
