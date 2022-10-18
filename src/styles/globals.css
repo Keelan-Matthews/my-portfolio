@@ -415,6 +415,9 @@ body {
 
 .image-height {
   width: 550px;
+  height: 750px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .rotate {

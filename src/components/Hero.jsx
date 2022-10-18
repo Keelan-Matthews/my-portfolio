@@ -71,7 +71,7 @@ export default function Hero(props) {
                         <div className={`position-absolute painting ${showHero ? 'visible' : ''}`}>
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.01} parallaxContainerRef={parRef}>
                                 <div className="painting-container">
-                                    <WaveImage img="painting.jpg" />
+                                    <WaveImage img="painting.webp" />
                                 </div>
                             </MouseParallax>
                         </div>
