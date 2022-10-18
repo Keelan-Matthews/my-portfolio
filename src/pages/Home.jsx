@@ -4,7 +4,7 @@ import AboutMe from '../components/AboutMe';
 import Projects from '../components/Projects';
 import { useInView } from "react-intersection-observer";
 
-export default function Home({ setScrollY, setActiveSection }) {
+export default function Home({ setScrollY, setActiveSection, setPage }) {
     const [ref1, InView1] = useInView({
         threshold: 0.5,
     });
@@ -18,10 +18,13 @@ export default function Home({ setScrollY, setActiveSection }) {
     useEffect(() => {
         if (InView1) {
             setActiveSection('hero');
+            setPage(0);
         } else if (InView2) {
             setActiveSection('about');
+            setPage(1);
         } else if (InView3) {
             setActiveSection('projects');
+            setPage(2);
         }
     }, [InView1, InView2, InView3, setActiveSection]);
 

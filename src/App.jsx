@@ -11,6 +11,7 @@ function App() {
 	const [scrollY, setScrollY] = useState(false);
 	const [hideScroll, setHideScroll] = useState(false);
 	const [activeSection, setActiveSection] = useState('hero');
+	const [page, setPage] = useState(0);
 
 	const overrideScrollY = (flag) => {
 		setScrollY(flag);
@@ -23,10 +24,10 @@ function App() {
 
 	return (
 		<Layout title="Keelan Matthews | Welcome">
-			<SideColumns scrollY={hideScroll} activeSection={activeSection}>
+			<SideColumns scrollY={hideScroll} activeSection={activeSection} page={page}>
 				<Col xs={10} className={scrollY ? 'scrollable' : ''} onScroll={handleScroll}>
 					<Routes>
-						<Route path="/" element={<Home setScrollY={overrideScrollY} setActiveSection={setActiveSection} />} />
+						<Route path="/" element={<Home setScrollY={overrideScrollY} setActiveSection={setActiveSection} setPage={setPage} />} />
 						<Route path="/about" element={<AboutPage />} />
 						<Route path="/projects" element={<ProjectPage />} />
 					</Routes>
