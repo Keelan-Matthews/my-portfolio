@@ -19,9 +19,9 @@ export default function AboutPage() {
 						<Col xs={12} md={6} className="d-flex justify-content-end">
 							<div className="w-75">
 								<h2 className='fw-bold mb-4'>Who I am</h2>
-								<p className="fs-5">
+								<p className="fs-5 border-start border-3 ps-3">
 									I am an aspiring Full Stack Developer from <span className="fw-bold">Johannesburg, South Africa</span>. Growing up, I have always had an insatiable desire for creativity and perfection. This, coupled up with my thorough enjoyment in coding, lead me down my current path.
-									I have a thorough passion for coding, be it in programming or markup languages. The idea of being able to produce anything from scratch <span className="fw-bold">intrigues me</span>. This also includes designing vector graphics, 3D renders, animations and even music.<br /><br />
+									I have a thorough passion for coding, be it in programming or markup languages. The idea of being able to produce anything from scratch intrigues me. This also includes designing vector graphics, 3D renders, animations and even music.<br /><br />
 									I am able to pick up new skills very quickly, and always complete my deadlines early. In the event of time constraints, I <span className="fw-bold">thrive</span> under pressure.
 								</p>
 							</div>
