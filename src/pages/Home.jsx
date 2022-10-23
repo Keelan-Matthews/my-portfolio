@@ -5,6 +5,7 @@ import Projects from '../components/Home/Projects';
 import { useInView } from "react-intersection-observer";
 import SideColumns from '../components/SideColumns';
 import Col from 'react-bootstrap/Col';
+import Layout from '../components/Layout';
 
 export default function Home() {
 
@@ -46,7 +47,7 @@ export default function Home() {
     }, [InView1, InView2, InView3, setActiveSection]);
 
     return (
-        <div className="overflow-hidden">
+        <Layout title="Keelan Matthews | Welcome">
             <SideColumns scrollY={hideScroll} activeSection={activeSection} page={page}>
                 <Col xs={10} className={scrollY ? 'scrollable' : ''} onScroll={handleScroll}>
                     <div className="pt-5">
@@ -56,6 +57,6 @@ export default function Home() {
                     </div>
                 </Col>
             </SideColumns>
-        </div>
+        </Layout>
     )
 }
