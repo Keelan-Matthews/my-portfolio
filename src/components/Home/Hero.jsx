@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 import WaveImage from './WaveImage'
 import { MouseParallax } from 'react-just-parallax'
 import TextTransition, { presets } from "react-text-transition"
-import TextReveal from './animations/TextReveal'
+import TextReveal from '../animations/TextReveal'
 
 export default function Hero(props) {
     const parRef = useRef()

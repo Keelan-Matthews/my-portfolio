@@ -1,10 +1,27 @@
-import React, { useEffect } from 'react'
-import Hero from '../components/Hero';
-import AboutMe from '../components/AboutMe';
-import Projects from '../components/Projects';
+import React, { useEffect, useState } from 'react'
+import Hero from '../components/Home/Hero';
+import AboutMe from '../components/Home/AboutMe';
+import Projects from '../components/Home/Projects';
 import { useInView } from "react-intersection-observer";
+import SideColumns from '../components/SideColumns';
+import Col from 'react-bootstrap/Col';
 
-export default function Home({ setScrollY, setActiveSection, setPage }) {
+export default function Home() {
+
+    const [scrollY, setScrollY] = useState(false);
+    const [hideScroll, setHideScroll] = useState(false);
+    const [activeSection, setActiveSection] = useState('hero');
+    const [page, setPage] = useState(0);
+
+    const overrideScrollY = (flag) => {
+        setScrollY(flag);
+        setHideScroll(flag);
+    }
+
+    const handleScroll = (e) => {
+        setHideScroll(e.target.scrollTop < 100)
+    }
+
     const [ref1, InView1] = useInView({
         threshold: 0.5,
     });
@@ -29,10 +46,16 @@ export default function Home({ setScrollY, setActiveSection, setPage }) {
     }, [InView1, InView2, InView3, setActiveSection]);
 
     return (
-        <div className="pt-5">
-            <Hero innerRef={ref1} setScrollY={setScrollY} />
-            <AboutMe innerRef={ref2} />
-            <Projects innerRef={ref3} />
+        <div className="overflow-hidden">
+            <SideColumns scrollY={hideScroll} activeSection={activeSection} page={page}>
+                <Col xs={10} className={scrollY ? 'scrollable' : ''} onScroll={handleScroll}>
+                    <div className="pt-5">
+                        <Hero innerRef={ref1} setScrollY={overrideScrollY} />
+                        <AboutMe innerRef={ref2} />
+                        <Projects innerRef={ref3} />
+                    </div>
+                </Col>
+            </SideColumns>
         </div>
     )
 }

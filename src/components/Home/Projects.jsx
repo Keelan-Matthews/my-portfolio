@@ -2,7 +2,7 @@ import React from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
-import TextReveal from './animations/TextReveal'
+import TextReveal from '../animations/TextReveal'
 
 export default function AboutMe({ innerRef }) {
     return (
