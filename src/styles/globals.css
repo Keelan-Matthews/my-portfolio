@@ -64,6 +64,11 @@ body {
   -webkit-animation: slide-painting 2s ease-in-out 1s forwards;
           animation: slide-painting 2s ease-in-out 1s forwards;
 }
+.painting.visible-visited {
+  left: 30%;
+  top: -17%;
+  opacity: 0.4;
+}
 .painting .painting-container {
   width: 700px;
   height: 800px;
@@ -93,6 +98,10 @@ body {
 .statue.visible {
   -webkit-animation: slide 2s ease-in-out 1s forwards;
           animation: slide 2s ease-in-out 1s forwards;
+}
+.statue.visible-visited {
+  transform: translateY(0);
+  opacity: 1;
 }
 @media (max-width: 768px) {
   .statue img {
@@ -399,7 +408,7 @@ body {
   overflow-y: hidden;
 }
 
-.keelan-text h2 span {
+.keelan-text h2 span, .keelan-text h2 {
   transform: translateY(40px);
 }
 

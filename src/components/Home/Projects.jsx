@@ -3,6 +3,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import TextReveal from '../animations/TextReveal'
+import { Link } from 'react-router-dom'
 
 export default function AboutMe({ innerRef }) {
     return (
@@ -18,9 +19,11 @@ export default function AboutMe({ innerRef }) {
                         <div className="bigger-text">
                             <TextReveal text="Projects" visible={true} />
                         </div>
-                        
+
                         <p className="fs-2">view my top websites</p>
-                        <Button href="/projects" variant={`outline-secondary button visible`} size="lg" className='mt-4'>catalogue</Button>
+                        <Link to='/projects'>
+                            <Button variant={`outline-secondary button visible`} size="lg" className='mt-4'>catalogue</Button>
+                        </Link>
                     </div>
                 </Col>
             </Row>

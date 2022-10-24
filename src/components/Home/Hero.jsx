@@ -10,8 +10,17 @@ import TextReveal from '../animations/TextReveal'
 export default function Hero(props) {
     const parRef = useRef()
     const [index, setIndex] = useState(0)
-    const [hideCircle, setHideCircle] = useState(false)
-    const [showHero, setShowHero] = useState(false)
+    const [hideCircle, setHideCircle] = useState(
+        localStorage.getItem('visited') ? true : false
+    )
+    const [showHero, setShowHero] = useState(
+        localStorage.getItem('visited') ? true : false
+    )
+    const visited = localStorage.getItem('visited')
+
+    props.setScrollY(
+        localStorage.getItem('visited') ? true : false
+    )
 
     useEffect(() => {
         const intervalId = setInterval(() =>
@@ -23,6 +32,7 @@ export default function Hero(props) {
     }, [])
 
     const revealHero = () => {
+        localStorage.setItem('visited', true)
         setHideCircle(true)
         setTimeout(() => {
             setShowHero(true)
@@ -48,11 +58,23 @@ export default function Hero(props) {
                 <Col xs={12} md={6} className='p-5'>
                     <p className={`m-0 japanese ${showHero ? 'visible' : ''}`}>デザイン</p>
                     <div className="text-outline">
-                        <div className="keelan-text">
-                            <TextReveal text="Keelan" visible={showHero} className="mb-0" />
-                        </div>
+                        {
+                            visited ?
+                                <>
+                                    <div className="keelan-text">
+                                        <h2 style={{fontSize: '7rem'}}>Keelan</h2>
+                                    </div>
+                                    <h2 style={{fontSize: '7rem'}}>Matthews</h2>
+                                </>
+                                :
+                                <>
+                                    <div className="keelan-text">
+                                        <TextReveal text="Keelan" visible={showHero} className="mb-0" />
+                                    </div>
+                                    <TextReveal text="Matthews" visible={showHero} />
+                                </>
 
-                        <TextReveal text="Matthews" visible={showHero} />
+                        }
                     </div>
                     <p className={`fs-2 slogan ${showHero ? 'visible' : ''}`}>
                         <TextTransition springConfig={presets.gentle} inline>
@@ -68,7 +90,9 @@ export default function Hero(props) {
                 </Col>
                 <Col xs={12} md={6}>
                     <div className="position-relative h-100 w-100">
-                        <div className={`position-absolute painting ${showHero ? 'visible' : ''}`}>
+                        <div className={`position-absolute painting ${visited ? 'visible-visited' :
+                            showHero ? 'visible' : ''
+                            }`}>
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.01} parallaxContainerRef={parRef}>
                                 <div className="painting-container">
                                     <WaveImage img="painting.webp" />
@@ -81,7 +105,9 @@ export default function Hero(props) {
                             </MouseParallax>
                         </div>
                         <div className={`bg-primary rounded-circle click-circle ${hideCircle ? 'clicked' : ''} ${showHero ? 'd-none' : ''}`} onClick={() => revealHero()} style={{ width: '150px', height: '150px' }}></div>
-                        <div className={`position-absolute statue ${showHero ? 'visible' : ''}`}>
+                        <div className={`position-absolute statue ${visited ? 'visible-visited' :
+                            showHero ? 'visible' : ''
+                            }`}>
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.05} parallaxContainerRef={parRef}>
                                 <div>
                                     <img src="/images/statue.png" alt="statue" width={400} />

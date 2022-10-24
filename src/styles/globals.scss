@@ -70,6 +70,12 @@ body {
 		animation: slide-painting 2s ease-in-out 1s forwards;
 	}
 
+	&.visible-visited {
+		left: 30%;
+		top: -17%;
+		opacity: 0.4;
+	}
+
 	.painting-container {
 		width: 700px;
 		height: 800px;
@@ -100,6 +106,11 @@ body {
 
 	&.visible {
 		animation: slide 2s ease-in-out 1s forwards;
+	}
+
+	&.visible-visited {
+		transform: translateY(0);
+		opacity: 1;
 	}
 
 	@media (max-width: 768px) {
@@ -336,7 +347,7 @@ body {
 	overflow-y: hidden;
 }
 
-.keelan-text h2 span {
+.keelan-text h2 span, .keelan-text h2 {
 	transform: translateY(40px);
 }
 
