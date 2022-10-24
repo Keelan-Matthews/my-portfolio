@@ -361,6 +361,10 @@ body {
 	writing-mode: vertical-rl;
 }
 
+.rotate-l {
+	transform: rotate(-90deg);
+}
+
 .circle-1 {
 	left: 22%;
 	bottom: 5%;
@@ -369,4 +373,18 @@ body {
 .bigger-text h2 {
 	font-size: 9rem !important;
 	transform: translate(-150px, 20px);
+}
+
+.heading-line:before {
+    display: inline-block;
+    margin: 0 20px 8px 0;
+    height: 1px;
+    content: " ";
+    background-color: black;
+    width: 140px;
+}
+
+.border-black {
+	border: 1px solid black !important;
+	border-left: 3px solid var(--primary-color) !important;
 }
