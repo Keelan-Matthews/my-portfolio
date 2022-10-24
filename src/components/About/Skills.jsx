@@ -2,8 +2,8 @@ import React from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Accordion from 'react-bootstrap/Accordion'
-import { SiReact, SiBootstrap, SiJavascript, SiVuedotjs, SiPhp, SiSass } from 'react-icons/si'
-import { DiMysql } from 'react-icons/di'
+import { SiReact, SiBootstrap, SiJavascript, SiVuedotjs, SiPhp, SiSass, SiJava, SiCplusplus, SiHtml5, SiCss3, SiBlender, SiFigma, SiVisualstudiocode, SiMongodb, SiNodedotjs, SiExpress, SiNextdotjs, SiPython } from 'react-icons/si'
+import { DiMysql, DiIllustrator, DiPhotoshop, DiGit, DiGithubBadge } from 'react-icons/di'
 
 const SkillGroup = (skills) => {
 	return (
@@ -28,49 +28,161 @@ export default function Skills() {
 			level: 'Expert',
 			icon: <SiReact size={37} />,
 			top: true,
-			type: 'frontend'
+			type: 'Frontend'
 		},
 		{
 			name: 'Bootstrap',
 			level: 'Expert',
 			icon: <SiBootstrap size={37} />,
 			top: true,
-			type: 'frontend'
+			type: 'Frontend'
 		},
 		{
 			name: 'Javascript',
 			level: 'Expert',
 			icon: <SiJavascript size={37} />,
 			top: true,
-			type: 'frontend'
+			type: 'Frontend'
 		},
 		{
 			name: 'Vue',
 			level: 'Intermediate',
 			icon: <SiVuedotjs size={37} />,
 			top: true,
-			type: 'frontend'
+			type: 'Frontend'
 		},
 		{
 			name: 'PHP',
 			level: 'Intermediate',
 			icon: <SiPhp size={37} />,
 			top: true,
-			type: 'backend'
+			type: 'Backend'
 		},
 		{
 			name: 'SASS',
 			level: 'Expert',
 			icon: <SiSass size={37} />,
 			top: true,
-			type: 'frontend'
+			type: 'Frontend'
 		},
 		{
 			name: 'MySQL',
 			level: 'Intermediate',
 			icon: <DiMysql size={37} />,
 			top: true,
-			type: 'backend'
+			type: 'Backend'
+		},
+		{
+			name: 'Java',
+			level: 'Intermediate',
+			icon: <SiJava size={37} />,
+			top: false,
+			type: 'Programming'
+		},
+		{
+			name: 'C++',
+			level: 'Intermediate',
+			icon: <SiCplusplus size={37} />,
+			top: false,
+			type: 'Programming'
+		},
+		{
+			name: 'HTML',
+			level: 'Expert',
+			icon: <SiHtml5 size={37} />,
+			top: false,
+			type: 'Frontend'
+		},
+		{
+			name: 'CSS',
+			level: 'Expert',
+			icon: <SiCss3 size={37} />,
+			top: false,
+			type: 'Frontend'
+		},
+		{
+			name: 'Blender',
+			level: 'Novice',
+			icon: <SiBlender size={37} />,
+			top: false,
+			type: 'Software'
+		},
+		{
+			name: 'Figma',
+			level: 'Intermediate',
+			icon: <SiFigma size={37} />,
+			top: false,
+			type: 'Software'
+		},
+		{
+			name: 'VS Code',
+			level: 'Expert',
+			icon: <SiVisualstudiocode size={37} />,
+			top: false,
+			type: 'Software'
+		},
+		{
+			name: 'Illustrator',
+			level: 'Intermediate',
+			icon: <DiIllustrator size={37} />,
+			top: false,
+			type: 'Software'
+		},
+		{
+			name: 'Photoshop',
+			level: 'Novice',
+			icon: <DiPhotoshop size={37} />,
+			top: false,
+			type: 'Software'
+		},
+		{
+			name: 'Git',
+			level: 'Intermediate',
+			icon: <DiGit size={37} />,
+			top: false,
+			type: 'Software'
+		},
+		{
+			name: 'GitHub',
+			level: 'Intermediate',
+			icon: <DiGithubBadge size={37} />,
+			top: false,
+			type: 'Software'
+		},
+		{
+			name: 'MongoDB',
+			level: 'Intermediate',
+			icon: <SiMongodb size={37} />,
+			top: false,
+			type: 'Backend'
+		},
+		{
+			name: 'NodeJS',
+			level: 'Intermediate',
+			icon: <SiNodedotjs size={37} />,
+			top: false,
+			type: 'Backend'
+		},
+		{
+			name: 'Express',
+			level: 'Intermediate',
+			icon: <SiExpress size={37} />,
+			top: false,
+			type: 'Backend'
+		},
+		{
+			name: 'Python',
+			level: 'Novice',
+			icon: <SiPython size={37} />,
+			top: false,
+			type: 'Programming'
+		},
+		{
+			name: 'NextJS',
+			level: 'Expert',
+			icon: <SiNextdotjs size={37} />,
+			top: false,
+			type: 'Frontend'
 		}
 	]
 
@@ -81,38 +193,12 @@ export default function Skills() {
 			</Col>
 			<Col xs={12} md={{ span: 11, offset: 1 }} className="px-3 mt-5">
 				<Accordion>
-					<Accordion.Item eventKey="0">
-						<Accordion.Header>Frontend</Accordion.Header>
-						<Accordion.Body>
-							<div className="d-flex">
-								{SkillGroup(skills.filter((skill) => skill.type === 'frontend'))}
-							</div>
-						</Accordion.Body>
-					</Accordion.Item>
-					<Accordion.Item eventKey="1">
-						<Accordion.Header>Backend</Accordion.Header>
-						<Accordion.Body>
-							<div className="d-flex">
-								{SkillGroup(skills.filter((skill) => skill.type === 'backend'))}
-							</div>
-						</Accordion.Body>
-					</Accordion.Item>
-					<Accordion.Item eventKey="2">
-						<Accordion.Header>Software</Accordion.Header>
-						<Accordion.Body>
-							<div className="d-flex">
-								{SkillGroup(skills.filter((skill) => skill.type === 'software'))}
-							</div>
-						</Accordion.Body>
-					</Accordion.Item>
-					<Accordion.Item eventKey="3">
-						<Accordion.Header>Programming</Accordion.Header>
-						<Accordion.Body>
-							<div className="d-flex">
-								{SkillGroup(skills.filter((skill) => skill.type === 'programming'))}
-							</div>
-						</Accordion.Body>
-					</Accordion.Item>
+					{[...new Set(skills.map((skill) => skill.type))].map((type, index) => (
+						<Accordion.Item eventKey={index} key={index}>
+							<Accordion.Header>{type}</Accordion.Header>
+							<Accordion.Body className="d-flex flex-wrap">{SkillGroup(skills.filter((skill) => skill.type === type))}</Accordion.Body>
+						</Accordion.Item>
+					))}
 				</Accordion>
 			</Col>
 		</Row>
