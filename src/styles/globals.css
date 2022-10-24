@@ -402,6 +402,10 @@ body {
   transform: translateY(40px);
 }
 
+.move-down {
+  transform: translateY(20px);
+}
+
 .scrollable {
   height: 100vh;
   overflow-y: scroll;
@@ -437,6 +441,10 @@ body {
 .bigger-text h2 {
   font-size: 9rem !important;
   transform: translate(-150px, 20px);
+}
+
+.transform-left {
+  transform: translateX(-150px);
 }
 
 .heading-line:before {
