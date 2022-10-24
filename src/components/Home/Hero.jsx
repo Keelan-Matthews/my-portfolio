@@ -32,11 +32,13 @@ export default function Hero(props) {
     }, [])
 
     const revealHero = () => {
-        localStorage.setItem('visited', true)
         setHideCircle(true)
         setTimeout(() => {
             setShowHero(true)
             props.setScrollY(true)
+            setTimeout(() => {
+                localStorage.setItem('visited', true)
+            }, 1000)
         }, 1500)
     }
 
