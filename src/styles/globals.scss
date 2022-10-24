@@ -16,6 +16,10 @@ body,
 	padding: 0;
 }
 
+h2 {
+	letter-spacing: 0.1rem !important;
+}
+
 body {
 	overflow: hidden;
 }
@@ -33,6 +37,16 @@ body {
 
 	&.visible {
 		height: 170px;
+	}
+}
+
+.scroll-line-transition {
+	height: 0px;
+	border-left: 2px solid black;
+	transition: 1s ease-in-out 1s;
+
+	&.visible {
+		height: 300px;
 	}
 }
 
@@ -95,6 +109,15 @@ body {
 
 	&.visible {
 		animation: slide-scroll 1s ease-in-out 2s forwards;
+	}
+}
+
+.scroll-down-text-transition {
+	opacity: 0;
+	width: 130px;
+
+	&.visible {
+		animation: slide-scroll 1s ease-in-out forwards;
 	}
 }
 
@@ -355,6 +378,10 @@ body {
 	transform: translateY(20px);
 }
 
+.move-down-2 {
+	transform: translateY(48px);
+}
+
 .scrollable {
 	height: 100vh;
 	overflow-y: scroll;
@@ -412,4 +439,37 @@ body {
 .border-black {
 	border: 1px solid black !important;
 	border-left: 3px solid var(--primary-color) !important;
+}
+
+.border-black-1 {
+	border: 1px solid black;
+}
+
+@keyframes button-to-scroll {
+	0% {
+		transform: scaleY(1);
+	}
+
+	100% {
+		transform: scaleY(0);
+	}
+}
+
+@keyframes text-to-scroll {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+.button-to-scroll {
+	animation: button-to-scroll 1s ease-in-out forwards;
+}
+
+.text-to-scroll {
+	animation: text-to-scroll 0.3s ease-in-out forwards;
+	white-space: nowrap
 }

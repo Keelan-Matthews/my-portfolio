@@ -6,15 +6,20 @@ import Skills from '../components/About/Skills'
 import { BiArrowBack } from 'react-icons/bi'
 import Layout from '../components/Layout';
 import { Link } from 'react-router-dom'
+import Navigation from '../components/Navigation'
 
 export default function AboutPage() {
 	return (
 		<Layout title="Keelan Matthews | About me">
 			<Row className='pt-md-5 vh-100'>
-				<Col xs={12} md={1} className="d-flex justify-content-center">
-					<Link to="/" className="text-dark">
-					<BiArrowBack size={37} />
-					</Link>
+				<Col xs={12} md={1}>
+					<Row className='d-flex flex-md-column justify-content-between align-items-center ps-4 pt-3 p-md-0 h-100'>
+						<Link to="/" className="text-dark w-50">
+							<BiArrowBack size={37} />
+						</Link>
+						<Navigation activeSection={'about'} />
+						<div className="d-none d-md-block"></div>
+					</Row>
 				</Col>
 				<Col xs={10} className="scrollable">
 					<AboutTransition />
