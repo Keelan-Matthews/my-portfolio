@@ -5,11 +5,11 @@ import Accordion from 'react-bootstrap/Accordion'
 import { SiReact, SiBootstrap, SiJavascript, SiVuedotjs, SiPhp, SiSass, SiJava, SiCplusplus, SiHtml5, SiCss3, SiBlender, SiFigma, SiVisualstudiocode, SiMongodb, SiNodedotjs, SiExpress, SiNextdotjs, SiPython } from 'react-icons/si'
 import { DiMysql, DiIllustrator, DiPhotoshop, DiGit, DiGithubBadge } from 'react-icons/di'
 
-const SkillGroup = (skills) => {
+const SkillGroup = (skills, basis='20%') => {
 	return (
 		<>
 			{skills.map((skill, index) => (
-				<div className="border-black d-flex m-3 p-3 align-items-center" key={index} style={{ flexBasis: '20%' }}>
+				<div className="border-black d-flex m-3 p-3 align-items-center" key={index} style={{ flexBasis: basis }}>
 					{skill.icon}
 					<div className="ms-4">
 						<p className="fw-bold m-0 p-0">{skill.name}</p>
@@ -196,7 +196,7 @@ export default function Skills() {
 					{[...new Set(skills.map((skill) => skill.type))].map((type, index) => (
 						<Accordion.Item eventKey={index} key={index}>
 							<Accordion.Header>{type}</Accordion.Header>
-							<Accordion.Body className="d-flex flex-wrap">{SkillGroup(skills.filter((skill) => skill.type === type))}</Accordion.Body>
+							<Accordion.Body className="d-flex flex-wrap">{SkillGroup(skills.filter((skill) => skill.type === type), '15%')}</Accordion.Body>
 						</Accordion.Item>
 					))}
 				</Accordion>
