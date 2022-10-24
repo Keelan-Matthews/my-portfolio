@@ -49,10 +49,14 @@ export default function Home() {
     return (
         <Layout title="Keelan Matthews | Welcome">
             <SideColumns scrollY={hideScroll} activeSection={activeSection} page={page}>
-                <Col xs={10} className={scrollY ? 'scrollable' : ''} onScroll={handleScroll}>
-                    <div className="pt-5">
+                <Col xs={10} className={scrollY ? 'scrollable pt-5' : 'pt-5'} onScroll={handleScroll}>
+                    <div className="scroll-child">
                         <Hero innerRef={ref1} setScrollY={overrideScrollY} />
+                    </div>
+                    <div className="scroll-child">
                         <AboutMe innerRef={ref2} />
+                    </div>
+                    <div className="scroll-child">
                         <Projects innerRef={ref3} />
                     </div>
                 </Col>

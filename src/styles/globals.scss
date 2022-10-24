@@ -4,6 +4,7 @@
 
 * {
 	box-sizing: border-box;
+	scroll-behavior: smooth;
 }
 
 html,
@@ -346,6 +347,7 @@ body {
 .scrollable {
 	height: 100vh;
 	overflow-y: scroll;
+	scroll-snap-type: y mandatory;
 	-ms-overflow-style: none;
 	/* IE and Edge */
 	scrollbar-width: none;
@@ -353,6 +355,10 @@ body {
 	&::-webkit-scrollbar {
 		display: none;
 	}
+}
+
+.scroll-child {
+	scroll-snap-align: start;
 }
 
 .image-height {

@@ -5,13 +5,16 @@ import AboutTransition from '../components/About/AboutTransition'
 import Skills from '../components/About/Skills'
 import { BiArrowBack } from 'react-icons/bi'
 import Layout from '../components/Layout';
+import { Link } from 'react-router-dom'
 
 export default function AboutPage() {
 	return (
 		<Layout title="Keelan Matthews | About me">
 			<Row className='pt-md-5 vh-100'>
 				<Col xs={12} md={1} className="d-flex justify-content-center">
+					<Link to="/" className="text-dark">
 					<BiArrowBack size={37} />
+					</Link>
 				</Col>
 				<Col xs={10} className="scrollable">
 					<AboutTransition />

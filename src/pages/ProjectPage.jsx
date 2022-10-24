@@ -5,13 +5,16 @@ import { BiArrowBack } from 'react-icons/bi'
 import Layout from '../components/Layout'
 import ProjectSection from '../components/Projects/ProjectSection'
 import ProjectTransition from '../components/Projects/ProjectTransition'
+import { Link } from 'react-router-dom'
 
 export default function ProjectPage() {
 	return (
 		<Layout title="Keelan Matthews | Projects">
 			<Row className='pt-md-5 vh-100'>
 				<Col xs={12} md={1} className="d-flex justify-content-center">
-					<BiArrowBack size={37} />
+					<Link to='/' className='text-dark'>
+						<BiArrowBack size={37} />
+					</Link>
 				</Col>
 				<Col xs={10} className="scrollable">
 					<ProjectTransition />

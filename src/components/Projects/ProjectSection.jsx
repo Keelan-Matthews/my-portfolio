@@ -26,8 +26,8 @@ export default function ProjectSection() {
 	]
 
 	return (
-		<div>
+		<>
 			{projects.map((project, index) => <Project key={index} {...project} />)}
-		</div>
+		</>
 	)
 }

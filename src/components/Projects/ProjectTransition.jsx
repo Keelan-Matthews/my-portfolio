@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 
 export default function ProjectTransition() {
     return (
-        <div className="vh-100">
+        <div className="vh-100 scroll-child">
             <Row className="d-flex align-items-center">
                 <Col xs={12} md={6} className="d-flex position-relative justify-content-end">
                     <p className='fs-4 rotate'>事業</p>

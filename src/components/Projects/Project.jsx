@@ -10,7 +10,7 @@ export default function Project({ japanese, title, site }) {
     const titleArrayLength = titleArray.length;
 
     return (
-        <div className="vh-100">
+        <div className="vh-100 scroll-child">
             <Row className="d-flex align-items-center">
                 <Col xs={12} md={6} className="d-flex justify-content-end">
                     <p className='fs-4 rotate'>{japanese}</p>
