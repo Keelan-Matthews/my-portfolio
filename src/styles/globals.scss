@@ -43,7 +43,7 @@ body {
 .scroll-line-transition {
 	height: 0px;
 	border-left: 2px solid black;
-	transition: 1s ease-in-out 1s;
+	transition: 0.5s ease-in-out 0.5s;
 
 	&.visible {
 		height: 300px;
@@ -117,7 +117,7 @@ body {
 	width: 130px;
 
 	&.visible {
-		animation: slide-scroll 1s ease-in-out forwards;
+		animation: slide-scroll 0.5s ease-in-out forwards;
 	}
 }
 
@@ -163,6 +163,11 @@ body {
 
 	&.visible {
 		animation: slide 1s ease-in-out 0.7s forwards;
+	}
+
+	&.visible-visited {
+		transform: translateY(0);
+		opacity: 1;
 	}
 }
 
@@ -370,7 +375,11 @@ body {
 	overflow-y: hidden;
 }
 
-.keelan-text h2 span, .keelan-text h2 {
+.keelan-text h2 span {
+	transform: translateY(20px);
+}
+
+.keelan-text h2 {
 	transform: translateY(40px);
 }
 
@@ -465,11 +474,25 @@ body {
 	}
 }
 
+@keyframes hide {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
 .button-to-scroll {
-	animation: button-to-scroll 1s ease-in-out forwards;
+	animation: button-to-scroll 0.5s ease-in-out forwards;
 }
 
 .text-to-scroll {
 	animation: text-to-scroll 0.3s ease-in-out forwards;
 	white-space: nowrap
+}
+
+.hide-slogan {
+	animation: hide 0.5s ease-in-out forwards;
 }

@@ -24,7 +24,7 @@ export default function AboutTransition() {
                         <div className="bigger-text">
                             <h2>About me</h2>
                         </div>
-                        <p className="fs-2">development through creativity</p>
+                        <p className="fs-2 hide-slogan">development through creativity</p>
                     </div>
 
                     <div className="border-black-1 fs-5 mt-4 d-inline-block button-to-scroll p-2 px-3">

@@ -188,10 +188,10 @@ export default function Skills() {
 
 	return (
 		<Row className="mb-5 pb-5">
-			<Col xs={12} md={{ span: 11, offset: 1 }} className="d-flex justify-content-center flex-wrap mb-5">
+			<Col xs={12} md={{ span: 10, offset: 1 }} className="d-flex justify-content-center flex-wrap mb-5">
 				{SkillGroup(skills.filter((skill) => skill.top))}
 			</Col>
-			<Col xs={12} md={{ span: 11, offset: 1 }} className="px-3 mt-5">
+			<Col xs={12} md={{ span: 10, offset: 1 }} className="px-3 mt-5">
 				<Accordion>
 					{[...new Set(skills.map((skill) => skill.type))].map((type, index) => (
 						<Accordion.Item eventKey={index} key={index}>

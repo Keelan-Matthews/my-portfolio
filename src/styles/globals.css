@@ -42,7 +42,7 @@ body {
 .scroll-line-transition {
   height: 0px;
   border-left: 2px solid black;
-  transition: 1s ease-in-out 1s;
+  transition: 0.5s ease-in-out 0.5s;
 }
 .scroll-line-transition.visible {
   height: 300px;
@@ -107,8 +107,8 @@ body {
   width: 130px;
 }
 .scroll-down-text-transition.visible {
-  -webkit-animation: slide-scroll 1s ease-in-out forwards;
-          animation: slide-scroll 1s ease-in-out forwards;
+  -webkit-animation: slide-scroll 0.5s ease-in-out forwards;
+          animation: slide-scroll 0.5s ease-in-out forwards;
 }
 
 .statue {
@@ -151,6 +151,10 @@ body {
 .slogan.visible {
   -webkit-animation: slide 1s ease-in-out 0.7s forwards;
           animation: slide 1s ease-in-out 0.7s forwards;
+}
+.slogan.visible-visited {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .japanese {
@@ -430,7 +434,11 @@ body {
   overflow-y: hidden;
 }
 
-.keelan-text h2 span, .keelan-text h2 {
+.keelan-text h2 span {
+  transform: translateY(20px);
+}
+
+.keelan-text h2 {
   transform: translateY(40px);
 }
 
@@ -540,13 +548,34 @@ body {
     opacity: 0;
   }
 }
+@-webkit-keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .button-to-scroll {
-  -webkit-animation: button-to-scroll 1s ease-in-out forwards;
-          animation: button-to-scroll 1s ease-in-out forwards;
+  -webkit-animation: button-to-scroll 0.5s ease-in-out forwards;
+          animation: button-to-scroll 0.5s ease-in-out forwards;
 }
 
 .text-to-scroll {
   -webkit-animation: text-to-scroll 0.3s ease-in-out forwards;
           animation: text-to-scroll 0.3s ease-in-out forwards;
   white-space: nowrap;
+}
+
+.hide-slogan {
+  -webkit-animation: hide 0.5s ease-in-out forwards;
+          animation: hide 0.5s ease-in-out forwards;
 }/*# sourceMappingURL=globals.css.map */

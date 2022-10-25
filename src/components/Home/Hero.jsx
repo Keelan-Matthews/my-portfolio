@@ -11,21 +11,21 @@ export default function Hero(props) {
     const parRef = useRef()
     const [index, setIndex] = useState(0)
     const [hideCircle, setHideCircle] = useState(
-        localStorage.getItem('visited') ? true : false
+        sessionStorage.getItem('visited') ? true : false
     )
     const [showHero, setShowHero] = useState(
-        localStorage.getItem('visited') ? true : false
-    )
-    const visited = localStorage.getItem('visited')
-
-    props.setScrollY(
-        localStorage.getItem('visited') ? true : false
+        sessionStorage.getItem('visited') ? true : false
     )
 
+    const visited = sessionStorage.getItem('visited')
     useEffect(() => {
         const intervalId = setInterval(() =>
             setIndex(index => index + 1),
             3000 // every 2 seconds
+        )
+
+        props.setScrollY(
+            sessionStorage.getItem('visited') ? true : false
         )
 
         return () => clearTimeout(intervalId)
@@ -37,7 +37,7 @@ export default function Hero(props) {
             setShowHero(true)
             props.setScrollY(true)
             setTimeout(() => {
-                localStorage.setItem('visited', true)
+                sessionStorage.setItem('visited', true)
             }, 1000)
         }, 1500)
     }
@@ -78,7 +78,10 @@ export default function Hero(props) {
 
                         }
                     </div>
-                    <p className={`fs-2 slogan ${showHero ? 'visible' : ''}`}>
+                    <p className={`fs-2 slogan ${
+                        visited ? 'visible-visited' : 
+                        showHero ? 'visible' : ''
+                        }`}>
                         <TextTransition springConfig={presets.gentle} inline>
                             {TEXTS[index % TEXTS.length]}
                         </TextTransition>

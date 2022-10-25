@@ -14,7 +14,7 @@ export default function AboutPage() {
 			<Row className='pt-md-5 vh-100'>
 				<Col xs={12} md={1}>
 					<Row className='d-flex flex-md-column justify-content-between align-items-center ps-4 pt-3 p-md-0 h-100'>
-						<Link to="/" className="text-dark w-50">
+						<Link to="/#about" className="text-dark w-50">
 							<BiArrowBack size={37} />
 						</Link>
 						<Navigation activeSection={'about'} />
@@ -28,6 +28,7 @@ export default function AboutPage() {
 						<Row className="d-flex align-items-center">
 							<Col xs={12} md={6} className="d-flex justify-content-end">
 								<div className="w-75">
+									<small className="m-0">自分</small>
 									<p className='fw-bold mb-4 fs-3'>Who I am</p>
 									<p className="fs-5 border-start border-2 border-primary ps-3">
 										I am an aspiring Full Stack Developer from <span className="fw-bold">Johannesburg, South Africa</span>. Growing up, I have always had an insatiable desire for creativity and perfection. This, coupled up with my thorough enjoyment in coding, lead me down my current path.

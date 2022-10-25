@@ -6,15 +6,20 @@ import Layout from '../components/Layout'
 import ProjectSection from '../components/Projects/ProjectSection'
 import ProjectTransition from '../components/Projects/ProjectTransition'
 import { Link } from 'react-router-dom'
+import Navigation from '../components/Navigation'
 
 export default function ProjectPage() {
 	return (
 		<Layout title="Keelan Matthews | Projects">
 			<Row className='pt-md-5 vh-100'>
-				<Col xs={12} md={1} className="d-flex justify-content-center">
-					<Link to='/' className='text-dark'>
-						<BiArrowBack size={37} />
-					</Link>
+				<Col xs={12} md={1}>
+					<Row className='d-flex flex-md-column justify-content-between align-items-center ps-4 pt-3 p-md-0 h-100'>
+						<Link to="/#projects" className="text-dark w-50">
+							<BiArrowBack size={37} />
+						</Link>
+						<Navigation activeSection={'projects'} />
+						<div className="d-none d-md-block"></div>
+					</Row>
 				</Col>
 				<Col xs={10} className="scrollable">
 					<ProjectTransition />
