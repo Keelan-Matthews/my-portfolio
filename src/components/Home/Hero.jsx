@@ -38,7 +38,7 @@ export default function Hero(props) {
             props.setScrollY(true)
             setTimeout(() => {
                 sessionStorage.setItem('visited', true)
-            }, 1000)
+            }, 4000)
         }, 1500)
     }
 
