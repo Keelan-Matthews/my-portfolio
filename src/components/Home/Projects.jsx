@@ -17,7 +17,7 @@ export default function AboutMe({ innerRef }) {
                 <Col xs={12} md={6}>
                     <div className="text-outline">
                         <div className="bigger-text">
-                            <TextReveal text="Projects" visible={true} />
+                            <h2>Projects</h2>
                         </div>
 
                         <p className="fs-2">view my top websites</p>

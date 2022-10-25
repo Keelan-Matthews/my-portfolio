@@ -15,14 +15,16 @@ export default function AboutMe({ innerRef }) {
                     <img src="/images/about.webp" className='image-height' alt="" />
                 </Col>
                 <Col xs={12} md={6}>
-                    <div className="bigger-text">
-                        <h2>About me</h2>
-                    </div>
+                    <div className="text-outline">
+                        <div className="bigger-text">
+                            <h2>About me</h2>
+                        </div>
 
-                    <p className="fs-2">development through creativity</p>
-                    <Link to='/about'>
-                        <Button variant={`outline-secondary button visible`} size="lg" className='mt-4'>learn more</Button>
-                    </Link>
+                        <p className="fs-2">development through creativity</p>
+                        <Link to='/about'>
+                            <Button variant={`outline-secondary button visible`} size="lg" className='mt-4'>learn more</Button>
+                        </Link>
+                    </div>
                 </Col>
             </Row>
         </div>

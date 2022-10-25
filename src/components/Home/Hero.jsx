@@ -59,28 +59,30 @@ export default function Hero(props) {
             <Row ref={parRef} className='position-relative'>
                 <Col xs={12} md={6} className='p-5'>
                     <p className={`m-0 japanese ${showHero ? 'visible' : ''}`}>デザイン</p>
-                    <div className="text-outline">
-                        {
-                            visited ?
-                                <>
-                                    <div className="keelan-text">
-                                        <h2 style={{fontSize: '7rem'}}>Keelan</h2>
-                                    </div>
-                                    <h2 style={{fontSize: '7rem'}}>Matthews</h2>
-                                </>
-                                :
-                                <>
-                                    <div className="keelan-text">
-                                        <TextReveal text="Keelan" visible={showHero} className="mb-0" />
-                                    </div>
-                                    <TextReveal text="Matthews" visible={showHero} />
-                                </>
+                    <a href="#about" className="text-decoration-none">
+                        <div className="text-outline">
+                            {
+                                visited ?
+                                    <>
+                                        <div className="keelan-text">
+                                            <h2 style={{ fontSize: '7rem' }}>Keelan</h2>
+                                        </div>
+                                        <h2 style={{ fontSize: '7rem' }}>Matthews</h2>
+                                    </>
+                                    :
+                                    <>
+                                        <div className="keelan-text">
+                                            <TextReveal text="Keelan" visible={showHero} className="mb-0" />
+                                        </div>
+                                        <TextReveal text="Matthews" visible={showHero} />
+                                    </>
 
-                        }
-                    </div>
-                    <p className={`fs-2 slogan ${
-                        visited ? 'visible-visited' : 
-                        showHero ? 'visible' : ''
+                            }
+                        </div>
+                    </a>
+
+                    <p className={`fs-2 slogan ${visited ? 'visible-visited' :
+                            showHero ? 'visible' : ''
                         }`}>
                         <TextTransition springConfig={presets.gentle} inline>
                             {TEXTS[index % TEXTS.length]}
