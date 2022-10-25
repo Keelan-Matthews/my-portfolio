@@ -17,7 +17,7 @@ export default function ProjectTransition() {
                 <Col xs={12} md={6} className="d-flex position-relative justify-content-end">
                     <p className='fs-4 rotate'>事業</p>
                     <div className='bg-primary rounded-circle circle-container position-absolute circle-1'></div>
-                    <img src="/images/projects.jpg" className='image-height' alt="" />
+                    <img src="/images/projects.webp" className='image-height' alt="" />
                 </Col>
                 {/* <Col xs={12} md={6}>
                     <div className="text-outline">
