@@ -14,7 +14,7 @@ export default function Project({ japanese, title, site }) {
             <Row className="d-flex align-items-center">
                 <Col xs={12} md={6} className="d-flex justify-content-end">
                     <p className='fs-4 rotate'>{japanese}</p>
-                    <img src={`/images/${slug}.webp`} className='image-height' alt="" />
+                    <img src={`/images/${slug}.webp`} className='image-height lower-opacity' alt="" />
                 </Col>
                 <Col xs={12} md={6}>
                     <div className="text-outline">
