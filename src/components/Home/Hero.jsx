@@ -102,7 +102,7 @@ export default function Hero(props) {
                             }`}>
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.01} parallaxContainerRef={parRef}>
                                 <div className="painting-container">
-                                    <WaveImage img="painting.webp" />
+                                    <WaveImage type="hero" />
                                 </div>
                             </MouseParallax>
                         </div>
@@ -117,7 +117,7 @@ export default function Hero(props) {
                             }`}>
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.05} parallaxContainerRef={parRef}>
                                 <div>
-                                    <img src="/images/statue.png" alt="statue" width={400} />
+                                    <img src="/images/statue1.png" alt="statue" width={400} />
                                 </div>
                             </MouseParallax>
                         </div>
