@@ -17,6 +17,11 @@ const buttonVariants = {
     visible: { opacity: 1, y: 0 }
 }
 
+const button2Variants = {
+    hidden: { x: -100 },
+    visible: { x: 0 }
+}
+
 export default function Project({ japanese, title, site, visible }) {
 
     const slug = title.replace(/\s+/g, '-').toLowerCase();
@@ -81,7 +86,16 @@ export default function Project({ japanese, title, site, visible }) {
                             >
                                 <Button href={`/projects/${slug}`} variant="outline-secondary" size="lg" className='mt-4'>case study</Button>
                             </motion.div>
-                            <Button href={site} size="lg" variant="outline-light text-dark" className='mt-4'>view site</Button>
+                            <div className="overflow-hidden">
+                                <motion.div
+                                    variants={button2Variants}
+                                    initial='hidden'
+                                    animate={visible ? 'visible' : 'hidden'}
+                                    transition={{ ...transition, delay: 1 }}
+                                >
+                                    <Button href={site} size="lg" variant="outline-light text-dark" className='mt-4'>view site</Button>
+                                </motion.div>
+                            </div>
                         </div>
                     </div>
                 </Col>
