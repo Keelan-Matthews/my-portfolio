@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Project from './Project'
 
-export default function ProjectSection() {
+export default function ProjectSection({ activePage }) {
 	const projects = [
 		{
 			japanese: '漫画',
@@ -25,9 +25,16 @@ export default function ProjectSection() {
 		}
 	]
 
+	const [currProject, setProject] = useState(projects[0])
+
+	useEffect(() => {
+		if (activePage !== 0)
+			setProject(projects[activePage - 1].title)
+	}, [activePage])
+
 	return (
 		<>
-			{projects.map((project, index) => <Project key={index} {...project} />)}
+			{projects.map((project, index) => <Project key={index} {...project} visible={currProject == project.title} />)}
 		</>
 	)
 }

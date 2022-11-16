@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
+import { motion } from 'framer-motion/dist/framer-motion'
+
+const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
 
 export default function ProjectTransition() {
     const [enter, setEnter] = useState(false)
@@ -11,26 +13,31 @@ export default function ProjectTransition() {
             setEnter(true)
         }, 1000)
     }, [])
+
     return (
-        <div className="vh-100 scroll-child">
+        <div className="section">
             <Row className="d-flex align-items-center">
                 <Col xs={12} md={6} className="d-flex position-relative justify-content-end">
                     <p className='fs-4 rotate'>事業</p>
-                    <div className='bg-primary rounded-circle circle-container position-absolute circle-1'></div>
-                    <img src="/images/projects.webp" className='image-height' alt="" />
+                    <motion.div 
+                        initial={{ right: '-5%', bottom: '-5%' }}
+                        animate={{ right: '-5%', bottom: '-1%' }}
+                        transition={transition}
+                        className='bg-primary rounded-circle circle-container position-absolute'
+                    ></motion.div>
+                    <motion.img
+                        initial={{height: '750px', width: '550px'}}
+                        animate={{width: '730px'}}
+                        transition={transition}
+                        src="/images/projects.webp"
+                        className="image-height"
+                        alt=""
+                    >
+                    </motion.img>
                 </Col>
-                {/* <Col xs={12} md={6}>
-                    <div className="text-outline">
-                        <div className="bigger-text">
-                            <h2>Projects</h2>
-                        </div>
-
-                        <p className="fs-2">view my top websites</p>
-                        <Button variant={`outline-secondary button visible`} size="lg" className='mt-4'>catalogue</Button>
-                    </div>
-                </Col> */}
                 <Col xs={12} md={6} className="move-down-2">
                     <div>
+                        <div className='p-4'></div>
                         <div className="bigger-text">
                             <h2>Projects</h2>
                         </div>

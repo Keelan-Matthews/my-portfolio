@@ -6,41 +6,23 @@ import WaveImage from './WaveImage'
 import { MouseParallax } from 'react-just-parallax'
 import TextTransition, { presets } from "react-text-transition"
 import TextReveal from '../animations/TextReveal'
+import { motion } from 'framer-motion/dist/framer-motion'
 
-export default function Hero(props) {
+const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }
+
+export default function Hero({ setScrollY }) {
     const parRef = useRef()
     const [index, setIndex] = useState(0)
-    const [hideCircle, setHideCircle] = useState(
-        sessionStorage.getItem('visited') ? true : false
-    )
-    const [showHero, setShowHero] = useState(
-        sessionStorage.getItem('visited') ? true : false
-    )
+    const [showHero, setShowHero] = useState(true)
 
-    const visited = sessionStorage.getItem('visited')
     useEffect(() => {
         const intervalId = setInterval(() =>
             setIndex(index => index + 1),
             3000 // every 2 seconds
         )
 
-        props.setScrollY(
-            sessionStorage.getItem('visited') ? true : false
-        )
-
         return () => clearTimeout(intervalId)
     }, [])
-
-    const revealHero = () => {
-        setHideCircle(true)
-        setTimeout(() => {
-            setShowHero(true)
-            props.setScrollY(true)
-            setTimeout(() => {
-                sessionStorage.setItem('visited', true)
-            }, 4000)
-        }, 1500)
-    }
 
     const TEXTS = [
         "web ",
@@ -55,35 +37,32 @@ export default function Hero(props) {
     ];
 
     return (
-        <div className='vh-100 pt-md-5' id="hero" ref={props.innerRef}>
-            <Row ref={parRef} className='position-relative'>
+        <div id="hero" className="pb-5 mb-5">
+            <Row ref={parRef} className='position-relative pb-5 mb-5'>
                 <Col xs={12} md={6} className='p-5'>
-                    <p className={`m-0 japanese ${showHero ? 'visible' : ''}`}>デザイン</p>
-                    <a href="#about" className="text-decoration-none">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 100 }}
+                        transition={{ ...transition, delay: 0.2 }}
+                        className="m-0"
+                    >
+                        <p>デザイン</p>
+                    </motion.div>
+                    <a href="#about-section" className="text-decoration-none">
                         <div className="text-outline">
-                            {
-                                visited ?
-                                    <>
-                                        <div className="keelan-text">
-                                            <h2 style={{ fontSize: '7rem' }}>Keelan</h2>
-                                        </div>
-                                        <h2 style={{ fontSize: '7rem' }}>Matthews</h2>
-                                    </>
-                                    :
-                                    <>
-                                        <div className="keelan-text">
-                                            <TextReveal text="Keelan" visible={showHero} className="mb-0" />
-                                        </div>
-                                        <TextReveal text="Matthews" visible={showHero} />
-                                    </>
-
-                            }
+                            <div className="keelan-text">
+                                <TextReveal text="Keelan" visible={true} className="mb-0" />
+                            </div>
+                            <TextReveal text="Matthews" visible={true} />
                         </div>
                     </a>
 
-                    <p className={`fs-2 slogan ${visited ? 'visible-visited' :
-                            showHero ? 'visible' : ''
-                        }`}>
+                    <motion.p
+                        initial={{ opacity: 0, y: 100 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ ...transition, delay: 0.4 }}
+                        className="fs-2"
+                    >
                         <TextTransition springConfig={presets.gentle} inline>
                             {TEXTS[index % TEXTS.length]}
                         </TextTransition>
@@ -92,35 +71,49 @@ export default function Hero(props) {
                             {TEXTS2[index % TEXTS2.length]}
                         </TextTransition>
                         er.
-                    </p>
-                    <Button variant={`outline-secondary button ${showHero ? 'visible' : ''}`} size="lg" className='mt-5'>download cv</Button>
+                    </motion.p>
+                    <motion.div
+                        initial={{ opacity: 0, y: 100 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ ...transition, delay: 1 }}
+                    >
+                        <Button variant="outline-secondary" size="lg" className='mt-5'>download cv</Button>
+                    </motion.div>
                 </Col>
                 <Col xs={12} md={6}>
                     <div className="position-relative h-100 w-100">
-                        <div className={`position-absolute painting ${visited ? 'visible-visited' :
-                            showHero ? 'visible' : ''
-                            }`}>
+                        <motion.div 
+                            initial={{ left: '2000px', top: '-17%', opacity: 0 }}
+                            animate={{ left: '30%', opacity: 0.4 }}
+                            transition={{ ...transition, delay: 1.2 }}
+                            // onAnimationComplete={() => setHideCircle(false)}
+                            className="position-absolute painting"
+                        >
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.01} parallaxContainerRef={parRef}>
                                 <div className="painting-container">
                                     <WaveImage type="hero" />
                                 </div>
                             </MouseParallax>
-                        </div>
+                        </motion.div>
+
                         <div className={`position-absolute circle ${showHero ? 'visible' : ''}`}>
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.03} parallaxContainerRef={parRef}>
                                 <div className='bg-primary rounded-circle circle-container'></div>
                             </MouseParallax>
                         </div>
-                        <div className={`bg-primary rounded-circle click-circle ${hideCircle ? 'clicked' : ''} ${showHero ? 'd-none' : ''}`} onClick={() => revealHero()} style={{ width: '150px', height: '150px' }}></div>
-                        <div className={`position-absolute statue ${visited ? 'visible-visited' :
-                            showHero ? 'visible' : ''
-                            }`}>
+
+                        <motion.div 
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ ...transition, delay: 1.4 }}
+                            className="position-absolute statue"
+                        >
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.05} parallaxContainerRef={parRef}>
                                 <div>
                                     <img src="/images/statue1.png" alt="statue" width={400} />
                                 </div>
                             </MouseParallax>
-                        </div>
+                        </motion.div>
                     </div>
                 </Col>
             </Row>

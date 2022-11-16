@@ -16,7 +16,7 @@ const HeroWave = () => {
 
     return (
         <mesh>
-            <planeBufferGeometry args={[0.4, 0.6, 10, 10]} />
+            <planeGeometry args={[0.4, 0.6, 10, 10]} />
             <waveMaterial ref={ref} uColor='hotpink' uTexture={image} />
         </mesh>
     );

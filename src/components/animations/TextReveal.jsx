@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import {useAnimation, motion} from "framer-motion/dist/framer-motion"
+import { useAnimation, motion } from "framer-motion/dist/framer-motion"
 import styled from "styled-components"
 
 
@@ -13,9 +13,14 @@ const Word = styled(motion.span)`
   white-space: nowrap;
 `;
 
+const CharacterContainer = styled(motion.span)`
+    display: inline-block;
+    overflow: hidden;
+    margin-right: -0.02em;
+`;
+
 const Character = styled(motion.span)`
   display: inline-block;
-  margin-right: -0.05em;
 `;
 
 export default function TextReveal(props) {
@@ -37,15 +42,14 @@ export default function TextReveal(props) {
 
     const characterAnimation = {
         hidden: {
-            opacity: 0,
-            x: `-0.25em`,
+            x: `-0.95em`,
         },
         visible: {
-            opacity: 1,
             x: `0em`,
             transition: {
                 duration: 1,
                 ease: [0.2, 0.65, 0.3, 0.9],
+                delay: props.delay
             },
         },
     };
@@ -62,19 +66,20 @@ export default function TextReveal(props) {
                         animate={ctrls}
                         variants={wordAnimation}
                         transition={{
-                            delayChildren: index * 0.25,
-                            staggerChildren: 0.05,
+                            staggerChildren: 0.02,
                         }}
                     >
                         {word.split("").map((character, index) => {
                             return (
-                                <Character
-                                    aria-hidden="true"
-                                    key={index}
-                                    variants={characterAnimation}
-                                >
-                                    {character}
-                                </Character>
+                                <CharacterContainer>
+                                    <Character
+                                        aria-hidden="true"
+                                        key={index}
+                                        variants={characterAnimation}
+                                    >
+                                        {character}
+                                    </Character>
+                                </CharacterContainer>
                             );
                         })}
                     </Word>

@@ -11,17 +11,17 @@ import Navigation from '../components/Navigation'
 export default function AboutPage() {
 	return (
 		<Layout title="Keelan Matthews | About me">
-			<Row className='pt-md-5 vh-100'>
+			<Row className='vh-100'>
 				<Col xs={12} md={1}>
-					<Row className='d-flex flex-md-column justify-content-between align-items-center ps-4 pt-3 p-md-0 h-100'>
-						<Link to="/#about" className="text-dark w-50">
+					<Row className='d-flex flex-md-column justify-content-between align-items-center ps-4 pt-5 ps-md-0 h-100'>
+						<Link to="/#about-section" className="text-dark w-50">
 							<BiArrowBack size={37} />
 						</Link>
 						<Navigation activeSection={'about'} />
 						<div className="d-none d-md-block"></div>
 					</Row>
 				</Col>
-				<Col xs={10} className="scrollable">
+				<Col xs={10} className="scrollable vh-100">
 					<AboutTransition />
 					<div className="vh-100 d-flex flex-column justify-content-center">
 						<h1 className="fw-bold heading-line mb-5">Introduction</h1>
@@ -49,7 +49,7 @@ export default function AboutPage() {
 					</div>
 				</Col>
 				<Col xs={2} md={1}>
-					<Row className="d-flex flex-column justify-content-between align-items-center h-100">
+					<Row className="d-flex flex-column justify-content-between align-items-center h-100 pt-5">
 						<div className="page-number">
 							<p className='fs-1'>01</p>
 						</div>

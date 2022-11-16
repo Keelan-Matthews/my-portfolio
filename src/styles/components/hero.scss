@@ -1,0 +1,49 @@
+.painting {
+	.painting-container {
+		width: 700px;
+		height: 800px;
+	}
+
+	@media (max-width: 768px) {
+		.painting-container {
+			width: 80vw;
+			height: 90vw;
+		}
+	}
+}
+
+.scroll-down-text-transition {
+	opacity: 0;
+	width: 130px;
+
+	&.visible {
+		animation: slide-scroll 0.5s ease-in-out forwards;
+	}
+}
+
+.statue {
+	left: 20%;
+	top: 8%;
+	filter: drop-shadow(0 0 0.75rem rgb(133, 133, 133));
+
+	@media (max-width: 768px) {
+		img {
+			width: 60vw;
+		}
+	}
+}
+
+.circle {
+	left: 12%;
+	top: 25%;
+	opacity: 0;
+
+	&.visible {
+		opacity: 1;
+	}
+}
+
+.circle-container {
+	width: 150px;
+	height: 150px;
+}
