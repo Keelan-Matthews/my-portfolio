@@ -6,22 +6,26 @@ export default function ProjectSection({ activePage }) {
 		{
 			japanese: '漫画',
 			title: 'Motion VIO Comic',
-			site: 'https://motion-comic.netlify.app/'
+			site: 'https://motion-comic.netlify.app/',
+			description: 'A motion comic based off of a comic I did in first year, inspired by anime and vaporwave.'
 		},
 		{
 			japanese: '予告編',
 			title: 'Interactive Trailer',
-			site: 'https://k9-instinct.netlify.app/'
+			site: 'https://k9-instinct.netlify.app/',
+			description: 'An interactive trailer based off of the comic I did in first year. Its purpose is to entice the user to read it.'
 		},
 		{
 			japanese: 'ルダサ',
 			title: 'RuDASA',
-			site: 'https://rudasa.org.za/'
+			site: 'https://rudasa.org.za/',
+			description: 'A website for a non-profit organisation for rural doctors that a team and I redeveloped from scratch.'
 		},
 		{
 			japanese: 'ヨット',
 			title: 'Yacht Portfolio',
-			site: 'https://alexipapas.com/'
+			site: 'https://alexipapas.com/',
+			description: 'A website for a deckhand used to display their skills and experience in the yachting industry.'
 		}
 	]
 

@@ -23,7 +23,12 @@ const button2Variants = {
     visible: { x: 0 }
 }
 
-export default function Project({ japanese, title, site, visible }) {
+const descVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0 }
+}
+
+export default function Project({ japanese, title, site, visible, description }) {
 
     const slug = title.replace(/\s+/g, '-').toLowerCase();
     const titleArray = title.split(' ');
@@ -77,6 +82,17 @@ export default function Project({ japanese, title, site, visible }) {
                                     />
                                 </div>
                         }
+                        
+                        <motion.p 
+                            variants={descVariants}
+                            initial='hidden'
+                            animate={visible ? 'visible' : 'hidden'}
+                            transition={{ ...transition, delay: 0.3 }}
+                            className="fs-5 mt-5"
+                            style={{maxWidth: '600px'}}
+                        >
+                            {description}
+                        </motion.p>
 
                         <div className="mt-5 d-flex">
                             <motion.div
