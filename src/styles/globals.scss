@@ -221,3 +221,34 @@ body {
 .lower-opacity {
 	opacity: 0.7;
 }
+
+.show-arrow {
+	opacity: 0;
+	transition: 0.3s ease-in-out;
+}
+
+.view-site {
+	transition: 0.3s ease-in-out;
+
+	.site-button {
+		border: none;
+		&:hover {
+			background-color: white;
+		}
+		p {
+			transition: 0.3s ease-in-out;
+		}
+	}
+
+	&:hover {
+		transform: translateX(20px);
+
+		.site-button p {
+			font-weight: 500;
+		}
+
+		.show-arrow {
+			opacity: 1;
+		}
+	}
+}

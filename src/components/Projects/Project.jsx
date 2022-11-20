@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import { motion } from 'framer-motion/dist/framer-motion'
 import TextReveal from '../animations/TextReveal'
+import { BsArrowRight } from 'react-icons/bs'
 
 const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
 
@@ -86,14 +87,18 @@ export default function Project({ japanese, title, site, visible }) {
                             >
                                 <Button href={`/projects/${slug}`} variant="outline-secondary" size="lg" className='mt-4'>case study</Button>
                             </motion.div>
-                            <div className="overflow-hidden">
+                            <div className="overflow-hidden view-site">
                                 <motion.div
                                     variants={button2Variants}
                                     initial='hidden'
                                     animate={visible ? 'visible' : 'hidden'}
                                     transition={{ ...transition, delay: 1 }}
                                 >
-                                    <Button href={site} size="lg" variant="outline-light text-dark" className='mt-4'>view site</Button>
+                                    <Button href={site} size="lg" variant="outline-light text-dark" className='mt-4 site-button'>
+                                        <p>
+                                            view site <span className='show-arrow'><BsArrowRight size={20} /></span>
+                                        </p>
+                                    </Button>
                                 </motion.div>
                             </div>
                         </div>

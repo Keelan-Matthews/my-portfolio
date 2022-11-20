@@ -493,4 +493,31 @@ body {
 
 .lower-opacity {
   opacity: 0.7;
+}
+
+.show-arrow {
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.view-site {
+  transition: 0.3s ease-in-out;
+}
+.view-site .site-button {
+  border: none;
+}
+.view-site .site-button:hover {
+  background-color: white;
+}
+.view-site .site-button p {
+  transition: 0.3s ease-in-out;
+}
+.view-site:hover {
+  transform: translateX(20px);
+}
+.view-site:hover .site-button p {
+  font-weight: 500;
+}
+.view-site:hover .show-arrow {
+  opacity: 1;
 }/*# sourceMappingURL=globals.css.map */
