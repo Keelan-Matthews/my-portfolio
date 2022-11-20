@@ -8,7 +8,7 @@ export default function Navigation({ activeSection }) {
         <Navbar expand="md" className="navigation">
             <Container fluid={true} className="p-0">
                 <Navbar.Toggle aria-controls="nav-collapse" className="p-0" />
-                <Navbar.Collapse id="nav-collapse">
+                <Navbar.Collapse id="nav-collapse" className="d-flex justify-content-center">
                     <Nav className='d-flex flex-column'>
                         <Nav.Link href="/#hero" className='p-0 nav-group'>
                             <p className='m-0 nav-item ms-3'>hero</p>

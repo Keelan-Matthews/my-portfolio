@@ -47,3 +47,11 @@
 	width: 150px;
 	height: 150px;
 }
+
+.envelope {
+	transition: 0.3s ease;
+
+	&:hover {
+		transform: translateY(-7px);
+	}
+}

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { AiOutlineMail } from 'react-icons/ai'
+import { IoMailOpenSharp } from 'react-icons/io5'
 import Navigation from './Navigation'
 import { motion } from 'framer-motion/dist/framer-motion'
 
@@ -17,13 +18,25 @@ const textVariants = {
 }
 
 export default function SideColumns({ children, scrollY, activeSection, page }) {
+    const [hover, setHover] = useState(false)
 
     return (
         <>
             <Row className='vh-100'>
                 <Col xs={12} md={1}>
                     <Row className='d-flex flex-md-column justify-content-between align-items-center ps-4 pt-5 ps-md-0 vh-100'>
-                        <AiOutlineMail size={37} />
+                        <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className="d-flex justify-content-center">
+                            {
+                                hover ?
+                                    <IoMailOpenSharp size={37} className="envelope" onClick={() => {
+                                        if (window.fullpage_api)
+                                            window.fullpage_api.moveTo(4)
+                                    }} />
+                                    :
+                                    <AiOutlineMail size={37} className="envelope" />
+                            }
+                        </div>
+
                         <Navigation activeSection={activeSection} />
                         <div className="d-none d-md-block"></div>
                     </Row>
@@ -43,8 +56,8 @@ export default function SideColumns({ children, scrollY, activeSection, page }) 
                             >
                                 <p className="fs-5 pt-3">scroll down</p>
                             </motion.div>
-                            
-                            <motion.div 
+
+                            <motion.div
                                 variants={lineVariants}
                                 initial='hidden'
                                 animate={scrollY ? 'visible' : 'hidden'}

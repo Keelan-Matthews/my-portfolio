@@ -43,6 +43,13 @@
   height: 150px;
 }
 
+.envelope {
+  transition: 0.3s ease;
+}
+.envelope:hover {
+  transform: translateY(-7px);
+}
+
 @-webkit-keyframes button-to-scroll {
   0% {
     transform: scaleY(1);
@@ -328,12 +335,12 @@ body {
 }
 
 .nav-line {
-  width: 40px;
+  width: 30px;
   border-top: 3px solid black;
   transition: width 0.3s ease-in-out;
 }
 .nav-line.active {
-  width: 70px;
+  width: 60px;
 }
 
 .nav-group:hover .nav-item {

@@ -41,4 +41,11 @@
 .circle-container {
   width: 150px;
   height: 150px;
+}
+
+.envelope {
+  transition: 0.3s ease;
+}
+.envelope:hover {
+  transform: translateY(-7px);
 }/*# sourceMappingURL=hero.css.map */
