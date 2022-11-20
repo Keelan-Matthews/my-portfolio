@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Hero from '../components/Home/Hero';
 import AboutMe from '../components/Home/AboutMe';
 import Projects from '../components/Home/Projects';
@@ -43,7 +43,7 @@ export default function Home() {
                         }}
                         render={() => {
                             return (
-                                <ReactFullPage.Wrapper>      
+                                <ReactFullPage.Wrapper>
                                     <div className="section">
                                         <Hero setScrollY={overrideScrollY} />
                                     </div>

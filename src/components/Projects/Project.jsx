@@ -18,7 +18,7 @@ const buttonVariants = {
 }
 
 const button2Variants = {
-    hidden: { x: -100 },
+    hidden: { x: -200 },
     visible: { x: 0 }
 }
 
@@ -45,7 +45,7 @@ export default function Project({ japanese, title, site, visible }) {
                     </motion.img>
                 </Col>
                 <Col xs={12} md={6}>
-                    <div>
+                    <div className='project-title'>
                         {
                             titleArrayLength > 2 ?
                                 <div>

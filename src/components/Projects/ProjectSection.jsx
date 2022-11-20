@@ -30,6 +30,8 @@ export default function ProjectSection({ activePage }) {
 	useEffect(() => {
 		if (activePage !== 0)
 			setProject(projects[activePage - 1].title)
+		else
+			setProject('null')
 	}, [activePage])
 
 	return (

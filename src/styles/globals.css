@@ -300,7 +300,7 @@ body {
   overflow-x: hidden;
 }
 
-h2 span {
+.project-title h2 span {
   margin-bottom: -60px !important;
 }
 

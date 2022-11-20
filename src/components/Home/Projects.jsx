@@ -53,7 +53,7 @@ export default function Projects({ visible }) {
                     </motion.img>
                 </Col>
                 <Col xs={12} md={6}>
-                    <div className="text-outline">
+                    <div>
                         <div className="bigger-text">
                             <TextReveal text="Projects" visible={visible} delay={1} />
                         </div>
