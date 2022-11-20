@@ -85,9 +85,10 @@ export default function Project({ japanese, title, site, visible }) {
                                 animate={visible ? 'visible' : 'hidden'}
                                 transition={{ ...transition, delay: 0.5 }}
                             >
-                                <Button href={`/projects/${slug}`} variant="outline-secondary" size="lg" className='mt-4'>case study</Button>
+                                {/* <Button href={`/projects/${slug}`} variant="outline-secondary" size="lg" className='mt-4'>case study</Button> */}
+                                <Button href={site} variant="outline-secondary" size="lg" className='mt-4'>view site</Button>
                             </motion.div>
-                            <div className="overflow-hidden view-site">
+                            {/* <div className="overflow-hidden view-site">
                                 <motion.div
                                     variants={button2Variants}
                                     initial='hidden'
@@ -100,7 +101,7 @@ export default function Project({ japanese, title, site, visible }) {
                                         </p>
                                     </Button>
                                 </motion.div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </Col>
