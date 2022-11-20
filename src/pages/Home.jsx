@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react'
 import Hero from '../components/Home/Hero';
 import AboutMe from '../components/Home/AboutMe';
 import Projects from '../components/Home/Projects';
+import Contact from '../components/Home/Contact';
 import SideColumns from '../components/SideColumns';
 import Col from 'react-bootstrap/Col';
 import Layout from '../components/Layout';
 import ReactFullPage from '@fullpage/react-fullpage';
 
-const anchors = ['hero-section', 'about-section', 'projects-section'];
+const anchors = ['hero-section', 'about-section', 'projects-section', 'contact-section'];
 
 export default function Home() {
 
@@ -27,6 +28,7 @@ export default function Home() {
                 <Col xs={10}>
                     <ReactFullPage
                         anchors={anchors}
+
                         onLeave={(origin, destination) => {
                             if (destination.index === 0) {
                                 setActiveSection('hero');
@@ -42,6 +44,7 @@ export default function Home() {
                             setHideScroll(destination.index === 0);
                         }}
                         render={() => {
+
                             return (
                                 <ReactFullPage.Wrapper>
                                     <div className="section">
@@ -52,6 +55,9 @@ export default function Home() {
                                     </div>
                                     <div className="section">
                                         <Projects visible={page === 2} />
+                                    </div>
+                                    <div className="section">
+                                        <Contact visible={page === 3} />
                                     </div>
                                 </ReactFullPage.Wrapper>
                             )

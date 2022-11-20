@@ -453,6 +453,10 @@ body {
   transform: translate(-150px, 20px);
 }
 
+.bigger-text2 h2 {
+  font-size: 9rem !important;
+}
+
 .smaller-text h2 {
   font-size: 5rem !important;
   margin-bottom: -20px;
@@ -520,4 +524,9 @@ body {
 }
 .view-site:hover .show-arrow {
   opacity: 1;
+}
+
+.form-control {
+  border-radius: 0 !important;
+  border: 2px solid black !important;
 }/*# sourceMappingURL=globals.css.map */
