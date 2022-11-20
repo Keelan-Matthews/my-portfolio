@@ -103,7 +103,7 @@ export default function Hero({ setScrollY }) {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ ...transition, delay: 1 }}
                     >
-                        <Button variant="outline-secondary" size="lg" className='mt-5'>download cv</Button>
+                        <Button variant="outline-secondary" size="lg" className='mt-5' href="/keelan-matthews-cv.pdf" target="_blank">download cv</Button>
                     </motion.div>
                 </Col>
                 <Col xs={12} md={6}>
