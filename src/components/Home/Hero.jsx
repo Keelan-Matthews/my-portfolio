@@ -109,7 +109,7 @@ export default function Hero({ setScrollY }) {
                 <Col xs={12} md={6}>
                     <div className="position-relative h-100 w-100">
                         <motion.div
-                            initial={{ left: '2000px', top: '-17%', opacity: 0 }}
+                            initial={{ left: '2000px', opacity: 0 }}
                             animate={{ left: '30%', opacity: 0.4 }}
                             transition={{ ...transition, delay: 1.2 }}
                             className="position-absolute painting"
@@ -135,7 +135,7 @@ export default function Hero({ setScrollY }) {
                         >
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.05} parallaxContainerRef={parRef}>
                                 <div>
-                                    <img src="/images/statue1.png" alt="statue" width={400} />
+                                    <img src="/images/statue1.png" alt="statue" />
                                 </div>
                             </MouseParallax>
                         </motion.div>

@@ -54,7 +54,7 @@ export default function SideColumns({ children, scrollY, activeSection, page }) 
                                 animate={scrollY ? 'visible' : 'hidden'}
                                 transition={{ duration: 1, ease: 'easeInOut', delay: scrollY ? 2 : 0 }}
                             >
-                                <p className="fs-5 pt-3">scroll down</p>
+                                <p className="fs-5 pt-3" style={{width: '200px', textAlign: 'center'}}>scroll down</p>
                             </motion.div>
 
                             <motion.div

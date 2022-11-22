@@ -1,6 +1,9 @@
+.painting {
+  top: -9%;
+}
 .painting .painting-container {
-  width: 700px;
-  height: 800px;
+  width: 35vw;
+  height: 45vw;
 }
 @media (max-width: 768px) {
   .painting .painting-container {
@@ -22,6 +25,9 @@
   left: 20%;
   top: 8%;
   filter: drop-shadow(0 0 0.75rem rgb(133, 133, 133));
+}
+.statue img {
+  width: 25vw;
 }
 @media (max-width: 768px) {
   .statue img {
