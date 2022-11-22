@@ -40,7 +40,7 @@ export default function ProjectSection({ activePage }) {
 
 	return (
 		<>
-			{projects.map((project, index) => <Project key={index} {...project} visible={currProject == project.title} />)}
+			{projects.map((project, index) => <Project key={index} {...project} visible={currProject === project.title} />)}
 		</>
 	)
 }

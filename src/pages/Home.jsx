@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Hero from '../components/Home/Hero';
-import AboutMe from '../components/Home/AboutMe';
-import Projects from '../components/Home/Projects';
 import Contact from '../components/Home/Contact';
 import SideColumns from '../components/SideColumns';
 import Col from 'react-bootstrap/Col';
 import Layout from '../components/Layout';
 import ReactFullPage from '@fullpage/react-fullpage';
+import Section from '../components/Home/Section';
 
 const anchors = ['hero-section', 'about-section', 'projects-section', 'contact-section'];
 
@@ -51,10 +50,10 @@ export default function Home() {
                                         <Hero setScrollY={overrideScrollY} />
                                     </div>
                                     <div className="section">
-                                        <AboutMe visible={page === 1} />
+                                        <Section visible={page === 1} japanese="書誌" circleVar={1} title="About Me" cta="learn more" desc="development through creativity" />
                                     </div>
                                     <div className="section">
-                                        <Projects visible={page === 2} />
+                                        <Section visible={page === 2} japanese="事業" circleVar={2} title="Projects" cta="catalogue" desc="view my top websites" />
                                     </div>
                                     <div className="section">
                                         <Contact visible={page === 3} />

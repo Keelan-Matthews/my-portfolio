@@ -27,7 +27,7 @@
   filter: drop-shadow(0 0 0.75rem rgb(133, 133, 133));
 }
 .statue img {
-  width: 25vw;
+  width: 22vw;
 }
 @media (max-width: 768px) {
   .statue img {

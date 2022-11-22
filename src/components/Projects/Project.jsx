@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import { motion } from 'framer-motion/dist/framer-motion'
 import TextReveal from '../animations/TextReveal'
-import { BsArrowRight } from 'react-icons/bs'
+// import { BsArrowRight } from 'react-icons/bs'
 
 const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
 

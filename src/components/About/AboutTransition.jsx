@@ -29,7 +29,7 @@ export default function AboutTransition() {
                         initial={{height: '750px', width: '550px'}}
                         animate={{width: '730px'}}
                         transition={transition}
-                        src="/images/about.webp"
+                        src="/images/about-me.webp"
                         className="image-height"
                         alt=""
                     >

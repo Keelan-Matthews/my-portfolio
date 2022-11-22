@@ -28,14 +28,24 @@ const circleVariants = {
     visible: { left: '22%', bottom: '5%', opacity: 1 }
 }
 
-export default function AboutMe({ visible }) {
+const circleVariants2 = {
+    hidden: { right: '-5%', bottom: '60%', opacity: 0 },
+    visible: { right: '-5%', bottom: '-5%', opacity: 1 }
+}
+
+export default function Section({ visible, japanese, circleVar, title, cta, desc}) {
+
+    const toImage = (title) => title.toLowerCase().replace(/ /g, '-') + '.webp';
+    const toSlug = (title) => "/" + title.toLowerCase().split(' ')[0];
+
     return (
-        <div id="about">
+        <div>
             <Row className="d-flex align-items-center">
                 <Col xs={12} md={6} className="d-flex position-relative justify-content-end">
-                    <p className='fs-4 rotate'>書誌</p>
+                    <p className='fs-4 rotate'>{japanese}</p>
+
                     <motion.div 
-                        variants={circleVariants}
+                        variants={circleVar === 1 ? circleVariants : circleVariants2}
                         initial='hidden'
                         animate={visible ? 'visible' : 'hidden'}
                         transition={{ ...transition, delay: 0.3 }}
@@ -46,7 +56,7 @@ export default function AboutMe({ visible }) {
                         initial='hidden'
                         animate={visible ? 'visible' : 'hidden'}
                         transition={{ ...transition, delay: 0.2 }}
-                        src="/images/about.webp"
+                        src={`/images/${toImage(title)}`}
                         className="image-height"
                         alt=""
                     >
@@ -55,7 +65,7 @@ export default function AboutMe({ visible }) {
                 <Col xs={12} md={6}>
                     <div>
                         <div className="bigger-text">
-                            <TextReveal text="About me" visible={visible} delay={1} />
+                            <TextReveal text={title} visible={visible} delay={1} />
                         </div>
 
                         <motion.p 
@@ -65,17 +75,17 @@ export default function AboutMe({ visible }) {
                             transition={{ ...transition, delay: 0.3 }}
                             className="fs-2"
                         >
-                            development through creativity
+                            {desc}
                         </motion.p>
 
-                        <Link to='/about'>
+                        <Link to={toSlug(title)}>
                             <motion.div
                                 variants={buttonVariants}
                                 initial='hidden'
                                 animate={visible ? 'visible' : 'hidden'}
                                 transition={{ ...transition, delay: 0.5 }}
                             >
-                                <Button variant="outline-secondary" size="lg" className='mt-4'>learn more</Button>
+                                <Button variant="outline-secondary" size="lg" className='mt-4'>{cta}</Button>
                             </motion.div>
                         </Link>
 

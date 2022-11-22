@@ -2,11 +2,9 @@ import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
-import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion/dist/framer-motion'
 import TextReveal from '../animations/TextReveal'
 
-const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
+// const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
 
 export default function Contact({ visible }) {
     return (
