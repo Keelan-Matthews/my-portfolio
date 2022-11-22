@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 
 const Title = styled.h2`
-  font-size: 7rem;
+
 `;
 
 const Word = styled(motion.span)`

@@ -30,7 +30,7 @@ export default function AboutTransition() {
                         animate={{width: '730px'}}
                         transition={transition}
                         src="/images/about-me.webp"
-                        className="image-height"
+                        className="image-crop"
                         alt=""
                     >
                     </motion.img>

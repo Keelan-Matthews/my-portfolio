@@ -45,7 +45,7 @@ export default function Project({ japanese, title, site, visible, description })
                         animate={visible ? 'visible' : 'hidden'}
                         transition={transition}
                         src={`/images/${slug}.webp`}
-                        className='image-height lower-opacity'
+                        className='image-crop lower-opacity'
                         alt=""
                     >
                     </motion.img>

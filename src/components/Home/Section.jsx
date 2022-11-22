@@ -9,8 +9,8 @@ import TextReveal from '../animations/TextReveal'
 const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
 
 const imageVariants = {
-    hidden: { height: '100px', width: '550px' },
-    visible: { height: '750px' }
+    hidden: { height: '10%' },
+    visible: { height: '100%' }
 }
 
 const buttonVariants = {
@@ -20,6 +20,11 @@ const buttonVariants = {
 
 const descVariants = {
     hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0 }
+}
+
+const japaneseVariants = {
+    hidden: { opacity: 0, y: 200 },
     visible: { opacity: 1, y: 0 }
 }
 
@@ -33,7 +38,7 @@ const circleVariants2 = {
     visible: { right: '-5%', bottom: '-5%', opacity: 1 }
 }
 
-export default function Section({ visible, japanese, circleVar, title, cta, desc}) {
+export default function Section({ visible, japanese, circleVar, title, cta, desc }) {
 
     const toImage = (title) => title.toLowerCase().replace(/ /g, '-') + '.webp';
     const toSlug = (title) => "/" + title.toLowerCase().split(' ')[0];
@@ -42,25 +47,37 @@ export default function Section({ visible, japanese, circleVar, title, cta, desc
         <div>
             <Row className="d-flex align-items-center">
                 <Col xs={12} md={6} className="d-flex position-relative justify-content-end">
-                    <p className='fs-4 rotate'>{japanese}</p>
+                    <motion.p 
+                        variants={japaneseVariants}
+                        initial="hidden"
+                        animate={visible ? "visible" : "hidden"}
+                        transition={{...transition, delay: 0.9}}
+                        className='fs-4 rotate'
+                    >
+                        {japanese}
+                    </motion.p>
 
-                    <motion.div 
+                    <motion.div
                         variants={circleVar === 1 ? circleVariants : circleVariants2}
                         initial='hidden'
                         animate={visible ? 'visible' : 'hidden'}
                         transition={{ ...transition, delay: 0.3 }}
                         className='bg-primary rounded-circle circle-container position-absolute'
                     ></motion.div>
-                    <motion.img
-                        variants={imageVariants}
-                        initial='hidden'
-                        animate={visible ? 'visible' : 'hidden'}
-                        transition={{ ...transition, delay: 0.2 }}
-                        src={`/images/${toImage(title)}`}
-                        className="image-height"
-                        alt=""
-                    >
-                    </motion.img>
+                    <div className="image-height d-flex align-items-center">
+                        <motion.img
+                            variants={imageVariants}
+                            initial='hidden'
+                            animate={visible ? 'visible' : 'hidden'}
+                            transition={{ ...transition, delay: 0.5 }}
+                            src={`/images/${toImage(title)}`}
+                            className="image-crop"
+                            width={'100%'}
+                            alt=""
+                        >
+                        </motion.img>
+                    </div>
+
                 </Col>
                 <Col xs={12} md={6}>
                     <div>
@@ -68,7 +85,7 @@ export default function Section({ visible, japanese, circleVar, title, cta, desc
                             <TextReveal text={title} visible={visible} delay={1} />
                         </div>
 
-                        <motion.p 
+                        <motion.p
                             variants={descVariants}
                             initial='hidden'
                             animate={visible ? 'visible' : 'hidden'}

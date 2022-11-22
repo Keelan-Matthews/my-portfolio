@@ -63,7 +63,7 @@ export default function Hero({ setScrollY }) {
     ];
 
     return (
-        <div id="hero" className="pb-5 mb-5">
+        <div id="hero" className="pb-5">
             <Row ref={parRef} className='position-relative pb-5 mb-5'>
                 <Col xs={12} md={6} className='p-5'>
                     <motion.div
@@ -75,7 +75,7 @@ export default function Hero({ setScrollY }) {
                         <p>デザイン</p>
                     </motion.div>
                     <a href="#about-section" className="text-decoration-none">
-                        <div className="text-outline">
+                        <div className="text-outline heading-text">
                             <div className="keelan-text">
                                 <TextReveal text="Keelan" visible={true} className="mb-0" />
                             </div>
