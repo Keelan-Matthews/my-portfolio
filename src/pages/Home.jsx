@@ -7,9 +7,9 @@ import Layout from '../components/Layout';
 import ReactFullPage from '@fullpage/react-fullpage';
 import Section from '../components/Home/Section';
 
-const anchors = ['hero-section', 'about-section', 'projects-section', 'contact-section'];
+const anchors = ['hero', 'about', 'projects', 'contact'];
 
-export default function Home() {
+export default function Home({ sections }) {
 
     const [scrollY, setScrollY] = useState(false);
     const [hideScroll, setHideScroll] = useState(true);
@@ -49,12 +49,15 @@ export default function Home() {
                                     <div className="section">
                                         <Hero setScrollY={overrideScrollY} />
                                     </div>
-                                    <div className="section">
-                                        <Section visible={page === 1} japanese="書誌" circleVar={1} title="About Me" cta="learn more" desc="development through creativity" />
-                                    </div>
-                                    <div className="section">
-                                        <Section visible={page === 2} japanese="事業" circleVar={2} title="Projects" cta="catalogue" desc="view my top websites" />
-                                    </div>
+                                    {
+                                        sections.map((section, index) => {
+                                            return (
+                                                <div className="section" key={index}>
+                                                    <Section visible={page === index+1} {...section} />
+                                                </div>
+                                            )
+                                        })
+                                    }
                                     <div className="section">
                                         <Contact visible={page === 3} />
                                     </div>

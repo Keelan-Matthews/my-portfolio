@@ -1,28 +1,19 @@
 import React from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import AboutTransition from '../components/About/AboutTransition'
+import SectionTransition from '../components/SectionTransition'
 import Skills from '../components/About/Skills'
-import { BiArrowBack } from 'react-icons/bi'
 import Layout from '../components/Layout';
-import { Link } from 'react-router-dom'
-import Navigation from '../components/Navigation'
+import SideColumns from '../components/SideColumns'
 
-export default function AboutPage() {
+export default function AboutPage({ section }) {
 	return (
 		<Layout title="Keelan Matthews | About me">
-			<Row className='vh-100'>
-				<Col xs={12} md={1}>
-					<Row className='d-flex flex-md-column justify-content-between align-items-center ps-4 pt-5 ps-md-0 h-100'>
-						<Link to="/#about-section" className="text-dark w-50">
-							<BiArrowBack size={37} />
-						</Link>
-						<Navigation activeSection={'about'} />
-						<div className="d-none d-md-block"></div>
-					</Row>
-				</Col>
+			<SideColumns scrollY={true} activeSection="about" page={1} entered={true}>
 				<Col xs={10} className="scrollable vh-100">
-					<AboutTransition />
+					<div className="vh-100 d-flex align-items-center justify-content-center">
+						<SectionTransition {...section} />
+					</div>
 					<div className="vh-100 d-flex flex-column justify-content-center">
 						<h1 className="fw-bold heading-line mb-5">Introduction</h1>
 						<Row className="d-flex align-items-center">
@@ -48,14 +39,7 @@ export default function AboutPage() {
 						<Skills />
 					</div>
 				</Col>
-				<Col xs={2} md={1}>
-					<Row className="d-flex flex-column justify-content-between align-items-center h-100 pt-5">
-						<div className="page-number">
-							<p className='fs-1'>01</p>
-						</div>
-					</Row>
-				</Col>
-			</Row>
+			</SideColumns>
 		</Layout>
 	)
 }
