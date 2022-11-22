@@ -1,0 +1,35 @@
+.scroll-line {
+	border-left: 2px solid black;
+}
+
+.page-number {
+	@media (max-width: 768px) {
+		visibility: hidden;
+	}
+}
+
+.navigation {
+	transition: 0.3s ease-in-out;
+}
+
+.nav-line {
+	width: 30px;
+	border-top: 3px solid black;
+	transition: width 0.3s ease-in-out;
+
+	&.active {
+		width: 60px;
+	}
+}
+
+.nav-group {
+	&:hover {
+		.nav-item {
+			visibility: visible;
+		}
+	}
+}
+
+.nav-item {
+	visibility: hidden;
+}

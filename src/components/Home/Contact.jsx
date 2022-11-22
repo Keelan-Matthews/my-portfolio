@@ -8,7 +8,7 @@ import TextReveal from '../animations/TextReveal'
 
 export default function Contact({ visible }) {
     return (
-        <div id="contact" className='d-flex flex-column align-items-center'>
+        <div className='d-flex flex-column align-items-center'>
             <div className="bigger-text2">
                 <TextReveal text="Contact Me" visible={visible} />
             </div>

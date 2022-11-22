@@ -65,3 +65,30 @@
 .heading-text h2 {
 	font-size: 8rem;
 }
+
+.text-outline {
+	h2 {
+		color: black;
+		-webkit-text-stroke: 0px black;
+		transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+		cursor: pointer;
+		letter-spacing: 0.2rem;
+
+		@media (max-width: 768px) {
+			font-size: 17vw;
+		}
+	}
+
+	&:hover h2 {
+		-webkit-text-stroke: 1px black;
+		color: transparent;
+	}
+}
+
+.keelan-text h2 span {
+	transform: translateY(20px);
+}
+
+.keelan-text h2 {
+	transform: translateY(40px);
+}
