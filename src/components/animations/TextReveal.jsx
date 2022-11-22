@@ -71,7 +71,7 @@ export default function TextReveal(props) {
                     >
                         {word.split("").map((character, index) => {
                             return (
-                                <CharacterContainer>
+                                <CharacterContainer key={index}>
                                     <Character
                                         aria-hidden="true"
                                         key={index}
