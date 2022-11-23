@@ -62,8 +62,9 @@ body {
 	font-size: 9rem;
 	transform: translate(-150px, 20px);
 
-	@media screen and (max-width: 1550px) {
-		font-size: 9vw;
+	@media screen and (max-width: 1560px) {
+		font-size: 8.5vw;
+		transform: translate(-80px, 20px);
 	}
 }
 

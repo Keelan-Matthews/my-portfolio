@@ -5,6 +5,10 @@
 .smaller-text h2 {
 	font-size: 5rem;
 	margin-bottom: -20px;
+
+	@media screen and (max-width: 1560px) {
+		font-size: 5.5vw;
+	}
 }
 
 .transform-left {
