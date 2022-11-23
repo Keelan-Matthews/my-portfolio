@@ -64,6 +64,10 @@
 
 .heading-text h2 {
 	font-size: 8rem;
+
+	@media (max-width: 1400px) {
+		font-size: 7vw;
+	}
 }
 
 .text-outline {
@@ -87,6 +91,10 @@
 
 .keelan-text h2 span {
 	transform: translateY(20px);
+
+	@media (max-width: 1400px) {
+		transform: translateY(15px);
+	}
 }
 
 .keelan-text h2 {

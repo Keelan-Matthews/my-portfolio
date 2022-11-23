@@ -59,6 +59,11 @@
 .heading-text h2 {
   font-size: 8rem;
 }
+@media (max-width: 1400px) {
+  .heading-text h2 {
+    font-size: 7vw;
+  }
+}
 
 .text-outline h2 {
   color: black;
@@ -79,6 +84,11 @@
 
 .keelan-text h2 span {
   transform: translateY(20px);
+}
+@media (max-width: 1400px) {
+  .keelan-text h2 span {
+    transform: translateY(15px);
+  }
 }
 
 .keelan-text h2 {
