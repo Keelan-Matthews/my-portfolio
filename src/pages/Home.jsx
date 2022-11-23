@@ -5,7 +5,7 @@ import SideColumns from '../components/SideColumns';
 import Col from 'react-bootstrap/Col';
 import Layout from '../components/Layout';
 import ReactFullPage from '@fullpage/react-fullpage';
-import Section from '../components/Home/Section';
+import Section from '../components/Section';
 
 const anchors = ['hero', 'about', 'projects', 'contact'];
 
