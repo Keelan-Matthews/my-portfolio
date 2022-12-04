@@ -8,8 +8,14 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel'
 import TextReveal from '../animations/TextReveal'
 import { Formik, ErrorMessage, Form, Field } from 'formik'
 import * as Yup from "yup"
+import { motion } from 'framer-motion/dist/framer-motion'
 
-// const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
+const transition = { duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] }
+
+const controlVariants = {
+    hidden: { opacity: 0, width: "0%" },
+    visible: { opacity: 1, width: "100%"}
+}
 
 const Schema = Yup.object({
     subject: Yup.string()
@@ -32,8 +38,8 @@ export default function Contact({ visible }) {
         const date = new Date();
         const day = date.getDate();
         const month = date.getMonth() + 1;
-        
-        const monthNames = ["January", "February", "March","April", "May", "June", "July","August", "September", "October", "November", "December"]
+
+        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
         return `${day} ${monthNames[month - 1]}`
     }
@@ -66,9 +72,9 @@ export default function Contact({ visible }) {
                 {({ errors, touched, isSubmitting }) => (
 
                     <Form className="w-50">
-                        <FormikInput type="Email" errors={errors} touched={touched} />
-                        <FormikInput type="Subject" errors={errors} touched={touched} />
-                        <FormikInput type="Message" errors={errors} touched={touched} />
+                        <FormikInput type="Email" errors={errors} touched={touched} visible={visible} />
+                        <FormikInput type="Subject" errors={errors} touched={touched} visible={visible} />
+                        <FormikInput type="Message" errors={errors} touched={touched} visible={visible} />
 
                         <div className="w-100 text-end">
                             <Button variant="primary" type="submit" size="lg" disabled={isSubmitting}>
@@ -89,10 +95,11 @@ export default function Contact({ visible }) {
         </div>
     )
 }
-const FormikInput = ({ type, errors, touched }) => {
+const FormikInput = ({ type, errors, touched, visible }) => {
     const name = type.toLowerCase();
     const label = `${type} ${type === 'Email' ? ' address' : ''}`;
     let settings = {};
+    let delay = 0.2;
 
     switch (type) {
         case "Email":
@@ -105,33 +112,42 @@ const FormikInput = ({ type, errors, touched }) => {
             settings = {
                 type: "text",
                 placeholder: "Subject"
-            }
+            };
+            delay = 0.4;
             break;
         case "Message":
             settings = {
                 as: "textarea",
                 rows: "6",
                 placeholder: "Message"
-            }
+            };
+            delay = 0.6;
             break;
         default:
             break;
     }
 
     return (
-        <Field name={name}>
-            {({ field }) => (
-                <FormGroup className="mb-3" controlId={`formBasic${type}`}>
-                    <FloatingLabel controlId="floatingInput" label={label}>
-                        <FormControl {...settings} {...field} className={touched.email && errors.email ? "is-invalid" : ""} />
-                        <ErrorMessage
-                            component="div"
-                            name={name}
-                            className="invalid-feedback"
-                        />
-                    </FloatingLabel>
-                </FormGroup>
-            )}
-        </Field>
+        <motion.div
+            variants={controlVariants}
+            initial="hidden"
+            animate={visible ? "visible" : "hidden"}
+            transition={{ ...transition, delay: delay }}
+        >
+            <Field name={name}>
+                {({ field }) => (
+                    <FormGroup className="mb-3" controlId={`formBasic${type}`}>
+                        <FloatingLabel controlId="floatingInput" label={label}>
+                            <FormControl {...settings} {...field} className={touched.email && errors.email ? "is-invalid" : ""} />
+                            <ErrorMessage
+                                component="div"
+                                name={name}
+                                className="invalid-feedback"
+                            />
+                        </FloatingLabel>
+                    </FormGroup>
+                )}
+            </Field>
+        </motion.div>
     )
 }
