@@ -516,4 +516,8 @@ body {
 .form-control {
   border-radius: 0 !important;
   border: 2px solid black !important;
+}
+
+textarea {
+  height: 20vh !important;
 }/*# sourceMappingURL=globals.css.map */
