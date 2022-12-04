@@ -14,7 +14,12 @@ const transition = { duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] }
 
 const controlVariants = {
     hidden: { opacity: 0, width: "0%" },
-    visible: { opacity: 1, width: "100%"}
+    visible: { opacity: 1, width: "100%" }
+}
+
+const buttonVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0 }
 }
 
 const Schema = Yup.object({
@@ -76,7 +81,13 @@ export default function Contact({ visible }) {
                         <FormikInput type="Subject" errors={errors} touched={touched} visible={visible} />
                         <FormikInput type="Message" errors={errors} touched={touched} visible={visible} />
 
-                        <div className="w-100 text-end">
+                        <motion.div
+                            variants={buttonVariants}
+                            initial="hidden"
+                            animate={visible ? "visible" : "hidden"}
+                            transition={{ ...transition, delay: 0.8 }}
+                            className="w-100 text-end"
+                        >
                             <Button variant="primary" type="submit" size="lg" disabled={isSubmitting}>
                                 {
                                     isSubmitting ?
@@ -87,7 +98,7 @@ export default function Contact({ visible }) {
                                         "Send"
                                 }
                             </Button>
-                        </div>
+                        </motion.div>
                     </Form>
 
                 )}
