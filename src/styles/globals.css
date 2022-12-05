@@ -389,17 +389,8 @@
   }
 }
 
-.navigation {
-  transition: 0.3s ease-in-out;
-}
-
 .nav-line {
-  width: 30px;
   border-top: 3px solid black;
-  transition: width 0.3s ease-in-out;
-}
-.nav-line.active {
-  width: 60px;
 }
 
 .heading-line:before {

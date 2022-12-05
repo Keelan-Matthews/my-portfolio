@@ -11,6 +11,11 @@ const navVariants = {
     visible: { opacity: 1, x: 0 }
 }
 
+const lineVariants = {
+    notActive: { width: 30 },
+    active: { width: 60 }
+}
+
 export default function Navigation({ activeSection }) {
     return (
         <Navbar expand="md" className="navigation">
@@ -41,7 +46,14 @@ const NavLine = ({ section, activeSection }) => {
             >
                 {section}
             </motion.p>
-            <div className={`nav-line ${activeSection === section ? 'active' : ''}`}></div>
+            <motion.div 
+                variants={lineVariants}
+                initial="notActive"
+                animate={activeSection === section ? 'active' : 'notActive'}
+                transition={transition}
+                className="nav-line"
+            >
+            </motion.div>
         </Nav.Link>
     )
 }
