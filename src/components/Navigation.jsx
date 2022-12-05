@@ -4,18 +4,6 @@ import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import { motion } from 'framer-motion/dist/framer-motion'
 
-const transition = { duration: 0.7, ease: [0.43, 0.13, 0.23, 0.96] }
-
-const navVariants = {
-    hidden: { opacity: 0, x: -10 },
-    visible: { opacity: 1, x: 0 }
-}
-
-const lineVariants = {
-    notActive: { width: 30 },
-    active: { width: 60 }
-}
-
 export default function Navigation({ activeSection }) {
     return (
         <Navbar expand="md" className="navigation">
@@ -56,4 +44,16 @@ const NavLine = ({ section, activeSection }) => {
             </motion.div>
         </Nav.Link>
     )
+}
+
+const transition = { duration: 0.7, ease: [0.43, 0.13, 0.23, 0.96] }
+
+const navVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { opacity: 1, x: 0 }
+}
+
+const lineVariants = {
+    notActive: { width: 30 },
+    active: { width: 60 }
 }

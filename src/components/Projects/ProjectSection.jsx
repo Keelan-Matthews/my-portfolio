@@ -41,9 +41,8 @@ export default function ProjectSection({ activePage }) {
 	return (
 		<>
 			{projects.map((project, index) =>
-				<div className="section">
+				<div className="section" key={index}>
 					<Section
-						key={index}
 						{...project}
 						visible={currProject === project.title}
 						cta="view site"

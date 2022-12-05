@@ -7,23 +7,21 @@ import Layout from '../components/Layout';
 import ReactFullPage from '@fullpage/react-fullpage';
 import Section from '../components/Section';
 import Footer from '../components/Footer';
+import LoadingScreen from '../components/LoadingScreen';
 
 const anchors = ['hero', 'about', 'projects', 'contact', 'footer'];
 
 export default function Home({ sections }) {
 
-    // const [scrollY, setScrollY] = useState(false);
     const [hideScroll, setHideScroll] = useState(true);
     const [activeSection, setActiveSection] = useState('hero');
     const [page, setPage] = useState(0);
-
-    const overrideScrollY = (flag) => {
-        // setScrollY(flag);
-        setHideScroll(flag);
-    }
+    const [loading, setLoading] = useState(true);
+    const [modelLoading, setModelLoading] = useState(true);
 
     return (
         <Layout title="Keelan Matthews | Welcome">
+            <LoadingScreen loading={loading} setLoading={setLoading} modelLoading={modelLoading} />
             <SideColumns scrollY={hideScroll} activeSection={activeSection} page={page}>
                 <Col xs={10}>
                     <ReactFullPage
@@ -50,7 +48,7 @@ export default function Home({ sections }) {
                             return (
                                 <ReactFullPage.Wrapper>
                                     <div className="section">
-                                        <Hero setScrollY={overrideScrollY} />
+                                        <Hero visible={!loading} setModelLoading={setModelLoading} />
                                     </div>
                                     {
                                         sections.map((section, index) => {

@@ -5,14 +5,14 @@ import { useTexture } from '@react-three/drei'
 
 extend({ WaveMaterial })
 
-const HeroWave = () => {
+const HeroWave = ({ setModelLoading }) => {
 
     const ref = useRef();
     useFrame(({ clock }) => {
         ref.current.uTime = clock.getElapsedTime()
     });
 
-    const image = useTexture("/images/painting.webp");
+    const image = useTexture("/images/painting.webp", setModelLoading(false));
 
     return (
         <mesh>
@@ -22,12 +22,12 @@ const HeroWave = () => {
     );
 }
 
-export default function WaveImage() {
+export default function WaveImage({ setModelLoading }) {
     return (
         <>
             <Canvas camera={{ fov: 10 }}>
                 <Suspense fallback={null}>
-                    <HeroWave />
+                    <HeroWave setModelLoading={setModelLoading}  />
                 </Suspense>
             </Canvas>
         </>

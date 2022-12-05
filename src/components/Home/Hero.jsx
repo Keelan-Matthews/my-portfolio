@@ -6,39 +6,15 @@ import WaveImage from './WaveImage'
 import { MouseParallax } from 'react-just-parallax'
 import TextTransition, { presets } from "react-text-transition"
 import TextReveal from '../animations/TextReveal'
-import { motion } from 'framer-motion/dist/framer-motion'
+import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
 
-const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }
-
-// const japaneseVariants = {
-//     hidden: { opacity: 0, y: 10 },
-//     visible: { opacity: 1, y: 100 }
-// }
-
-// const sloganVariants = {
-//     hidden: { opacity: 0, y: 100 },
-//     visible: { opacity: 1, y: 0 }
-// }
-
-// const cvVariants = {
-//     hidden: { opacity: 0, y: 100 },
-//     visible: { opacity: 1, y: 0 }
-// }
-
-// const paintingVariants = {
-//     hidden: { left: '2000px', top: '-17%', opacity: 0 },
-//     visible: { left: '30%', opacity: 0.4 }
-// }
-
-// const statueVariants = {
-//     hidden: { y: 20, opacity: 0 },
-//     visible: { y: 0, opacity: 1 }
-// }
-
-export default function Hero({ setScrollY }) {
-
+export default function Hero({ visible, setModelLoading }) {
+    const ctrls = useAnimation()
     const parRef = useRef()
-    const [showHero, setShowHero] = useState(true)
+
+    useEffect(() => {
+        ctrls.start(visible ? "visible" : "hidden")
+    }, [visible])
 
     return (
         <div className="pb-5">
@@ -46,9 +22,10 @@ export default function Hero({ setScrollY }) {
                 <Col xs={12} md={6} className='p-5'>
                     {/* Japanese Accent */}
                     <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 100 }}
-                        transition={{ ...transition, delay: 0.2 }}
+                        variants={japaneseVariants}
+                        initial="visible"
+                        animate={ctrls}
+                        transition={{ ...transition, delay: 0.5 }}
                         className="m-0"
                     >
                         <p>デザイン</p>
@@ -58,17 +35,18 @@ export default function Hero({ setScrollY }) {
                     <a href="#about" className="text-decoration-none">
                         <div className="text-outline heading-text">
                             <div className="keelan-text">
-                                <TextReveal text="Keelan" visible={true} className="mb-0" />
+                                <TextReveal text="Keelan" visible={visible} className="mb-0" delay={2} />
                             </div>
-                            <TextReveal text="Matthews" visible={true} />
+                            <TextReveal text="Matthews" visible={visible} delay={2.3} />
                         </div>
                     </a>
 
                     {/* Slogan */}
                     <motion.div
-                        initial={{ opacity: 0, y: 100 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ ...transition, delay: 0.4 }}
+                        variants={sloganVariants}
+                        initial="hidden"
+                        animate={ctrls}
+                        transition={{ ...transition, delay: 0.7 }}
                         className="fs-2"
                     >
                         <Slogan />
@@ -76,9 +54,10 @@ export default function Hero({ setScrollY }) {
 
                     {/* CV Button */}
                     <motion.div
-                        initial={{ opacity: 0, y: 100 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ ...transition, delay: 1 }}
+                        variants={cvVariants}
+                        initial="hidden"
+                        animate={ctrls}
+                        transition={{ ...transition, delay: 1.3 }}
                     >
                         <Button variant="outline-secondary" size="lg" className='mt-5' href="/keelan-matthews-cv.pdf" target="_blank">download cv</Button>
                     </motion.div>
@@ -87,20 +66,21 @@ export default function Hero({ setScrollY }) {
                     <div className="position-relative h-100 w-100">
                         {/* Wave Image */}
                         <motion.div
-                            initial={{ left: '2000px', opacity: 0 }}
-                            animate={{ left: '30%', opacity: 0.4 }}
-                            transition={{ ...transition, delay: 1.2 }}
+                            variants={paintingVariants}
+                            initial="hidden"
+                            animate={ctrls}
+                            transition={{ ...transition, delay: 1.5 }}
                             className="position-absolute painting"
                         >
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.01} parallaxContainerRef={parRef}>
                                 <div className="painting-container">
-                                    <WaveImage type="hero" />
+                                    <WaveImage type="hero" setModelLoading={setModelLoading} />
                                 </div>
                             </MouseParallax>
                         </motion.div>
 
                         {/* Circle */}
-                        <div className={`position-absolute circle ${showHero ? 'visible' : ''}`}>
+                        <div className="position-absolute circle visible">
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.03} parallaxContainerRef={parRef}>
                                 <div className='bg-primary rounded-circle circle-container'></div>
                             </MouseParallax>
@@ -108,9 +88,10 @@ export default function Hero({ setScrollY }) {
 
                         {/* Statue */}
                         <motion.div
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ ...transition, delay: 1.4 }}
+                            variants={statueVariants}
+                            initial="hidden"
+                            animate={ctrls}
+                            transition={{ ...transition, delay: 1.7 }}
                             className="position-absolute statue"
                         >
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.05} parallaxContainerRef={parRef}>
@@ -161,4 +142,31 @@ const Slogan = () => {
             er.
         </>
     )
+}
+
+const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }
+
+const japaneseVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 100 }
+}
+
+const sloganVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0 }
+}
+
+const cvVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0 }
+}
+
+const paintingVariants = {
+    hidden: { left: '1000px', top: '-17%', opacity: 0.4 },
+    visible: { left: '30%'}
+}
+
+const statueVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 }
 }
