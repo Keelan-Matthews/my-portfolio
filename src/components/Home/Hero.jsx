@@ -63,7 +63,7 @@ export default function Hero({ setScrollY }) {
     ];
 
     return (
-        <div id="hero" className="pb-5">
+        <div className="pb-5">
             <Row ref={parRef} className='position-relative pb-5 mb-5'>
                 <Col xs={12} md={6} className='p-5'>
                     <motion.div

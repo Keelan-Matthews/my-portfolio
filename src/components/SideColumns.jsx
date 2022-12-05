@@ -7,6 +7,7 @@ import Navigation from './Navigation'
 import { motion } from 'framer-motion/dist/framer-motion'
 import { Link } from 'react-router-dom'
 import { BiArrowBack } from 'react-icons/bi'
+import { BsGithub, BsLinkedin } from 'react-icons/bs'
 
 const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
 
@@ -18,6 +19,11 @@ const lineVariants = {
 const textVariants = {
     visible: { opacity: 1, rotate: 90, y: 0 },
     hidden: { opacity: 0, rotate: 90, y: -30 }
+}
+
+const socialVariants = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: 50 }   
 }
 
 export default function SideColumns({ children, scrollY, activeSection, page, entered = false }) {
@@ -82,6 +88,36 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                                 className="mt-5 scroll-line"
                             >
                             </motion.div>
+                        </div>
+                        <div className={`d-flex flex-column ${activeSection === 'footer' ? '' : 'd-none'}`}>
+                            <motion.a 
+                                variants={socialVariants}
+                                initial='hidden'
+                                animate={activeSection === 'footer' ? 'visible' : 'hidden'}
+                                transition={{...transition, delay: 0.2}}
+                                whileHover={{
+                                    scale: 1.05,
+                                    transition: { duration: 0.2, ease: 'easeInOut' },
+                                  }}
+                                href="https://github.com/Keelan-Matthews" 
+                                className="text-dark mb-3"
+                            >
+                                <BsGithub size={30} />
+                            </motion.a>
+                            <motion.a 
+                                variants={socialVariants}
+                                initial='hidden'
+                                animate={activeSection === 'footer' ? 'visible' : 'hidden'}
+                                transition={{...transition, delay: 0.4}}
+                                whileHover={{
+                                    scale: 1.05,
+                                    transition: { duration: 0.2, ease: 'easeInOut' },
+                                  }}
+                                href="https://www.linkedin.com/in/keelan-matthews-645b13201/" 
+                                className="text-dark mb-5"
+                            >
+                                <BsLinkedin size={30} />
+                            </motion.a>
                         </div>
                     </Row>
                 </Col>

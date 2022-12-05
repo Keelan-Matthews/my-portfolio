@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import Button from 'react-bootstrap/Button'
 import FormControl from 'react-bootstrap/FormControl';
 import FormGroup from 'react-bootstrap/FormGroup';
@@ -9,6 +9,7 @@ import TextReveal from '../animations/TextReveal'
 import { Formik, ErrorMessage, Form, Field } from 'formik'
 import * as Yup from "yup"
 import { motion } from 'framer-motion/dist/framer-motion'
+import emailjs from '@emailjs/browser'
 
 const transition = { duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] }
 
@@ -32,12 +33,23 @@ const Schema = Yup.object({
     email: Yup.string()
         .email("Please enter a valid email")
         .required("Please enter an email"),
-    message: Yup.string()
-        .required("Please enter a message")
+    // message: Yup.string()
+    //     .required("Please enter a message")
 });
 
 export default function Contact({ visible }) {
     const [showToast, setShowToast] = useState(false);
+
+    const form = useRef();
+
+    const sendEmail = () => {
+        emailjs.sendForm('service_8h2e55v', 'template_9fmnbng', form.current, 'EMotZoMbsTqV390uC')
+            .then((result) => {
+                setShowToast(true);
+            }, (error) => {
+                console.log(error.text);
+            });
+    };
 
     const getCurrentDate = () => {
         const date = new Date();
@@ -68,7 +80,7 @@ export default function Contact({ visible }) {
                 validationSchema={Schema}
                 onSubmit={(values, { setSubmitting, resetForm }) => {
                     setSubmitting(true);
-                    setShowToast(true);
+                    sendEmail();
                     resetForm();
                     setSubmitting(false);
                 }}
@@ -76,7 +88,7 @@ export default function Contact({ visible }) {
 
                 {({ errors, touched, isSubmitting }) => (
 
-                    <Form className="w-50">
+                    <Form className="w-50" ref={form}>
                         <FormikInput type="Email" errors={errors} touched={touched} visible={visible} />
                         <FormikInput type="Subject" errors={errors} touched={touched} visible={visible} />
                         <FormikInput type="Message" errors={errors} touched={touched} visible={visible} />

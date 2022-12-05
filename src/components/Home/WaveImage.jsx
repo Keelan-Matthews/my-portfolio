@@ -2,6 +2,7 @@ import React, { useRef, Suspense } from 'react'
 import { Canvas, extend, useFrame, useLoader } from '@react-three/fiber'
 import * as THREE from 'three'
 import { WaveMaterial } from '../animations/Shader'
+import { useTexture } from '@react-three/drei'
 
 extend({ WaveMaterial })
 
@@ -12,7 +13,7 @@ const HeroWave = () => {
         ref.current.uTime = clock.getElapsedTime()
     });
 
-    const [image] = useLoader(THREE.TextureLoader, [`/images/painting.webp`]);
+    const image = useTexture("/images/painting.webp");
 
     return (
         <mesh>
@@ -24,10 +25,12 @@ const HeroWave = () => {
 
 export default function WaveImage() {
     return (
-        <Canvas camera={{ fov: 10 }}>
-            <Suspense fallback={null}>
-                <HeroWave />
-            </Suspense>
-        </Canvas>
+        <>
+            <Canvas camera={{ fov: 10 }}>
+                <Suspense fallback={null}>
+                    <HeroWave />
+                </Suspense>
+            </Canvas>
+        </>
     )
 }
