@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
+import { motion } from 'framer-motion/dist/framer-motion'
 
 import Image1 from '../images/about-me.webp'
 import Image2 from '../images/interactive-trailer.webp'
@@ -9,8 +9,9 @@ import Image5 from '../images/portrait.webp'
 import Image6 from '../images/projects.webp'
 import Image7 from '../images/rudasa.webp'
 import Image8 from '../images/yacht-portfolio.webp'
+import Image9 from '../images/statue.webp'
 
-const preloadSrcList = [Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8]
+const preloadSrcList = [Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8, Image9]
 
 export default function LoadingScreen({ loading, setLoading, modelLoading }) {
     const [percentage, setPercentage] = useState(0)
@@ -29,7 +30,7 @@ export default function LoadingScreen({ loading, setLoading, modelLoading }) {
             style={{ zIndex: 99999, backgroundColor: "white" }}
         >
             <div>
-                <p className="display-2">{`${percentage/16*100}%`}</p>
+                <p className="display-2">{`${percentage/9*100}%`}</p>
             </div>
         </motion.div>
     )

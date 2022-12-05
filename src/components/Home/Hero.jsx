@@ -96,7 +96,7 @@ export default function Hero({ visible, setModelLoading }) {
                         >
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.05} parallaxContainerRef={parRef}>
                                 <div>
-                                    <img src="/images/statue1.png" alt="statue" />
+                                    <img src="../../images/statue.webp" alt="statue" />
                                 </div>
                             </MouseParallax>
                         </motion.div>
