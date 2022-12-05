@@ -1,33 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { AiOutlineMail } from 'react-icons/ai'
 import { IoMailOpenSharp } from 'react-icons/io5'
 import Navigation from './Navigation'
-import { motion } from 'framer-motion/dist/framer-motion'
+import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
 import { Link } from 'react-router-dom'
 import { BiArrowBack } from 'react-icons/bi'
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
 
-const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
-
-const lineVariants = {
-    visible: { height: '170px' },
-    hidden: { height: 0 }
-}
-
-const textVariants = {
-    visible: { opacity: 1, rotate: 90, y: 0 },
-    hidden: { opacity: 0, rotate: 90, y: -30 }
-}
-
-const socialVariants = {
-    visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: 50 }   
-}
-
 export default function SideColumns({ children, scrollY, activeSection, page, entered = false }) {
     const [hover, setHover] = useState(false)
+
+    const ctrls = useAnimation()
+    const footerCtrls = useAnimation()
+
+    useEffect(() => {
+        ctrls.start(scrollY ? 'visible' : 'hidden')
+        footerCtrls.start(activeSection === 'footer' ? 'visible' : 'hidden')
+    }, [scrollY, activeSection])
 
     return (
         <>
@@ -74,7 +65,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                             <motion.div
                                 variants={textVariants}
                                 initial='hidden'
-                                animate={scrollY ? 'visible' : 'hidden'}
+                                animate={ctrls}
                                 transition={{ duration: 1, ease: 'easeInOut', delay: scrollY ? 2 : 0 }}
                             >
                                 <p className="fs-5 pt-3" style={{ width: '200px', textAlign: 'center' }}>scroll down</p>
@@ -83,7 +74,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                             <motion.div
                                 variants={lineVariants}
                                 initial='hidden'
-                                animate={scrollY ? 'visible' : 'hidden'}
+                                animate={ctrls}
                                 transition={{ duration: 1, ease: 'easeInOut', delay: scrollY ? 3 : 0 }}
                                 className="mt-5 scroll-line"
                             >
@@ -93,7 +84,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                             <motion.a 
                                 variants={socialVariants}
                                 initial='hidden'
-                                animate={activeSection === 'footer' ? 'visible' : 'hidden'}
+                                animate={footerCtrls}
                                 transition={{...transition, delay: 0.2}}
                                 whileHover={{
                                     scale: 1.05,
@@ -107,7 +98,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                             <motion.a 
                                 variants={socialVariants}
                                 initial='hidden'
-                                animate={activeSection === 'footer' ? 'visible' : 'hidden'}
+                                animate={footerCtrls}
                                 transition={{...transition, delay: 0.4}}
                                 whileHover={{
                                     scale: 1.05,
@@ -124,4 +115,22 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
             </Row>
         </>
     )
+}
+
+
+const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
+
+const lineVariants = {
+    visible: { height: '170px' },
+    hidden: { height: 0 }
+}
+
+const textVariants = {
+    visible: { opacity: 1, rotate: 90, y: 0 },
+    hidden: { opacity: 0, rotate: 90, y: -30 }
+}
+
+const socialVariants = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: 50 }   
 }

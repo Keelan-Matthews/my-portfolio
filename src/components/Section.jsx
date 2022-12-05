@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion/dist/framer-motion'
+import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
 import TextReveal from './animations/TextReveal'
 
 const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
@@ -39,6 +39,11 @@ const circleVariants2 = {
 }
 
 export default function Section({ visible, japanese, circleVar = false, title, cta, desc, site = false }) {
+    const ctrls = useAnimation();
+
+    useEffect(() => {
+        ctrls.start(visible ? "visible" : "hidden")
+    }, [visible])
 
     const image = title.toLowerCase().replace(/ /g, '-') + '.webp';
     const slug = "/" + title.toLowerCase().split(' ')[0];
@@ -55,7 +60,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                     <motion.p
                         variants={japaneseVariants}
                         initial="hidden"
-                        animate={visible ? "visible" : "hidden"}
+                        animate={ctrls}
                         transition={{ ...transition, delay: 0.9 }}
                         className='fs-4 rotate'
                     >

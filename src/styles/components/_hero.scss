@@ -14,15 +14,6 @@
 	}
 }
 
-.scroll-down-text-transition {
-	opacity: 0;
-	width: 130px;
-
-	&.visible {
-		animation: slide-scroll 0.5s ease-in-out forwards;
-	}
-}
-
 .statue {
 	left: 20%;
 	top: 8%;

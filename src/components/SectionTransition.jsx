@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { motion } from 'framer-motion/dist/framer-motion'
 
-const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
-
 export default function SectionTransition({ japanese, circleVar, title, cta, desc }) {
-    const [enter, setEnter] = useState(false)
-
-    useEffect(() => {
-        setTimeout(() => {
-            setEnter(true)
-        }, 1000)
-    }, [])
 
     const toImage = (title) => title.toLowerCase().replace(/ /g, '-') + '.webp';
 
@@ -21,8 +12,9 @@ export default function SectionTransition({ japanese, circleVar, title, cta, des
             <Col xs={12} md={6} className="d-flex position-relative justify-content-end">
                 <p className='fs-4 rotate'>{japanese}</p>
                 <motion.div
-                    initial={ circleVar === 1 ? { left: '3%', bottom: '5%' } : { right: '-5%', bottom: '-5%' }}
-                    animate={ circleVar === 1 ? { left: '-5%', bottom: '5%' } : { right: '-5%', bottom: '-1%' }}
+                    variants={circleVar === 1 ? circle1Variants : circle2Variants}
+                    initial='hidden'
+                    animate='visible'
                     transition={transition}
                     className='bg-primary rounded-circle circle-container position-absolute'
                 ></motion.div>
@@ -56,10 +48,47 @@ export default function SectionTransition({ japanese, circleVar, title, cta, des
                     <span className='text-to-scroll'>{cta}</span>
                 </div>
                 <div className='scroll-down d-flex flex-column align-items-center w-25'>
-                    <p className={`fs-5 scroll-down-text-transition ${enter ? 'visible' : ''}`}>scroll down</p>
-                    <div className={`mt-5 scroll-line-transition ${enter ? 'visible' : ''}`}></div>
+                    <motion.p 
+                        variants={scrollTextVariants}
+                        initial='hidden'
+                        animate='visible'
+                        transition={{ ...transition, delay: 1 }}
+                        className="fs-5"
+                    >
+                        scroll down
+                    </motion.p>
+                    <motion.div 
+                        variants={scrollLineVariants}
+                        initial='hidden'
+                        animate='visible'
+                        transition={{ ...transition, delay: 1.5 }}
+                        className="mt-5 border-start border-2 border-dark"
+                    >
+                    </motion.div>
                 </div>
             </Col>
         </Row>
     )
+}
+
+const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
+
+const circle1Variants = {
+    hidden: { left: '3%', bottom: '5%' },   
+    visible: { left: '-5%', bottom: '5%' }
+}
+
+const circle2Variants = {
+    hidden: { right: '-5%', bottom: '-5%' },
+    visible: { right: '-5%', bottom: '-1%' }
+}
+
+const scrollTextVariants = {
+    hidden: { opacity: 0, y: -30, width: 130, rotate: 90 },
+    visible: { opacity: 1, y: 0, rotate: 90 }
+}
+
+const scrollLineVariants = {
+    hidden: { height: 0 },
+    visible: { height: 300 }
 }

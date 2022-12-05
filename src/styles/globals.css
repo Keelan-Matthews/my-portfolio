@@ -12,15 +12,6 @@
   }
 }
 
-.scroll-down-text-transition {
-  opacity: 0;
-  width: 130px;
-}
-.scroll-down-text-transition.visible {
-  -webkit-animation: slide-scroll 0.5s ease-in-out forwards;
-          animation: slide-scroll 0.5s ease-in-out forwards;
-}
-
 .statue {
   left: 20%;
   top: 8%;
@@ -418,15 +409,6 @@ body,
 
 body {
   overflow-x: hidden;
-}
-
-.scroll-line-transition {
-  height: 0px;
-  border-left: 2px solid black;
-  transition: 0.5s ease-in-out 0.5s;
-}
-.scroll-line-transition.visible {
-  height: 300px;
 }
 
 .scrollable {

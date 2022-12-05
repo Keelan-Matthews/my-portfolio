@@ -26,16 +26,6 @@ body {
 	overflow-x:hidden;
 }
 
-.scroll-line-transition {
-	height: 0px;
-	border-left: 2px solid black;
-	transition: 0.5s ease-in-out 0.5s;
-
-	&.visible {
-		height: 300px;
-	}
-}
-
 .scrollable {
 	overflow-y: scroll;
 	scrollbar-width: none;
