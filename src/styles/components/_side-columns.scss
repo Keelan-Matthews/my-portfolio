@@ -21,15 +21,3 @@
 		width: 60px;
 	}
 }
-
-.nav-group {
-	&:hover {
-		.nav-item {
-			visibility: visible;
-		}
-	}
-}
-
-.nav-item {
-	visibility: hidden;
-}

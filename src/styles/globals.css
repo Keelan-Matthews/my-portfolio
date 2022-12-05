@@ -402,14 +402,6 @@
   width: 60px;
 }
 
-.nav-group:hover .nav-item {
-  visibility: visible;
-}
-
-.nav-item {
-  visibility: hidden;
-}
-
 .heading-line:before {
   display: inline-block;
   margin: 0 20px 8px 0;
