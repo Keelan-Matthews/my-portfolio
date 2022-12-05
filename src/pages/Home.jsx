@@ -21,7 +21,7 @@ export default function Home({ sections }) {
 
     return (
         <Layout title="Keelan Matthews | Welcome">
-            <LoadingScreen loading={loading} setLoading={setLoading} modelLoading={modelLoading} />
+            {/* <LoadingScreen loading={loading} setLoading={setLoading} modelLoading={modelLoading} /> */}
             <SideColumns scrollY={hideScroll} activeSection={activeSection} page={page}>
                 <Col xs={10}>
                     <ReactFullPage
