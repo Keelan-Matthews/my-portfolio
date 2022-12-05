@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { motion } from 'framer-motion/dist/framer-motion'
+import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
 import TextReveal from '../animations/TextReveal'
 
 const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
@@ -27,6 +27,11 @@ const paragraphLineVariants = {
 }
 
 export default function Introduction({ inView }) {
+    const ctrls = useAnimation();
+
+    useEffect(() => {
+        ctrls.start(inView ? "visible" : "hidden")
+    }, [inView])
 
     return (
         <div className="vh-100 d-flex flex-column justify-content-center">
@@ -34,7 +39,7 @@ export default function Introduction({ inView }) {
                 <motion.div
                     variants={headingLineVariants}
                     initial="hidden"
-                    animate={inView ? "visible" : "hidden"}
+                    animate={ctrls}
                     transition={transition}
                     className="heading-line me-4 mb-3"
                 ></motion.div>
@@ -48,7 +53,7 @@ export default function Introduction({ inView }) {
                         <motion.small 
                             variants={textVariants}
                             initial="hidden"
-                            animate={inView ? "visible" : "hidden"}
+                            animate={ctrls}
                             transition={{...transition, delay: 0.8}}
                             className="m-0"
                         >
@@ -57,7 +62,7 @@ export default function Introduction({ inView }) {
                         <motion.p 
                             variants={textVariants}
                             initial="hidden"
-                            animate={inView ? "visible" : "hidden"}
+                            animate={ctrls}
                             transition={{...transition, delay: 0.6}}
                             className='fw-bold mb-4 fs-3'
                         >
@@ -67,7 +72,7 @@ export default function Introduction({ inView }) {
                             <motion.div 
                                 variants={paragraphLineVariants}
                                 initial="hidden"
-                                animate={inView ? "visible" : "hidden"}
+                                animate={ctrls}
                                 transition={{...transition, delay: 0.2}}
                                 className="border-start border-2 border-primary"
                             >   
@@ -75,7 +80,7 @@ export default function Introduction({ inView }) {
                             <motion.p 
                                 variants={textVariants}
                                 initial="hidden"
-                                animate={inView ? "visible" : "hidden"}
+                                animate={ctrls}
                                 transition={{...transition, delay: 1}}
                                 className="fs-5 ps-3"
                             >
@@ -90,7 +95,7 @@ export default function Introduction({ inView }) {
                     <motion.img 
                         variants={imageVariants}
                         initial="hidden"
-                        animate={inView ? "visible" : "hidden"}
+                        animate={ctrls}
                         transition={{...transition, delay: 1.3}}
                         src="images/portrait.webp" alt="" 
                     />
