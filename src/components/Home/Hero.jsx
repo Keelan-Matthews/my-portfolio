@@ -38,8 +38,96 @@ const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }
 export default function Hero({ setScrollY }) {
 
     const parRef = useRef()
-    const [index, setIndex] = useState(0)
     const [showHero, setShowHero] = useState(true)
+
+    return (
+        <div className="pb-5">
+            <Row ref={parRef} className='position-relative pb-5 mb-5'>
+                <Col xs={12} md={6} className='p-5'>
+                    {/* Japanese Accent */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 100 }}
+                        transition={{ ...transition, delay: 0.2 }}
+                        className="m-0"
+                    >
+                        <p>デザイン</p>
+                    </motion.div>
+
+                    {/* Main Heading */}
+                    <a href="#about" className="text-decoration-none">
+                        <div className="text-outline heading-text">
+                            <div className="keelan-text">
+                                <TextReveal text="Keelan" visible={true} className="mb-0" />
+                            </div>
+                            <TextReveal text="Matthews" visible={true} />
+                        </div>
+                    </a>
+
+                    {/* Slogan */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 100 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ ...transition, delay: 0.4 }}
+                        className="fs-2"
+                    >
+                        <Slogan />
+                    </motion.div>
+
+                    {/* CV Button */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 100 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ ...transition, delay: 1 }}
+                    >
+                        <Button variant="outline-secondary" size="lg" className='mt-5' href="/keelan-matthews-cv.pdf" target="_blank">download cv</Button>
+                    </motion.div>
+                </Col>
+                <Col xs={12} md={6}>
+                    <div className="position-relative h-100 w-100">
+                        {/* Wave Image */}
+                        <motion.div
+                            initial={{ left: '2000px', opacity: 0 }}
+                            animate={{ left: '30%', opacity: 0.4 }}
+                            transition={{ ...transition, delay: 1.2 }}
+                            className="position-absolute painting"
+                        >
+                            <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.01} parallaxContainerRef={parRef}>
+                                <div className="painting-container">
+                                    <WaveImage type="hero" />
+                                </div>
+                            </MouseParallax>
+                        </motion.div>
+
+                        {/* Circle */}
+                        <div className={`position-absolute circle ${showHero ? 'visible' : ''}`}>
+                            <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.03} parallaxContainerRef={parRef}>
+                                <div className='bg-primary rounded-circle circle-container'></div>
+                            </MouseParallax>
+                        </div>
+
+                        {/* Statue */}
+                        <motion.div
+                            initial={{ y: 20, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ ...transition, delay: 1.4 }}
+                            className="position-absolute statue"
+                        >
+                            <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.05} parallaxContainerRef={parRef}>
+                                <div>
+                                    <img src="/images/statue1.png" alt="statue" />
+                                </div>
+                            </MouseParallax>
+                        </motion.div>
+                    </div>
+                </Col>
+            </Row>
+        </div>
+    )
+}
+
+const Slogan = () => {
+    const [index, setIndex] = useState(0);
 
     useEffect(() => {
         const intervalId = setInterval(() =>
@@ -61,87 +149,16 @@ export default function Hero({ setScrollY }) {
         "sign",
         "sign"
     ];
-
     return (
-        <div className="pb-5">
-            <Row ref={parRef} className='position-relative pb-5 mb-5'>
-                <Col xs={12} md={6} className='p-5'>
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 100 }}
-                        transition={{ ...transition, delay: 0.2 }}
-                        className="m-0"
-                    >
-                        <p>デザイン</p>
-                    </motion.div>
-                    <a href="#about" className="text-decoration-none">
-                        <div className="text-outline heading-text">
-                            <div className="keelan-text">
-                                <TextReveal text="Keelan" visible={true} className="mb-0" />
-                            </div>
-                            <TextReveal text="Matthews" visible={true} />
-                        </div>
-                    </a>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 100 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ ...transition, delay: 0.4 }}
-                        className="fs-2"
-                    >
-                        <TextTransition springConfig={presets.gentle} inline>
-                            {TEXTS[index % TEXTS.length]}
-                        </TextTransition>
-                        &nbsp;de
-                        <TextTransition springConfig={presets.gentle} inline>
-                            {TEXTS2[index % TEXTS2.length]}
-                        </TextTransition>
-                        er.
-                    </motion.div>
-                    <motion.div
-                        initial={{ opacity: 0, y: 100 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ ...transition, delay: 1 }}
-                    >
-                        <Button variant="outline-secondary" size="lg" className='mt-5' href="/keelan-matthews-cv.pdf" target="_blank">download cv</Button>
-                    </motion.div>
-                </Col>
-                <Col xs={12} md={6}>
-                    <div className="position-relative h-100 w-100">
-                        <motion.div
-                            initial={{ left: '2000px', opacity: 0 }}
-                            animate={{ left: '30%', opacity: 0.4 }}
-                            transition={{ ...transition, delay: 1.2 }}
-                            className="position-absolute painting"
-                        >
-                            <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.01} parallaxContainerRef={parRef}>
-                                <div className="painting-container">
-                                    <WaveImage type="hero" />
-                                </div>
-                            </MouseParallax>
-                        </motion.div>
-
-                        <div className={`position-absolute circle ${showHero ? 'visible' : ''}`}>
-                            <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.03} parallaxContainerRef={parRef}>
-                                <div className='bg-primary rounded-circle circle-container'></div>
-                            </MouseParallax>
-                        </div>
-
-                        <motion.div
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ ...transition, delay: 1.4 }}
-                            className="position-absolute statue"
-                        >
-                            <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.05} parallaxContainerRef={parRef}>
-                                <div>
-                                    <img src="/images/statue1.png" alt="statue" />
-                                </div>
-                            </MouseParallax>
-                        </motion.div>
-                    </div>
-                </Col>
-            </Row>
-        </div>
+        <>
+            <TextTransition springConfig={presets.gentle} inline>
+                {TEXTS[index % TEXTS.length]}
+            </TextTransition>
+            &nbsp;de
+            <TextTransition springConfig={presets.gentle} inline>
+                {TEXTS2[index % TEXTS2.length]}
+            </TextTransition>
+            er.
+        </>
     )
 }

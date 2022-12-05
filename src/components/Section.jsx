@@ -49,7 +49,9 @@ export default function Section({ visible, japanese, circleVar = false, title, c
     return (
         <div>
             <Row className="d-flex align-items-center">
+                {/* Left Side */}
                 <Col xs={12} md={6} className="d-flex position-relative justify-content-end">
+                    {/* Japanese Accent */}
                     <motion.p
                         variants={japaneseVariants}
                         initial="hidden"
@@ -60,6 +62,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                         {japanese}
                     </motion.p>
 
+                    {/* Circle */}
                     <motion.div
                         variants={circleVar === 1 ? circleVariants : circleVariants2}
                         initial='hidden'
@@ -68,6 +71,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                         className='bg-primary rounded-circle circle-container position-absolute'
                     ></motion.div>
 
+                    {/* Image */}
                     <div className="image-height d-flex align-items-center">
                         <motion.img
                             variants={imageVariants}
@@ -83,7 +87,10 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                     </div>
 
                 </Col>
+
+                {/* Right Side */}
                 <Col xs={12} md={6}>
+                    {/* Section Title */}
                     <div className={site ? 'project-title' : ''}>
                         {
                             titleArrayLength > 2 ?

@@ -4,8 +4,17 @@ import Col from 'react-bootstrap/Col'
 import Accordion from 'react-bootstrap/Accordion'
 import { SiReact, SiBootstrap, SiJavascript, SiVuedotjs, SiPhp, SiSass, SiJava, SiCplusplus, SiHtml5, SiCss3, SiBlender, SiFigma, SiVisualstudiocode, SiMongodb, SiNodedotjs, SiExpress, SiNextdotjs, SiPython } from 'react-icons/si'
 import { DiMysql, DiIllustrator, DiPhotoshop, DiGit, DiGithubBadge } from 'react-icons/di'
+import { motion } from 'framer-motion/dist/framer-motion'
+import TextReveal from '../animations/TextReveal'
 
-const SkillGroup = (skills, basis='20%') => {
+const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
+
+const headingLineVariants = {
+    hidden: {width: 0, opacity: 0},
+    visible: {width: 140, opacity: 1}
+}
+
+const SkillGroup = (skills, basis = '20%') => {
 	return (
 		<>
 			{skills.map((skill, index) => (
@@ -21,7 +30,7 @@ const SkillGroup = (skills, basis='20%') => {
 	)
 }
 
-export default function Skills() {
+export default function Skills({ inView }) {
 	const skills = [
 		{
 			name: 'React',
@@ -187,20 +196,42 @@ export default function Skills() {
 	]
 
 	return (
-		<Row className="mb-5 pb-5">
-			<Col xs={12} md={{ span: 10, offset: 1 }} className="d-flex justify-content-center flex-wrap mb-5">
-				{SkillGroup(skills.filter((skill) => skill.top))}
-			</Col>
-			<Col xs={12} md={{ span: 10, offset: 1 }} className="px-3 mt-5">
-				<Accordion>
-					{[...new Set(skills.map((skill) => skill.type))].map((type, index) => (
-						<Accordion.Item eventKey={index} key={index}>
-							<Accordion.Header>{type}</Accordion.Header>
-							<Accordion.Body className="d-flex flex-wrap">{SkillGroup(skills.filter((skill) => skill.type === type), '15%')}</Accordion.Body>
-						</Accordion.Item>
-					))}
-				</Accordion>
-			</Col>
-		</Row>
+		<div className="vh-100 d-flex flex-column justify-content-center">
+			<div className="d-flex align-items-center mb-5">
+                <motion.div
+                    variants={headingLineVariants}
+                    initial="hidden"
+                    animate={inView ? "visible" : "hidden"}
+                    transition={transition}
+                    className="heading-line me-4 mb-3"
+                ></motion.div>
+                <div className="fw-bold">
+                    <TextReveal text="Introduction" visible={inView} delay={0.6} />
+                </div>
+            </div>
+			<Row className="mb-5 pb-5">
+				<Col xs={12} md={{ span: 10, offset: 1 }} className="d-flex justify-content-center flex-wrap mb-5">
+					{SkillGroup(skills.filter((skill) => skill.top))}
+				</Col>
+				<Col xs={12} md={{ span: 10, offset: 1 }} className="px-3 mt-5">
+					<Accordion>
+						{[...new Set(skills.map((skill) => skill.type))].map((type, index) => (
+							<Accordion.Item eventKey={index} key={index}>
+								<Accordion.Header>{type}</Accordion.Header>
+								<Accordion.Body className="d-flex flex-wrap">
+									{
+										SkillGroup(
+											skills.filter((skill) => skill.type === type)
+												  .sort((a,b) => a.level.localeCompare(b.level))
+											, '15%'
+										)
+									}
+								</Accordion.Body>
+							</Accordion.Item>
+						))}
+					</Accordion>
+				</Col>
+			</Row>
+		</div>
 	)
 }
