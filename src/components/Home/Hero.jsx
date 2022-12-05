@@ -74,7 +74,7 @@ export default function Hero({ setScrollY }) {
                     >
                         <p>デザイン</p>
                     </motion.div>
-                    <a href="#about-section" className="text-decoration-none">
+                    <a href="#about" className="text-decoration-none">
                         <div className="text-outline heading-text">
                             <div className="keelan-text">
                                 <TextReveal text="Keelan" visible={true} className="mb-0" />

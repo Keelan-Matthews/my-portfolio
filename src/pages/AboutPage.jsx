@@ -5,6 +5,7 @@ import SectionTransition from '../components/SectionTransition'
 import Skills from '../components/About/Skills'
 import Layout from '../components/Layout';
 import SideColumns from '../components/SideColumns'
+import { motion } from 'framer-motion/dist/framer-motion'
 
 export default function AboutPage({ section }) {
 	return (

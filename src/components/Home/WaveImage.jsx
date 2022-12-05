@@ -1,6 +1,5 @@
 import React, { useRef, Suspense } from 'react'
-import { Canvas, extend, useFrame, useLoader } from '@react-three/fiber'
-import * as THREE from 'three'
+import { Canvas, extend, useFrame } from '@react-three/fiber'
 import { WaveMaterial } from '../animations/Shader'
 import { useTexture } from '@react-three/drei'
 
