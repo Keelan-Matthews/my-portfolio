@@ -16,7 +16,7 @@ export default function Home({ sections }) {
     const [hideScroll, setHideScroll] = useState(true);
     const [activeSection, setActiveSection] = useState('hero');
     const [page, setPage] = useState(0);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [modelLoading, setModelLoading] = useState(true);
 
     return (
