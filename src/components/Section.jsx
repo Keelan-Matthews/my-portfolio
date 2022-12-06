@@ -162,9 +162,10 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                                         animate={visible ? 'visible' : 'hidden'}
                                         transition={{ ...transition, delay: 0.5 }}
                                     >
-                                        <Button href={`/projects${slug}`} variant="outline-secondary" size="lg" className='mt-4'>case study</Button>
+                                        <Button href={site} variant="outline-secondary" size="lg" className='mt-4'>view site</Button>
+                                        {/* <Button href={`/projects${slug}`} variant="outline-secondary" size="lg" className='mt-4'>case study</Button> */}
                                     </motion.div>
-                                    <div className="overflow-hidden view-site">
+                                    {/* <div className="overflow-hidden view-site">
                                         <motion.div
                                             variants={button2Variants}
                                             initial='hidden'
@@ -177,7 +178,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                                                 </p>
                                             </Button>
                                         </motion.div>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 :
                                 <Link to={slug}>
