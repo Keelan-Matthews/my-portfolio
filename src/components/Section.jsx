@@ -6,15 +6,21 @@ import { Link } from 'react-router-dom'
 import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
 import TextReveal from './animations/TextReveal'
 import { MouseParallax } from 'react-just-parallax'
+import { BsArrowRight } from 'react-icons/bs'
 
 const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
 
 const imageVariants = {
-    hidden: { height: '10%', scale: 1 },
+    hidden: { height: '10%', width: '100%', scale: 1 },
     visible: { height: '100%', scale: 1.08 }
 }
 
 const buttonVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0 }
+}
+
+const button2Variants = {
     hidden: { opacity: 0, y: 100 },
     visible: { opacity: 1, y: 0 }
 }
@@ -75,24 +81,29 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                         animate={visible && circleVar ? 'visible' : 'hidden'}
                         transition={{ ...transition, delay: 0.3 }}
                         className='bg-primary rounded-circle circle-container position-absolute'
-                        style={{zIndex: 5}}
+                        style={{ zIndex: 5 }}
                     ></motion.div>
 
                     {/* Image */}
                     <div className="image-height d-flex align-items-center" style={{ overflow: "hidden" }}>
-                        <MouseParallax shouldResetPosition strength={0.01}>
-                            <motion.img
-                                variants={imageVariants}
-                                initial='hidden'
-                                animate={visible ? 'visible' : 'hidden'}
-                                transition={{ ...transition, delay: 0.5 }}
-                                data-src={`/images/${image}`}
-                                className={`image-crop ${site ? 'lower-opacity' : ''}`}
-                                width={'100%'}
-                                alt=""
-                            >
-                            </motion.img>
-                        </MouseParallax>
+                        <motion.div
+                            variants={imageVariants}
+                            initial='hidden'
+                            animate={visible ? 'visible' : 'hidden'}
+                            transition={{ ...transition, delay: 0.5 }}
+                        >
+                            <MouseParallax shouldResetPosition strength={0.01} height>
+                                <img
+
+                                    data-src={`/images/${image}`}
+                                    className={`image-crop ${site ? 'lower-opacity' : ''}`}
+                                    width={'100%'}
+                                    height={'100%'}
+                                    alt=""
+                                >
+                                </img>
+                            </MouseParallax>
+                        </motion.div>
                     </div>
                 </Col>
 
@@ -151,23 +162,22 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                                         animate={visible ? 'visible' : 'hidden'}
                                         transition={{ ...transition, delay: 0.5 }}
                                     >
-                                        {/* <Button href={`/projects/${slug}`} variant="outline-secondary" size="lg" className='mt-4'>case study</Button> */}
-                                        <Button href={site} variant="outline-secondary" size="lg" className='mt-4'>view site</Button>
+                                        <Button href={`/projects${slug}`} variant="outline-secondary" size="lg" className='mt-4'>case study</Button>
                                     </motion.div>
-                                    {/* <div className="overflow-hidden view-site">
-                                <motion.div
-                                    variants={button2Variants}
-                                    initial='hidden'
-                                    animate={visible ? 'visible' : 'hidden'}
-                                    transition={{ ...transition, delay: 1 }}
-                                >
-                                    <Button href={site} size="lg" variant="outline-light text-dark" className='mt-4 site-button'>
-                                        <p>
-                                            view site <span className='show-arrow'><BsArrowRight size={20} /></span>
-                                        </p>
-                                    </Button>
-                                </motion.div>
-                            </div> */}
+                                    <div className="overflow-hidden view-site">
+                                        <motion.div
+                                            variants={button2Variants}
+                                            initial='hidden'
+                                            animate={visible ? 'visible' : 'hidden'}
+                                            transition={{ ...transition, delay: 1 }}
+                                        >
+                                            <Button href={site} size="lg" variant="outline-light text-dark" className='mt-4 site-button'>
+                                                <p>
+                                                    view site <span className='show-arrow'><BsArrowRight size={20} /></span>
+                                                </p>
+                                            </Button>
+                                        </motion.div>
+                                    </div>
                                 </div>
                                 :
                                 <Link to={slug}>

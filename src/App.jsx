@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import AboutPage from './pages/AboutPage';
 import ProjectPage from './pages/ProjectPage';
+import CaseStudy from './pages/CaseStudy';
 import { AnimatePresence } from 'framer-motion/dist/framer-motion';
 import Cursor from './utils/cursor'
 
@@ -46,6 +47,7 @@ function App() {
 				<Route path="/" element={<Home sections={sections} />} />
 				<Route path="/about" element={<AboutPage section={sections[0]} />} />
 				<Route path="/projects" element={<ProjectPage section={sections[1]} />} />
+				<Route path="/projects/:slug" element={<CaseStudy />} />
 			</Routes>
 		</AnimatePresence>
 	);
