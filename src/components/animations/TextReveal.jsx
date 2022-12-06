@@ -56,10 +56,11 @@ export default function TextReveal(props) {
 
 
     return (
-        <Title aria-label={text} role="heading">
+        <Title aria-label={text} role="heading" style={{cursor: 'pointer'}}>
             {text.split(" ").map((word, index) => {
                 return (
                     <Word
+                        className="section-title"
                         aria-hidden="true"
                         key={index}
                         initial="hidden"

@@ -26,6 +26,10 @@ body {
 	overflow-x:hidden;
 }
 
+p {
+	cursor: default;
+}
+
 .scrollable {
 	overflow-y: scroll;
 	scrollbar-width: none;

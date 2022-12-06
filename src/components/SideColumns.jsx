@@ -61,7 +61,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                     <Row className="d-flex flex-column justify-content-between align-items-center vh-100 pt-5">
                         <motion.div 
                             variants={pageVariants}
-                            initial='hidden'
+                            initial={entered ? 'visible' : 'hidden'}
                             animate='visible'
                             transition={{...transition, delay: 0.5}}
                             className="page-number"

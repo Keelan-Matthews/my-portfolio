@@ -9,7 +9,7 @@ export default class Cursor {
         // Varibles
         this.Cursor = el;
         this.Cursor.style.opacity = 0;
-        this.Item = document.querySelectorAll(".project-title");
+        this.Item = document.querySelectorAll(".section-title");
 
         this.cursorConfigs = {
             x: { previous: 0, current: 0, amt: 0.2 },
@@ -43,26 +43,18 @@ export default class Cursor {
             // If I am hovering on the item for on page load I want to scale the cursor media
             if (link.matches(":hover")) {
                 this.setVideo(link);
-                this.ScaleCursor(this.Cursor.children[0], 0.8);
+                this.ScaleCursor(this.Cursor.children[0], 0.4);
             }
             //On mouse enter scale the media-cursor to .8
             link.addEventListener("mouseenter", () => {
-                this.setVideo(link);
-                this.ScaleCursor(this.Cursor.children[0], 0.8);
+                // this.setVideo(link);
+                this.ScaleCursor(this.Cursor.children[0], 0.4);
+                this.Cursor.classList.add("media-blend");
             });
             //On mouse enter scale the media-cursor to 0
             link.addEventListener("mouseleave", () => {
                 this.ScaleCursor(this.Cursor.children[0], 0);
-            });
-            //Hover on a tag to expand to 1.2
-            link.children[1].addEventListener("mouseenter", () => {
-                this.Cursor.classList.add("media-blend");
-                this.ScaleCursor(this.Cursor.children[0], 1.2);
-            });
-            // Bring scale back down .8
-            link.children[1].addEventListener("mouseleave", () => {
                 this.Cursor.classList.remove("media-blend");
-                this.ScaleCursor(this.Cursor.children[0], 0.8);
             });
         });
     }
