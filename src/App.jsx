@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import AboutPage from './pages/AboutPage';
 import ProjectPage from './pages/ProjectPage';
 import { AnimatePresence } from 'framer-motion/dist/framer-motion';
+import Cursor from './utils/cursor'
 
 function App() {
+	const cursorRef = useRef(null);
+	useEffect(() => {
+        const cursor = new Cursor(cursorRef.current)
+    }, [])
 
 	const sections = [
 		{
@@ -25,6 +30,18 @@ function App() {
 	]
 	return (
 		<AnimatePresence mode='wait'>
+			<div className="cursor" ref={cursorRef}>
+                <div className="cursor-media">
+                    <video 
+                        src="/videos/about-me.mp4"
+                        preload='auto'
+                        autoPlay
+                        muted
+                        loop
+                        id="about-me-video"
+                    ></video>
+                </div>
+            </div>
 			<Routes>
 				<Route path="/" element={<Home sections={sections} />} />
 				<Route path="/about" element={<AboutPage section={sections[0]} />} />

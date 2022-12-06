@@ -36,9 +36,9 @@ const NavLine = ({ section, activeSection }) => {
             </motion.p>
             <motion.div 
                 variants={lineVariants}
-                initial="notActive"
+                initial={activeSection === section ? 'active' : 'notActive'}
                 animate={activeSection === section ? 'active' : 'notActive'}
-                transition={transition}
+                transition={{...transition, delay: 0.1}}
                 className="nav-line"
             >
             </motion.div>

@@ -1,16 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import { Link } from 'react-router-dom'
 import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
 import TextReveal from './animations/TextReveal'
+import { MouseParallax } from 'react-just-parallax'
 
 const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
 
 const imageVariants = {
-    hidden: { height: '10%' },
-    visible: { height: '100%' }
+    hidden: { height: '10%', scale: 1 },
+    visible: { height: '100%', scale: 1.08 }
 }
 
 const buttonVariants = {
@@ -74,23 +75,25 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                         animate={visible && circleVar ? 'visible' : 'hidden'}
                         transition={{ ...transition, delay: 0.3 }}
                         className='bg-primary rounded-circle circle-container position-absolute'
+                        style={{zIndex: 5}}
                     ></motion.div>
 
                     {/* Image */}
-                    <div className="image-height d-flex align-items-center">
-                        <motion.img
-                            variants={imageVariants}
-                            initial='hidden'
-                            animate={visible ? 'visible' : 'hidden'}
-                            transition={{ ...transition, delay: 0.5 }}
-                            data-src={`/images/${image}`}
-                            className={`image-crop ${site ? 'lower-opacity' : ''}`}
-                            width={'100%'}
-                            alt=""
-                        >
-                        </motion.img>
+                    <div className="image-height d-flex align-items-center" style={{ overflow: "hidden" }}>
+                        <MouseParallax shouldResetPosition strength={0.01}>
+                            <motion.img
+                                variants={imageVariants}
+                                initial='hidden'
+                                animate={visible ? 'visible' : 'hidden'}
+                                transition={{ ...transition, delay: 0.5 }}
+                                data-src={`/images/${image}`}
+                                className={`image-crop ${site ? 'lower-opacity' : ''}`}
+                                width={'100%'}
+                                alt=""
+                            >
+                            </motion.img>
+                        </MouseParallax>
                     </div>
-
                 </Col>
 
                 {/* Right Side */}

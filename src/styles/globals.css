@@ -82,39 +82,6 @@
   transform: translateY(40px);
 }
 
-@-webkit-keyframes button-to-scroll {
-  0% {
-    transform: scaleY(1);
-  }
-  100% {
-    transform: scaleY(0);
-  }
-}
-
-@keyframes button-to-scroll {
-  0% {
-    transform: scaleY(1);
-  }
-  100% {
-    transform: scaleY(0);
-  }
-}
-@-webkit-keyframes text-to-scroll {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes text-to-scroll {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
 .project-title h2 span {
   margin-bottom: -60px !important;
 }
@@ -181,6 +148,43 @@
 .heading-line {
   height: 1px;
   background-color: black;
+}
+
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  contain: layout style size;
+  pointer-events: none;
+}
+.cursor::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  display: block;
+  width: 30px;
+  height: 30px;
+  transform: scale(0.2);
+  background: black;
+  border-radius: 50%;
+}
+.cursor .cursor-media {
+  display: block;
+  height: 350px;
+  width: 350px;
+  overflow: hidden;
+  border-radius: 100%;
+  transform: scale(0);
+  margin: -175px 0 0 -175px;
+  position: relative;
+}
+.cursor .cursor-media video {
+  height: 350px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
 }
 
 :root {
@@ -255,17 +259,6 @@ body {
 
 .border-black-1 {
   border: 1px solid black;
-}
-
-.button-to-scroll {
-  -webkit-animation: button-to-scroll 0.5s ease-in-out forwards;
-          animation: button-to-scroll 0.5s ease-in-out forwards;
-}
-
-.text-to-scroll {
-  -webkit-animation: text-to-scroll 0.3s ease-in-out forwards;
-          animation: text-to-scroll 0.3s ease-in-out forwards;
-  white-space: nowrap;
 }
 
 .form-control {

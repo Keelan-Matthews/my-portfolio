@@ -25,31 +25,32 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
             <Row className='vh-100'>
                 <Col xs={12} md={1}>
                     <Row className='d-flex flex-md-column justify-content-between align-items-center ps-4 pt-5 ps-md-0 vh-100'>
-                        {
-                            entered ?
-                                <motion.div
-                                    initial={{ opacity: 0, y: 50 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={transition}
-                                    className='d-flex justify-content-center'
-                                >
+                        <motion.div
+                            variants={mailVariants}
+                            initial='hidden'
+                            animate='visible'
+                            transition={{...transition, delay: 0.4}}
+                            className='d-flex justify-content-center'
+                        >
+                            {
+                                entered ?
                                     <Link to={`/#${activeSection}`} className="text-dark w-50">
                                         <BiArrowBack size={37} />
                                     </Link>
-                                </motion.div>
-                                :
-                                <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className="d-flex justify-content-center">
-                                    {
-                                        hover ?
-                                            <IoMailOpenSharp size={37} className="envelope" onClick={() => {
-                                                if (window.fullpage_api)
-                                                    window.fullpage_api.moveTo(4)
-                                            }} />
-                                            :
-                                            <AiOutlineMail size={37} className="envelope" />
-                                    }
-                                </div>
-                        }
+                                    :
+                                    <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className="d-flex justify-content-center">
+                                        {
+                                            hover ?
+                                                <IoMailOpenSharp size={37} className="envelope" onClick={() => {
+                                                    if (window.fullpage_api)
+                                                        window.fullpage_api.moveTo(4)
+                                                }} />
+                                                :
+                                                <AiOutlineMail size={37} className="envelope" />
+                                        }
+                                    </div>
+                            }
+                        </motion.div>
 
                         <Navigation activeSection={activeSection} />
                         <div className="d-none d-md-block"></div>
@@ -58,9 +59,15 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                 {children}
                 <Col xs={2} md={1}>
                     <Row className="d-flex flex-column justify-content-between align-items-center vh-100 pt-5">
-                        <div className="page-number">
+                        <motion.div 
+                            variants={pageVariants}
+                            initial='hidden'
+                            animate='visible'
+                            transition={{...transition, delay: 0.5}}
+                            className="page-number"
+                        >
                             <p className='fs-1'>0{page}</p>
-                        </div>
+                        </motion.div>
                         <div className={`scroll-down d-flex flex-column justify-content-center align-items-center ${entered ? 'd-none' : ''}`}>
                             <motion.div
                                 variants={textVariants}
@@ -81,30 +88,30 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                             </motion.div>
                         </div>
                         <div className={`d-flex flex-column ${activeSection === 'footer' ? '' : 'd-none'}`}>
-                            <motion.a 
+                            <motion.a
                                 variants={socialVariants}
                                 initial='hidden'
                                 animate={footerCtrls}
-                                transition={{...transition, delay: 0.2}}
+                                transition={{ ...transition, delay: 0.2 }}
                                 whileHover={{
                                     scale: 1.05,
                                     transition: { duration: 0.2, ease: 'easeInOut' },
-                                  }}
-                                href="https://github.com/Keelan-Matthews" 
+                                }}
+                                href="https://github.com/Keelan-Matthews"
                                 className="text-dark mb-3"
                             >
                                 <BsGithub size={30} />
                             </motion.a>
-                            <motion.a 
+                            <motion.a
                                 variants={socialVariants}
                                 initial='hidden'
                                 animate={footerCtrls}
-                                transition={{...transition, delay: 0.4}}
+                                transition={{ ...transition, delay: 0.4 }}
                                 whileHover={{
                                     scale: 1.05,
                                     transition: { duration: 0.2, ease: 'easeInOut' },
-                                  }}
-                                href="https://www.linkedin.com/in/keelan-matthews-645b13201/" 
+                                }}
+                                href="https://www.linkedin.com/in/keelan-matthews-645b13201/"
                                 className="text-dark mb-5"
                             >
                                 <BsLinkedin size={30} />
@@ -132,5 +139,15 @@ const textVariants = {
 
 const socialVariants = {
     visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: 50 }   
+    hidden: { opacity: 0, x: 50 }
+}
+
+const pageVariants = {
+    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0, x: 50 }
+}
+
+const mailVariants = {
+    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 50 }
 }
