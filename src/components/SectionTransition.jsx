@@ -44,9 +44,22 @@ export default function SectionTransition({ japanese, circleVar, title, cta, des
                     </motion.p>
                 </div>
 
-                <div className="border-black-1 fs-5 mt-4 d-inline-block button-to-scroll p-2 px-3">
-                    <span className='text-to-scroll'>{cta}</span>
-                </div>
+                <motion.div 
+                    variants={buttonVariants}
+                    initial='hidden'
+                    animate='visible'
+                    transition={{ duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }}
+                    className="border-black-1 fs-5 mt-4 d-inline-block p-2 px-3"
+                >
+                    <motion.span 
+                        variants={buttonTextVariants}
+                        initial='hidden'
+                        animate='visible'
+                        transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
+                    >
+                        {cta}
+                    </motion.span>
+                </motion.div>
                 <div className='scroll-down d-flex flex-column align-items-center w-25'>
                     <motion.p 
                         variants={scrollTextVariants}
@@ -91,4 +104,14 @@ const scrollTextVariants = {
 const scrollLineVariants = {
     hidden: { height: 0 },
     visible: { height: 300 }
+}
+
+const buttonVariants = {
+    hidden: { scaleY: 1 },
+    visible: { scaleY: 0 }
+}
+
+const buttonTextVariants = {
+    hidden: { opacity: 1, y: 0 },
+    visible: { opacity: 0, y: -10 }
 }

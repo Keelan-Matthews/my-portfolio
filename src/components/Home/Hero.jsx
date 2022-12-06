@@ -8,8 +8,6 @@ import TextTransition, { presets } from "react-text-transition"
 import TextReveal from '../animations/TextReveal'
 import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
 
-import StatueImage from '../../images/statue.webp'
-
 export default function Hero({ visible, setModelLoading }) {
     const ctrls = useAnimation()
     const parRef = useRef()
@@ -104,7 +102,7 @@ export default function Hero({ visible, setModelLoading }) {
                         >
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.05} parallaxContainerRef={parRef}>
                                 <div>
-                                    <img src={StatueImage} alt="statue" />
+                                    <img src="/images/statue.webp" alt="statue" />
                                 </div>
                             </MouseParallax>
                         </motion.div>
