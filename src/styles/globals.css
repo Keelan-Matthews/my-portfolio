@@ -29,10 +29,6 @@
 .circle {
   left: 12%;
   top: 25%;
-  opacity: 0;
-}
-.circle.visible {
-  opacity: 1;
 }
 
 .circle-container {

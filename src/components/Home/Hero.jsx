@@ -25,9 +25,9 @@ export default function Hero({ visible, setModelLoading }) {
                     {/* Japanese Accent */}
                     <motion.div
                         variants={japaneseVariants}
-                        initial="visible"
+                        initial="hidden"
                         animate={ctrls}
-                        transition={{ ...transition, delay: 0.5 }}
+                        transition={{ ...transition, delay: 0.8 }}
                         className="m-0"
                     >
                         <p>デザイン</p>
@@ -37,9 +37,9 @@ export default function Hero({ visible, setModelLoading }) {
                     <a href="#about" className="text-decoration-none">
                         <div className="text-outline heading-text">
                             <div className="keelan-text">
-                                <TextReveal text="Keelan" visible={visible} className="mb-0" delay={2} />
+                                <TextReveal text="Keelan" visible={visible} className="mb-0" delay={0.4} />
                             </div>
-                            <TextReveal text="Matthews" visible={visible} delay={2.3} />
+                            <TextReveal text="Matthews" visible={visible} delay={0.6} />
                         </div>
                     </a>
 
@@ -71,7 +71,7 @@ export default function Hero({ visible, setModelLoading }) {
                             variants={paintingVariants}
                             initial="hidden"
                             animate={ctrls}
-                            transition={{ ...transition, delay: 1.5 }}
+                            transition={{ ...transition }}
                             className="position-absolute painting"
                         >
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.01} parallaxContainerRef={parRef}>
@@ -82,11 +82,17 @@ export default function Hero({ visible, setModelLoading }) {
                         </motion.div>
 
                         {/* Circle */}
-                        <div className="position-absolute circle visible">
+                        <motion.div 
+                            variants={circleVariants}
+                            initial="hidden"
+                            animate={ctrls}
+                            transition={{ ...transition, delay: 1.6 }}
+                            className="position-absolute circle"
+                        >
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.03} parallaxContainerRef={parRef}>
                                 <div className='bg-primary rounded-circle circle-container'></div>
                             </MouseParallax>
-                        </div>
+                        </motion.div>
 
                         {/* Statue */}
                         <motion.div
@@ -171,4 +177,9 @@ const paintingVariants = {
 const statueVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: { y: 0, opacity: 1 }
+}
+
+const circleVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: { opacity: 1, y: 0 }
 }
