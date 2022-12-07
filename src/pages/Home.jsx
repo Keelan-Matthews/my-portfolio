@@ -7,7 +7,6 @@ import Layout from '../components/Layout';
 import ReactFullPage from '@fullpage/react-fullpage';
 import Section from '../components/Section';
 import Footer from '../components/Footer';
-import LoadingScreen from '../components/LoadingScreen';
 
 const anchors = ['hero', 'about', 'projects', 'contact', 'footer'];
 
@@ -21,7 +20,6 @@ export default function Home({ sections }) {
 
     return (
         <Layout title="Keelan Matthews | Welcome">
-            {/* <LoadingScreen loading={loading} setLoading={setLoading} modelLoading={modelLoading} /> */}
             <SideColumns scrollY={hideScroll} activeSection={activeSection} page={page}>
                 <Col xs={10}>
                     <ReactFullPage

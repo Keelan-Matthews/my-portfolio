@@ -43,6 +43,11 @@ export default function TextReveal(props) {
     const characterAnimation = {
         hidden: {
             x: `-0.95em`,
+            transition: {
+                duration: 1,
+                ease: [0.2, 0.65, 0.3, 0.9],
+                delay: props.delay
+            },
         },
         visible: {
             x: `0em`,
@@ -56,14 +61,14 @@ export default function TextReveal(props) {
 
 
     return (
-        <Title aria-label={text} role="heading" style={{cursor: 'pointer'}}>
+        <Title aria-label={text} role="heading">
             {text.split(" ").map((word, index) => {
                 return (
                     <Word
                         className="section-title"
                         aria-hidden="true"
                         key={index}
-                        initial="hidden"
+                        initial={props.showInit === true ? "visible" : "hidden"}
                         animate={ctrls}
                         variants={wordAnimation}
                         transition={{

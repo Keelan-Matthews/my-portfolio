@@ -21,8 +21,8 @@ const buttonVariants = {
 }
 
 const button2Variants = {
-    hidden: { opacity: 0, y: 100 },
-    visible: { opacity: 1, y: 0 }
+    hidden: { x: -200 },
+    visible: { x: 0 }
 }
 
 const descVariants = {
@@ -52,8 +52,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
         ctrls.start(visible ? "visible" : "hidden")
     }, [visible])
 
-    const image = title.toLowerCase().replace(/ /g, '-') + '.webp';
-    const slug = "/" + title.toLowerCase().split(' ')[0];
+    const slug = title.toLowerCase().replace(/ /g, '-');
 
     const titleArray = title.split(' ');
     const titleArrayLength = titleArray.length;
@@ -95,7 +94,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                             <MouseParallax shouldResetPosition strength={0.01} height>
                                 <img
 
-                                    data-src={`/images/${image}`}
+                                    data-src={`/images/${slug}.webp`}
                                     className={`image-crop ${site ? 'lower-opacity' : ''}`}
                                     width={'100%'}
                                     height={'100%'}
@@ -162,10 +161,11 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                                         animate={visible ? 'visible' : 'hidden'}
                                         transition={{ ...transition, delay: 0.5 }}
                                     >
-                                        <Button href={site} variant="outline-secondary" size="lg" className='mt-4'>view site</Button>
-                                        {/* <Button href={`/projects${slug}`} variant="outline-secondary" size="lg" className='mt-4'>case study</Button> */}
+                                        <Link to={`/projects/${slug}`}>
+                                            <Button variant="outline-secondary" size="lg" className='mt-4'>case study</Button>
+                                        </Link>
                                     </motion.div>
-                                    {/* <div className="overflow-hidden view-site">
+                                    <div className="overflow-hidden view-site">
                                         <motion.div
                                             variants={button2Variants}
                                             initial='hidden'
@@ -178,7 +178,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                                                 </p>
                                             </Button>
                                         </motion.div>
-                                    </div> */}
+                                    </div>
                                 </div>
                                 :
                                 <Link to={slug}>

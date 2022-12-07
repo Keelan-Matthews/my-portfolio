@@ -3,18 +3,18 @@ import Section from '../Section'
 
 export default function ProjectSection({ activePage }) {
 	const projects = [
-		{
-			japanese: '漫画',
-			title: 'Motion VIO Comic',
-			site: 'https://motion-comic.netlify.app/',
-			// desc: 'A motion comic based off of a comic I did in first year, inspired by anime and vaporwave.'
-		},
-		{
-			japanese: '予告編',
-			title: 'Interactive Trailer',
-			site: 'https://k9-instinct.netlify.app/',
-			// desc: 'An interactive trailer based off of the comic I did in first year. Its purpose is to entice the user to read it.'
-		},
+		// {
+		// 	japanese: '漫画',
+		// 	title: 'Motion VIO Comic',
+		// 	site: 'https://motion-comic.netlify.app/',
+		// 	// desc: 'A motion comic based off of a comic I did in first year, inspired by anime and vaporwave.'
+		// },
+		// {
+		// 	japanese: '予告編',
+		// 	title: 'Interactive Trailer',
+		// 	site: 'https://k9-instinct.netlify.app/',
+		// 	// desc: 'An interactive trailer based off of the comic I did in first year. Its purpose is to entice the user to read it.'
+		// },
 		{
 			japanese: 'ルダサ',
 			title: 'RuDASA',

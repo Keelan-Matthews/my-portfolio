@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col'
 import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
 import TextReveal from '../animations/TextReveal'
 
-const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
+const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }
 
 const headingLineVariants = {
     hidden: { width: 0, opacity: 0 },

@@ -45,7 +45,7 @@ function App() {
             </div>
 			<Routes>
 				<Route path="/" element={<Home sections={sections} />} />
-				<Route path="/about" element={<AboutPage section={sections[0]} />} />
+				<Route path="/about-me" element={<AboutPage section={sections[0]} />} />
 				<Route path="/projects" element={<ProjectPage section={sections[1]} />} />
 				<Route path="/projects/:slug" element={<CaseStudy />} />
 			</Routes>
