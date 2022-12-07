@@ -65,7 +65,7 @@ export default class Cursor {
         let video = document.querySelector(`#${src}`);
         let siblings = getSiblings(video);
 
-        if (video.id == src) {
+        if (video.id === src) {
             gsap.set(video, { zIndex: 4, opacity: 1 });
             siblings.forEach((i) => {
                 gsap.set(i, { zIndex: 1, opacity: 0 });

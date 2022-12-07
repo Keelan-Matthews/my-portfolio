@@ -10,7 +10,7 @@ import Cursor from './utils/cursor'
 function App() {
 	const cursorRef = useRef(null);
 	useEffect(() => {
-        const cursor = new Cursor(cursorRef.current)
+        new Cursor(cursorRef.current)
     }, [])
 
 	const sections = [

@@ -8,7 +8,7 @@ import TextTransition, { presets } from "react-text-transition"
 import TextReveal from '../animations/TextReveal'
 import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
 
-export default function Hero({ visible, setModelLoading }) {
+export default function Hero({ visible }) {
     const ctrls = useAnimation()
     const parRef = useRef()
 
@@ -74,7 +74,7 @@ export default function Hero({ visible, setModelLoading }) {
                         >
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.01} parallaxContainerRef={parRef}>
                                 <div className="painting-container">
-                                    <WaveImage type="hero" setModelLoading={setModelLoading} />
+                                    <WaveImage type="hero" />
                                 </div>
                             </MouseParallax>
                         </motion.div>

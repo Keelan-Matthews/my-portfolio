@@ -5,9 +5,11 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import SideColumns from '../components/SideColumns'
 import SectionTransition from '../components/SectionTransition'
+import matter from 'gray-matter'
 
 export default function CaseStudy() {
     const [postContent, setPostcontent] = useState('')
+    const [sections, setSections] = useState([])
 
     const slug = window.location.pathname.split('/')[2]
     const title = slug === "rudasa" ? "RuDASA" : slug.split('-').join(' ').replace(/\b\w/g, l => l.toUpperCase())
@@ -27,10 +29,23 @@ export default function CaseStudy() {
             .then(res =>
                 fetch(res.default)
                     .then(response => response.text())
-                    .then(response => setPostcontent(response))
+                    .then(response => 
+                        setPostcontent(
+                            matter(response, {
+                                section: function (section, file) {
+                                    section.content = section.content.trim() + '\n';
+                                }
+                            }
+                        ))
+                    )
                     .catch(err => console.log(err))
             )
     }, [])
+
+    useEffect(() => {
+        setSections(postContent.sections)
+    }, [postContent])
+
 
     return (
         <Layout title="Keelan Matthews | Projects">
@@ -41,7 +56,10 @@ export default function CaseStudy() {
                     </div>
 
                     <Col xs={{ span: 8, offset: 2 }}>
-                        <ReactMarkdown children={postContent} remarkPlugins={[remarkGfm]} />
+                        <h3>The Client</h3>
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                            {sections && sections[0] && sections[0].content}
+                        </ReactMarkdown>
                     </Col>
                 </Col>
             </SideColumns>
