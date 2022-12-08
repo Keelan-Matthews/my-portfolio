@@ -31,7 +31,7 @@ export default function SectionTransition({ japanese, circleVar = false, title, 
                     initial={{ height: '750px', width: '550px' }}
                     animate={{ width: '730px' }}
                     transition={transition}
-                    src={`/images/${slug}`}
+                    src={`/images/${circleVar ? "home/" : "projects/"}${slug}`}
                     className="image-crop"
                     alt=""
                 >

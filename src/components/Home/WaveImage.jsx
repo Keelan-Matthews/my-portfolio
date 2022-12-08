@@ -12,7 +12,7 @@ const HeroWave = () => {
         ref.current.uTime = clock.getElapsedTime()
     });
 
-    const image = useTexture("/images/painting.webp");
+    const image = useTexture("/images/home/painting.webp");
 
     return (
         <mesh>

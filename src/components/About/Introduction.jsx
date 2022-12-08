@@ -97,7 +97,7 @@ export default function Introduction({ inView }) {
                         initial="hidden"
                         animate={ctrls}
                         transition={{...transition, delay: 1.3}}
-                        src="images/portrait.webp" alt="" 
+                        src="images/home/portrait.webp" alt="" 
                     />
                 </Col>
             </Row>

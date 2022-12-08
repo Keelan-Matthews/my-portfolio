@@ -94,7 +94,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                             <MouseParallax shouldResetPosition strength={0.01} height>
                                 <img
 
-                                    data-src={`/images/${slug}.webp`}
+                                    data-src={`/images/${circleVar ? "home/" : "projects/"}${slug}.webp`}
                                     className={`image-crop ${site ? 'lower-opacity' : ''}`}
                                     width={'100%'}
                                     height={'100%'}
