@@ -28,6 +28,8 @@ body {
 
 p {
 	cursor: default;
+	line-height: 25px;
+	letter-spacing: 0.7px;
 }
 
 .scrollable {
@@ -86,4 +88,8 @@ p {
 
 textarea {
 	height: 20vh !important;
+}
+
+.bg-muted {
+	background-color: #c1c9d1 !important;
 }

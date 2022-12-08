@@ -131,6 +131,11 @@
   opacity: 1;
 }
 
+.case-study-circle {
+  left: -4px;
+  top: 0;
+}
+
 .scroll-line {
   border-left: 2px solid black;
 }
@@ -218,6 +223,8 @@ body {
 
 p {
   cursor: default;
+  line-height: 25px;
+  letter-spacing: 0.7px;
 }
 
 .scrollable {
@@ -279,4 +286,8 @@ p {
 
 textarea {
   height: 20vh !important;
+}
+
+.bg-muted {
+  background-color: #c1c9d1 !important;
 }/*# sourceMappingURL=globals.css.map */

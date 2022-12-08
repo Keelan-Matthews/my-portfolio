@@ -2,10 +2,9 @@ import React, { useEffect } from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Accordion from 'react-bootstrap/Accordion'
-import { SiReact, SiBootstrap, SiJavascript, SiVuedotjs, SiPhp, SiSass, SiJava, SiCplusplus, SiHtml5, SiCss3, SiBlender, SiFigma, SiVisualstudiocode, SiMongodb, SiNodedotjs, SiExpress, SiNextdotjs, SiPython } from 'react-icons/si'
-import { DiMysql, DiIllustrator, DiPhotoshop, DiGit, DiGithubBadge } from 'react-icons/di'
 import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
 import TextReveal from '../animations/TextReveal'
+import Skill from './Skill'
 
 const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
 
@@ -17,11 +16,6 @@ const headingLineVariants = {
 const groupVariants = {
 	hidden: {},
 	visible: {},
-};
-
-const skillVariants = {
-	hidden: {opacity: 0, y: 20},
-	visible: {opacity: 1, y: 0}
 };
 
 const SkillGroup = ({skills, basis = '20%', inView}) => {
@@ -44,18 +38,7 @@ const SkillGroup = ({skills, basis = '20%', inView}) => {
 			}}
 		>
 			{skills.map((skill, index) => (
-				<motion.div 
-					variants={skillVariants}
-					className="border-black d-flex m-3 p-3 align-items-center" 
-					key={index} 
-					style={{ flexBasis: basis }}
-				>
-					{skill.icon}
-					<div className="ms-4">
-						<p className="fw-bold m-0 p-0">{skill.name}</p>
-						<p className="fs-6 m-0 p-0">{skill.level}</p>
-					</div>
-				</motion.div>
+				<Skill key={index} skill={skill} basis={basis} />
 			))}
 		</motion.div>
 	)
@@ -66,161 +49,138 @@ export default function Skills({ inView }) {
 		{
 			name: 'React',
 			level: 'Expert',
-			icon: <SiReact size={37} />,
 			top: true,
 			type: 'Frontend'
 		},
 		{
 			name: 'Bootstrap',
 			level: 'Expert',
-			icon: <SiBootstrap size={37} />,
 			top: true,
 			type: 'Frontend'
 		},
 		{
 			name: 'Javascript',
 			level: 'Expert',
-			icon: <SiJavascript size={37} />,
 			top: true,
 			type: 'Frontend'
 		},
 		{
 			name: 'Vue',
 			level: 'Intermediate',
-			icon: <SiVuedotjs size={37} />,
 			top: true,
 			type: 'Frontend'
 		},
 		{
 			name: 'PHP',
 			level: 'Intermediate',
-			icon: <SiPhp size={37} />,
 			top: true,
 			type: 'Backend'
 		},
 		{
 			name: 'SASS',
 			level: 'Expert',
-			icon: <SiSass size={37} />,
 			top: true,
 			type: 'Frontend'
 		},
 		{
 			name: 'MySQL',
 			level: 'Intermediate',
-			icon: <DiMysql size={37} />,
 			top: true,
 			type: 'Backend'
 		},
 		{
 			name: 'Java',
 			level: 'Intermediate',
-			icon: <SiJava size={37} />,
 			top: false,
 			type: 'Programming'
 		},
 		{
 			name: 'C++',
 			level: 'Intermediate',
-			icon: <SiCplusplus size={37} />,
 			top: false,
 			type: 'Programming'
 		},
 		{
 			name: 'HTML',
 			level: 'Expert',
-			icon: <SiHtml5 size={37} />,
 			top: false,
 			type: 'Frontend'
 		},
 		{
 			name: 'CSS',
 			level: 'Expert',
-			icon: <SiCss3 size={37} />,
 			top: false,
 			type: 'Frontend'
 		},
 		{
 			name: 'Blender',
 			level: 'Novice',
-			icon: <SiBlender size={37} />,
 			top: false,
 			type: 'Software'
 		},
 		{
 			name: 'Figma',
 			level: 'Intermediate',
-			icon: <SiFigma size={37} />,
 			top: false,
 			type: 'Software'
 		},
 		{
 			name: 'VS Code',
 			level: 'Expert',
-			icon: <SiVisualstudiocode size={37} />,
 			top: false,
 			type: 'Software'
 		},
 		{
 			name: 'Illustrator',
 			level: 'Intermediate',
-			icon: <DiIllustrator size={37} />,
 			top: false,
 			type: 'Software'
 		},
 		{
 			name: 'Photoshop',
 			level: 'Novice',
-			icon: <DiPhotoshop size={37} />,
 			top: false,
 			type: 'Software'
 		},
 		{
 			name: 'Git',
 			level: 'Intermediate',
-			icon: <DiGit size={37} />,
 			top: false,
 			type: 'Software'
 		},
 		{
 			name: 'GitHub',
 			level: 'Intermediate',
-			icon: <DiGithubBadge size={37} />,
 			top: false,
 			type: 'Software'
 		},
 		{
 			name: 'MongoDB',
 			level: 'Intermediate',
-			icon: <SiMongodb size={37} />,
 			top: false,
 			type: 'Backend'
 		},
 		{
 			name: 'NodeJS',
 			level: 'Intermediate',
-			icon: <SiNodedotjs size={37} />,
 			top: false,
 			type: 'Backend'
 		},
 		{
 			name: 'Express',
 			level: 'Intermediate',
-			icon: <SiExpress size={37} />,
 			top: false,
 			type: 'Backend'
 		},
 		{
 			name: 'Python',
 			level: 'Novice',
-			icon: <SiPython size={37} />,
 			top: false,
 			type: 'Programming'
 		},
 		{
 			name: 'NextJS',
 			level: 'Expert',
-			icon: <SiNextdotjs size={37} />,
 			top: false,
 			type: 'Frontend'
 		}
