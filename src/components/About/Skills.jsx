@@ -38,7 +38,7 @@ const SkillGroup = ({skills, basis = '20%', inView}) => {
 			}}
 		>
 			{skills.map((skill, index) => (
-				<Skill key={index} skill={skill} basis={basis} />
+				<Skill key={index} skill={skill.name} basis={basis} />
 			))}
 		</motion.div>
 	)
