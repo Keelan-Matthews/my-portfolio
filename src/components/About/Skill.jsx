@@ -1,6 +1,7 @@
 import React from 'react'
 import { SiReact, SiBootstrap, SiJavascript, SiVuedotjs, SiPhp, SiSass, SiJava, SiCplusplus, SiHtml5, SiCss3, SiBlender, SiFigma, SiVisualstudiocode, SiMongodb, SiNodedotjs, SiExpress, SiNextdotjs, SiPython } from 'react-icons/si'
 import { DiMysql, DiIllustrator, DiPhotoshop, DiGit, DiGithubBadge } from 'react-icons/di'
+import { FaMarkdown } from 'react-icons/fa'
 import { motion } from 'framer-motion/dist/framer-motion'
 
 const icons = [
@@ -118,22 +119,26 @@ const icons = [
 		name: 'NextJS',
 		level: 'Expert',
 		icon: <SiNextdotjs size={37} />
+	},
+	{
+		name: 'Markdown',
+		level: 'Expert',
+		icon: <FaMarkdown size={37} />
 	}
 ]
 
 export default function Skill({ skill, basis = '20%' }) {
-
 	return (
-		icons.find(i => i.name === skill) ?
+		icons.find(i => i.name === skill.trim()) ?
 		<motion.div
 			variants={skillVariants}
 			className="border-black d-flex m-3 p-3 align-items-center"
 			style={{ flexBasis: basis }}
 		>
-			{icons.find(i => i.name === skill).icon}
+			{icons.find(i => i.name === skill.trim()).icon}
 			<div className="ms-4">
-				<p className="fw-bold m-0 p-0">{icons.find(i => i.name === skill).name}</p>
-				<p className="fs-6 m-0 p-0">{icons.find(i => i.name === skill).level}</p>
+				<p className="fw-bold m-0 p-0">{icons.find(i => i.name === skill.trim()).name}</p>
+				<p className="fs-6 m-0 p-0">{icons.find(i => i.name === skill.trim()).level}</p>
 			</div>
 		</motion.div>
 		: null

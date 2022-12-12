@@ -5,17 +5,11 @@ import Layout from '../components/Layout'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import SideColumns from '../components/SideColumns'
-// import SectionTransition from '../components/SectionTransition'
 import Section from '../components/Section'
 import matter from 'gray-matter'
 import Skill from '../components/About/Skill'
 
 export default function CaseStudy() {
-    const [postContent, setPostcontent] = useState('')
-    const [client, setClient] = useState({})
-    const [challenge, setChallenge] = useState({})
-    const [techStack, setTechStack] = useState({})
-    const [approach, setApproach] = useState({})
     const [mdArray, setMdArray] = useState([])
 
     const slug = window.location.pathname.split('/')[2]
@@ -31,40 +25,37 @@ export default function CaseStudy() {
     const japanese = japaneseArray[0][slug]
 
     useEffect(() => {
-
-        import(`../case-studies/${slug}.md`)
-            .then(res =>
-                fetch(res.default)
-                    .then(response => response.text())
-                    .then(response =>
-                        setPostcontent(
-                            matter(response, {
-                                section: function (section, file) {
-                                    section.content = section.content.trim() + '\n';
-                                }
-                            }
-                            ))
-                    )
-                    .catch(err => console.log(err))
-            )
+        getMd().then(res => {
+            setMdArray([res.sections[0], res.sections[1], res.sections[2], res.sections[3]])
+        })
     }, [])
 
-    useEffect(() => {
-        setClient(postContent && postContent.sections[0])
-        setChallenge(postContent && postContent.sections[1])
-        setTechStack(postContent && postContent.sections[2])
-        setApproach(postContent && postContent.sections[3])
-
-        setMdArray([client, challenge, techStack, approach])
-    }, [postContent])
-
+    const getMd = () => {
+        return new Promise((resolve, reject) => {
+            import(`../case-studies/${slug}.md`)
+                .then(res =>
+                    fetch(res.default)
+                        .then(response => response.text())
+                        .then(response =>
+                            resolve(
+                                matter(response, {
+                                    section: function (section, file) {
+                                        section.content = section.content.trim() + '\n';
+                                    }
+                                }
+                                ))
+                        )
+                        .catch(err => reject(err))
+                )
+        })
+    }
 
     return (
         <Layout title="Keelan Matthews | Projects">
             <SideColumns scrollY={true} activeSection="projects" page={2} entered={true} caseStudy={true}>
                 <Col xs={10} className="scrollable vh-100">
                     <div className="vh-100 d-flex align-items-center justify-content-center">
-                        <Section title={title} japanese={japanese} switchVar={true} visible={true} cta="case study" site={true} />
+                        <Section title={title} japanese={japanese} switchVar={true} visible={true} cta="case study" site={"https://example.com"} />
                     </div>
 
                     <Col xs={{ span: 6, offset: 3 }}>
@@ -94,22 +85,31 @@ const MdSection = ({ md, index, first = false, stack = false }) => {
             <Col xs={9} className="py-5">
                 <p className='fs-5 mb-0 pb-0'>0{index}</p>
                 <div className="fw-bold mb-4">
-                    <h2>{md && md.data && getTitle(md.data)}</h2>
+                    <h2>{getTitle(md.data)}</h2>
                 </div>
                 {
                     stack ?
                         <div className="d-flex flex-wrap">
                             {
-                                md && md.content && md.content.split(' ').map((skill, index) => <Skill skill={skill} key={index} basis="30%" />)
+                                md.content.split(' ').map((skill, index) => <Skill skill={skill} key={index} basis="40%" />)
                             }
                         </div>
                         :
-                        <ReactMarkdown children={md && md.content} remarkPlugins={[remarkGfm]} />
+                        <ReactMarkdown children={md.content} remarkPlugins={[remarkGfm]} />
                 }
+                <div className={`p-5 ps-0 ${stack && 'd-none'}`}>
+                    <img src={`/images/case-studies/${getImage(md.data)}`} alt="" width={'90%'} />
+                </div>
             </Col>
         </Row>
     )
 }
 
 const getTitle = (data) => data.split('title:')[1].split('image:')[0].trim()
-const getImage = (data) => data.split('image:')[1].trim()
+const getImage = (data) => {
+    const img = data.split('image:')[1]
+    if (img) {
+        return img.trim()
+    }
+    return ''
+}
