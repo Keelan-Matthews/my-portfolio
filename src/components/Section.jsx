@@ -11,45 +11,72 @@ import { BsArrowRight } from 'react-icons/bs'
 const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
 
 const imageVariants = {
-    hidden: { height: '10%', width: '100%', scale: 1 },
-    visible: { height: '100%', scale: 1.08 }
+    hidden: { height: '75px', width: '550px', scale: 1 },
+    visible: { height: '750px', width: '550px', scale: 1.08 },
+    switch: { width: '730px', height: '750px', scale: 1.08 }
 }
 
 const buttonVariants = {
     hidden: { opacity: 0, y: 100 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
+    switch: { scaleY: 0 }
 }
 
 const button2Variants = {
     hidden: { x: -200 },
-    visible: { x: 0 }
+    visible: { x: 0 },
+    switch: { x: 200 }
+}
+
+const buttonTextVariants = {
+    hidden: { opacity: 1, y: 0 },
+    visible: { opacity: 0, y: -10 }
 }
 
 const descVariants = {
     hidden: { opacity: 0, y: 100 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
+    switch: { opacity: 0, y: -10 }
 }
 
 const japaneseVariants = {
     hidden: { opacity: 0, y: 200 },
-    visible: { opacity: 1, y: 0 }
+    visible: { opacity: 1, y: 0 },
+    switch: { opacity: 1, y: 0 }
 }
 
 const circleVariants = {
     hidden: { left: '22%', bottom: '60%', opacity: 0 },
-    visible: { left: '22%', bottom: '5%', opacity: 1 }
+    visible: { left: '22%', bottom: '5%', opacity: 1 },
+    switch: { left: '5%', bottom: '5%' }
 }
 
 const circleVariants2 = {
     hidden: { right: '-5%', bottom: '60%', opacity: 0 },
-    visible: { right: '-5%', bottom: '-5%', opacity: 1 }
+    visible: { right: '-5%', bottom: '-5%', opacity: 1 },
+    switch: { right: '-5%', bottom: '-1%' }
 }
 
-export default function Section({ visible, japanese, circleVar = false, title, cta, desc, site = false }) {
+const scrollTextVariants = {
+    visible: { opacity: 0, y: -30, width: 130, rotate: 90 },
+    switch: { opacity: 1, y: 0, rotate: 90 }
+}
+
+const scrollLineVariants = {
+    visible: { height: 0 },
+    switch: { height: 300 }
+}
+
+export default function Section({ visible, japanese, circleVar = false, title, cta, desc, site = false, switchVar = false }) {
     const ctrls = useAnimation();
+    const initial = switchVar ? "visible" : "hidden";
 
     useEffect(() => {
-        ctrls.start(visible ? "visible" : "hidden")
+        ctrls.start(
+            visible ?
+                switchVar ? "switch" : "visible"
+                : "hidden"
+        )
     }, [visible])
 
     const slug = title.toLowerCase().replace(/ /g, '-');
@@ -65,7 +92,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                     {/* Japanese Accent */}
                     <motion.p
                         variants={japaneseVariants}
-                        initial="hidden"
+                        initial={initial}
                         animate={ctrls}
                         transition={{ ...transition, delay: 0.9 }}
                         className='fs-4 rotate'
@@ -75,26 +102,30 @@ export default function Section({ visible, japanese, circleVar = false, title, c
 
                     {/* Circle */}
                     <motion.div
-                        variants={circleVar === 1 ? circleVariants : circleVariants2}
-                        initial='hidden'
-                        animate={visible && circleVar ? 'visible' : 'hidden'}
+                        variants={circleVar === 1 ? circleVariants2 : circleVariants}
+                        initial={initial}
+                        animate={
+                            visible && circleVar ?
+                                switchVar ? 'switch' : 'visible'
+                                : 'hidden'
+                        }
                         transition={{ ...transition, delay: 0.3 }}
                         className='bg-primary rounded-circle circle-container position-absolute'
                         style={{ zIndex: 5 }}
                     ></motion.div>
 
                     {/* Image */}
-                    <div className="image-height d-flex align-items-center" style={{ overflow: "hidden" }}>
+                    <div className="d-flex align-items-center" style={{ overflow: "hidden" }}>
                         <motion.div
                             variants={imageVariants}
-                            initial='hidden'
-                            animate={visible ? 'visible' : 'hidden'}
+                            initial={initial}
+                            animate={ctrls}
                             transition={{ ...transition, delay: 0.5 }}
                         >
                             <MouseParallax shouldResetPosition strength={0.01} height>
                                 <img
 
-                                    data-src={`/images/${circleVar ? "home/" : "projects/"}${slug}.webp`}
+                                    src={`/images/${circleVar ? "home/" : "projects/"}${slug}.webp`}
                                     className={`image-crop ${site ? 'lower-opacity' : ''}`}
                                     width={'100%'}
                                     height={'100%'}
@@ -118,6 +149,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                                             text={titleArray.slice(0, titleArrayLength - 2).join(' ')}
                                             visible={visible}
                                             delay={1}
+                                            showInit={switchVar}
                                         />
                                     </div>
 
@@ -127,6 +159,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                                             visible={visible}
                                             className="transform-left m-0"
                                             delay={1}
+                                            showInit={switchVar}
                                         />
                                     </div>
                                 </div>
@@ -137,14 +170,15 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                                         visible={visible}
                                         className="transform-left m-0"
                                         delay={1}
+                                        showInit={switchVar}
                                     />
                                 </div>
                         }
 
                         <motion.p
                             variants={descVariants}
-                            initial='hidden'
-                            animate={visible ? 'visible' : 'hidden'}
+                            initial={initial}
+                            animate={ctrls}
                             transition={{ ...transition, delay: 0.3 }}
                             className={site ? 'fs-5 mt-5' : 'fs-2'}
                             style={site ? { maxWidth: '600px' } : ''}
@@ -157,8 +191,8 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                                 <div className="mt-5 d-flex">
                                     <motion.div
                                         variants={buttonVariants}
-                                        initial='hidden'
-                                        animate={visible ? 'visible' : 'hidden'}
+                                        initial={initial}
+                                        animate={ctrls}
                                         transition={{ ...transition, delay: 0.5 }}
                                     >
                                         <Link to={`/projects/${slug}`}>
@@ -168,8 +202,8 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                                     <div className="overflow-hidden view-site">
                                         <motion.div
                                             variants={button2Variants}
-                                            initial='hidden'
-                                            animate={visible ? 'visible' : 'hidden'}
+                                            initial={initial}
+                                            animate={ctrls}
                                             transition={{ ...transition, delay: 1 }}
                                         >
                                             <Button href={site} size="lg" variant="outline-light text-dark" className='mt-4 site-button'>
@@ -184,14 +218,34 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                                 <Link to={slug}>
                                     <motion.div
                                         variants={buttonVariants}
-                                        initial='hidden'
-                                        animate={visible ? 'visible' : 'hidden'}
+                                        initial={initial}
+                                        animate={ctrls}
                                         transition={{ ...transition, delay: 0.5 }}
                                     >
                                         <Button variant="outline-secondary" size="lg" className='mt-4'>{cta}</Button>
                                     </motion.div>
                                 </Link>
                         }
+
+                        <div className={`scroll-down d-flex flex-column align-items-center w-25 ${switchVar ? '' : 'invisible'}`}>
+                            <motion.p
+                                variants={scrollTextVariants}
+                                initial={initial}
+                                animate={ctrls}
+                                transition={{ ...transition, delay: 1 }}
+                                className="fs-5"
+                            >
+                                scroll down
+                            </motion.p>
+                            <motion.div
+                                variants={scrollLineVariants}
+                                initial={initial}
+                                animate={ctrls}
+                                transition={{ ...transition, delay: 1.5 }}
+                                className="mt-5 border-start border-2 border-dark"
+                            >
+                            </motion.div>
+                        </div>
 
                     </div>
                 </Col>

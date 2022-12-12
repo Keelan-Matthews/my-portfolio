@@ -1,6 +1,7 @@
 import React from 'react'
 import Col from 'react-bootstrap/Col'
-import SectionTransition from '../components/SectionTransition'
+// import SectionTransition from '../components/SectionTransition'
+import Section from '../components/Section'
 import Skills from '../components/About/Skills'
 import Layout from '../components/Layout';
 import SideColumns from '../components/SideColumns'
@@ -19,14 +20,14 @@ export default function AboutPage({ section }) {
 		<Layout title="Keelan Matthews | About me">
 			<SideColumns scrollY={true} activeSection="about" page={1} entered={true}>
 				<Col xs={10} className="scrollable vh-100">
-					<div className="vh-100 d-flex align-items-center justify-content-center">
-						<SectionTransition {...section} />
+					<div className="vh-100 d-flex justify-content-center align-items-center">
+						<Section {...section} switchVar={true} visible={true} />
 					</div>
-					
+
 					<div ref={introRef}>
 						<Introduction inView={inViewIntro} />
 					</div>
-					
+
 					<div ref={skillsRef}>
 						<Skills inView={inViewSkills} />
 					</div>

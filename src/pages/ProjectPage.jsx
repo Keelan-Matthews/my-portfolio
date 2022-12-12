@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import Col from 'react-bootstrap/Col'
 import Layout from '../components/Layout'
 import ProjectSection from '../components/Projects/ProjectSection'
-import SectionTransition from '../components/SectionTransition'
+// import SectionTransition from '../components/SectionTransition'
+import Section from '../components/Section'
 import ReactFullPage from '@fullpage/react-fullpage'
 import SideColumns from '../components/SideColumns'
 
@@ -21,7 +22,7 @@ export default function ProjectPage({ section }) {
 							return (
 								<ReactFullPage.Wrapper>
 									<div className="section">
-										<SectionTransition {...section} />
+										<Section {...section} switchVar={true} visible={true} />
 									</div>
 									<ProjectSection activePage={page} />
 								</ReactFullPage.Wrapper>

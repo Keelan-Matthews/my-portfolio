@@ -39,6 +39,7 @@ export default function Home({ sections }) {
                             setPage(destination.index);
                             setHideScroll(destination.index === 0);
                         }}
+                        
                         render={({ state, fullpageApi }) => {
 
                             return (

@@ -71,16 +71,18 @@ export default function SectionTransition({ japanese, circleVar = false, title, 
                             </div>
                     }
                     <motion.p
-                        initial={{ opacity: 1, y: 0 }}
-                        animate={{ opacity: 0, y: -10 }}
-                        transition={{ ...transition, delay: 0.3 }}
-                        className="fs-2"
-                    >
-                        {desc}
-                    </motion.p>
+                            variants={descVariants}
+                            initial='hidden'
+                            animate='visible'
+                            transition={{ ...transition, delay: 0.3 }}
+                            className={!circleVar ? 'fs-5 mt-5' : 'fs-2'}
+                            style={!circleVar ? { maxWidth: '600px' } : ''}
+                        >
+                            {desc}
+                        </motion.p>
                 </div>
 
-                <div className={!circleVar ? 'mt-5 d-flex' : ''}>
+                <div className={!circleVar ? 'd-flex' : ''}>
                     <motion.div
                         variants={buttonVariants}
                         initial='hidden'
@@ -164,6 +166,11 @@ const buttonVariants = {
 }
 
 const buttonTextVariants = {
+    hidden: { opacity: 1, y: 0 },
+    visible: { opacity: 0, y: -10 }
+}
+
+const descVariants = {
     hidden: { opacity: 1, y: 0 },
     visible: { opacity: 0, y: -10 }
 }
