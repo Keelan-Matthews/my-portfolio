@@ -5,7 +5,8 @@ import Layout from '../components/Layout'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import SideColumns from '../components/SideColumns'
-import SectionTransition from '../components/SectionTransition'
+// import SectionTransition from '../components/SectionTransition'
+import Section from '../components/Section'
 import matter from 'gray-matter'
 import Skill from '../components/About/Skill'
 
@@ -60,10 +61,10 @@ export default function CaseStudy() {
 
     return (
         <Layout title="Keelan Matthews | Projects">
-            <SideColumns scrollY={true} activeSection="projects" page={2} entered={true}>
+            <SideColumns scrollY={true} activeSection="projects" page={2} entered={true} caseStudy={true}>
                 <Col xs={10} className="scrollable vh-100">
                     <div className="vh-100 d-flex align-items-center justify-content-center">
-                        <SectionTransition title={title} japanese={japanese} />
+                        <Section title={title} japanese={japanese} switchVar={true} visible={true} cta="case study" site={true} />
                     </div>
 
                     <Col xs={{ span: 6, offset: 3 }}>

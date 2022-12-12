@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import { BiArrowBack } from 'react-icons/bi'
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
 
-export default function SideColumns({ children, scrollY, activeSection, page, entered = false }) {
+export default function SideColumns({ children, scrollY, activeSection, page, entered = false, caseStudy = false }) {
     const [hover, setHover] = useState(false)
 
     const ctrls = useAnimation()
@@ -34,7 +34,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                         >
                             {
                                 entered ?
-                                    <Link to={`/#${activeSection}`} className="text-dark w-50">
+                                    <Link to={`/${caseStudy && 'projects/'}#${activeSection}`} className="text-dark w-50">
                                         <BiArrowBack size={37} />
                                     </Link>
                                     :

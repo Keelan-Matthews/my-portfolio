@@ -23,9 +23,9 @@ const buttonVariants = {
 }
 
 const button2Variants = {
-    hidden: { x: -200 },
-    visible: { x: 0 },
-    switch: { x: 200 }
+    hidden: { x: -200, opacity: 1 },
+    visible: { x: 0, opacity: 1 },
+    switch: { y: -20, opacity: 0 }
 }
 
 const buttonTextVariants = {
@@ -103,7 +103,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                     {/* Circle */}
                     <motion.div
                         variants={circleVar === 1 ? circleVariants2 : circleVariants}
-                        initial={initial}
+                        initial={circleVar ? initial : 'hidden'}
                         animate={
                             visible && circleVar ?
                                 switchVar ? 'switch' : 'visible'
