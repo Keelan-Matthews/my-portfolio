@@ -206,7 +206,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                                             animate={ctrls}
                                             transition={{ ...transition, delay: 1 }}
                                         >
-                                            <Button href={site} size="lg" variant="outline-light text-dark" className='mt-4 site-button'>
+                                            <Button href={site} target="_blank" size="lg" variant="outline-light text-dark" className='mt-4 site-button'>
                                                 <p>
                                                     view site <span className='show-arrow'><BsArrowRight size={20} /></span>
                                                 </p>
