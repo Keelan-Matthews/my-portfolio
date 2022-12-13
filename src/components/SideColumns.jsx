@@ -34,7 +34,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                         >
                             {
                                 entered ?
-                                    <Link to={`/${caseStudy && 'projects/'}#${activeSection}`} className="text-dark w-50">
+                                    <Link to={`/${caseStudy ? 'projects/' : ''}#${activeSection}`} className="text-dark w-50">
                                         <BiArrowBack size={37} />
                                     </Link>
                                     :
