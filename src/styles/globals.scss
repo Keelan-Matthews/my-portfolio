@@ -100,3 +100,11 @@ textarea {
 .bg-muted {
 	background-color: #c1c9d1 !important;
 }
+
+.description {
+	font-size: 2rem;
+
+	@media screen and (max-width: 1300px) {
+		font-size: 2.5vw;
+	}
+}

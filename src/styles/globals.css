@@ -1,11 +1,14 @@
 .painting {
-  top: -9%;
+  top: -17%;
 }
 .painting .painting-container {
   width: 35vw;
   height: 45vw;
 }
 @media (max-width: 768px) {
+  .painting {
+    top: 5%;
+  }
   .painting .painting-container {
     width: 80vw;
     height: 90vw;
@@ -21,19 +24,23 @@
   width: 22vw;
 }
 @media (max-width: 768px) {
-  .statue img {
-    width: 60vw;
+  .statue {
+    top: 20%;
   }
-}
-
-.circle {
-  left: 12%;
-  top: 25%;
+  .statue img {
+    width: 50vw;
+  }
 }
 
 .circle-container {
   width: 150px;
   height: 150px;
+}
+@media (max-width: 1400px) {
+  .circle-container {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .envelope {
@@ -77,9 +84,20 @@
     transform: translateY(15px);
   }
 }
+@media (max-width: 768px) {
+  .keelan-text h2 span {
+    transform: translateY(0px);
+  }
+}
 
 .keelan-text h2 {
   transform: translateY(40px);
+}
+
+@media (max-width: 768px) {
+  .hero > * {
+    height: 50vh;
+  }
 }
 
 .project-title h2 span {
@@ -297,4 +315,13 @@ textarea {
 
 .bg-muted {
   background-color: #c1c9d1 !important;
+}
+
+.description {
+  font-size: 2rem;
+}
+@media screen and (max-width: 1300px) {
+  .description {
+    font-size: 2.5vw;
+  }
 }/*# sourceMappingURL=globals.css.map */

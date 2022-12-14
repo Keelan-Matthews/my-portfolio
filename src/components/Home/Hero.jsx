@@ -17,16 +17,16 @@ export default function Hero({ visible }) {
     }, [visible])
 
     return (
-        <div className="pb-5">
-            <Row ref={parRef} className='position-relative pb-5 mb-5'>
-                <Col xs={12} md={6} className='p-5'>
+        <div className="pb-0 pb-md-5 mb-5">
+            <Row ref={parRef} className='position-relative hero'>
+                <Col xs={{span: 12, order: 2}} md={{span: 6, order: 1}} className='px-5 py-0 py-md-5'>
                     {/* Japanese Accent */}
                     <motion.div
                         variants={japaneseVariants}
                         initial="hidden"
                         animate={ctrls}
                         transition={{ ...transition, delay: 0.8 }}
-                        className="m-0"
+                        className="mb-5 mb-md-0"
                     >
                         <p>デザイン</p>
                     </motion.div>
@@ -59,10 +59,10 @@ export default function Hero({ visible }) {
                         animate={ctrls}
                         transition={{ ...transition, delay: 1.3 }}
                     >
-                        <Button variant="outline-secondary" size="lg" className='mt-5' href="/keelan-matthews-cv.pdf" target="_blank">download cv</Button>
+                        <Button variant="outline-secondary" size="lg" className='mt-4 mt-md-5' href="/keelan-matthews-cv.pdf" target="_blank">download cv</Button>
                     </motion.div>
                 </Col>
-                <Col xs={12} md={6}>
+                <Col xs={{span: 12, order: 1}} md={{span: 6, order: 2}}>
                     <div className="position-relative h-100 w-100">
                         {/* Wave Image */}
                         <motion.div
@@ -72,20 +72,18 @@ export default function Hero({ visible }) {
                             transition={{ ...transition }}
                             className="position-absolute painting"
                         >
-                            <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.01} parallaxContainerRef={parRef}>
-                                <div className="painting-container">
-                                    <WaveImage type="hero" />
-                                </div>
-                            </MouseParallax>
+                            <div className="painting-container">
+                                <WaveImage />
+                            </div>
                         </motion.div>
 
                         {/* Circle */}
-                        <motion.div 
+                        <motion.div
                             variants={circleVariants}
                             initial="hidden"
                             animate={ctrls}
                             transition={{ ...transition, delay: 1.6 }}
-                            className="position-absolute circle"
+                            className="position-absolute"
                         >
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.03} parallaxContainerRef={parRef}>
                                 <div className='bg-primary rounded-circle circle-container'></div>
@@ -168,8 +166,8 @@ const cvVariants = {
 }
 
 const paintingVariants = {
-    hidden: { left: '1000px', top: '-17%', opacity: 0.4 },
-    visible: { left: '30%'}
+    hidden: { left: '1000px', opacity: 0.4 },
+    visible: { left: '30%' }
 }
 
 const statueVariants = {
@@ -178,6 +176,6 @@ const statueVariants = {
 }
 
 const circleVariants = {
-    hidden: { opacity: 0, y: 100 },
+    hidden: { opacity: 0, y: 100, left: '12%', top: '25%' },
     visible: { opacity: 1, y: 0 }
 }

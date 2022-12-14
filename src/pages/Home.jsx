@@ -19,10 +19,9 @@ export default function Home({ sections }) {
     return (
         <Layout title="Keelan Matthews | Welcome">
             <SideColumns scrollY={hideScroll} activeSection={activeSection} page={page}>
-                <Col xs={10}>
+                <Col xs={12} sm={10}>
                     <ReactFullPage
                         anchors={anchors}
-
                         onLeave={(origin, destination) => {
                             if (destination.index === 0) {
                                 setActiveSection('hero');

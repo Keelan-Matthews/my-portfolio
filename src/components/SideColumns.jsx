@@ -23,7 +23,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
     return (
         <>
             <Row className='vh-100'>
-                <Col xs={12} md={1}>
+                <Col xs={1} className="d-none d-sm-block">
                     <Row className='d-flex flex-md-column justify-content-between align-items-center ps-4 pt-5 ps-md-0 vh-100'>
                         <motion.div
                             variants={mailVariants}
@@ -57,7 +57,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                     </Row>
                 </Col>
                 {children}
-                <Col xs={2} md={1}>
+                <Col xs={1} className="d-none d-sm-block">
                     <Row className="d-flex flex-column justify-content-between align-items-center vh-100 pt-5">
                         <motion.div 
                             variants={pageVariants}

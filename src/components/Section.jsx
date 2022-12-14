@@ -75,7 +75,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
     useEffect(() => {
         setTimeout(() => {
             setImgDelay(true);
-        }, 1000)
+        }, 300)
     }, [])
 
     useEffect(() => {
@@ -188,7 +188,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                             initial={initial}
                             animate={ctrls}
                             transition={{ ...transition, delay: 0.3 }}
-                            className={site ? 'fs-5 mt-5' : 'fs-2'}
+                            className={site ? '' : 'description'}
                             style={site ? { maxWidth: '600px' } : ''}
                         >
                             {desc}
