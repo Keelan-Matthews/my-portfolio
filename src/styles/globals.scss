@@ -46,8 +46,15 @@ p {
 }
 
 .image-height {
-	width: 550px;
+	width: 30vw;
 	height: 80vh;
+	transition: 1s ease-in-out;
+}
+
+.image-height-extended {
+	width: 40vw;
+	height: 80vh;
+	transition: 1s ease-in-out;
 }
 
 .rotate {

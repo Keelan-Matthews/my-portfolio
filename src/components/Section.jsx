@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
@@ -11,9 +11,9 @@ import { BsArrowRight } from 'react-icons/bs'
 const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
 
 const imageVariants = {
-    hidden: { height: '75px', width: '550px', scale: 1 },
-    visible: { height: '750px', width: '550px', scale: 1.08 },
-    switch: { width: '730px', height: '750px', scale: 1.08 }
+    hidden: { height: '10%', width: '100%', scale: 1 },
+    visible: { height: '100%', width: '100%', scale: 1.08 },
+    switch: { width: '100%', height: '100%', scale: 1.08 }
 }
 
 const buttonVariants = {
@@ -70,6 +70,13 @@ const scrollLineVariants = {
 export default function Section({ visible, japanese, circleVar = false, title, cta, desc, site = false, switchVar = false }) {
     const ctrls = useAnimation();
     const initial = switchVar ? "visible" : "hidden";
+    const [imgDelay, setImgDelay] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setImgDelay(true);
+        }, 1000)
+    }, [])
 
     useEffect(() => {
         ctrls.start(
@@ -77,6 +84,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                 switchVar ? "switch" : "visible"
                 : "hidden"
         )
+
     }, [visible])
 
     const slug = title.toLowerCase().replace(/ /g, '-');
@@ -115,7 +123,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                     ></motion.div>
 
                     {/* Image */}
-                    <div className="d-flex align-items-center" style={{ overflow: "hidden" }}>
+                    <div className={`d-flex align-items-center ${switchVar && imgDelay ? 'image-height-extended' : 'image-height'}`} style={{ overflow: "hidden" }}>
                         <motion.div
                             variants={imageVariants}
                             initial={initial}
