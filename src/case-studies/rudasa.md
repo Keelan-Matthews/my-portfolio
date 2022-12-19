@@ -29,3 +29,15 @@ image: rudasa-approach.png
 ---
 
 We worked with the RuDASA team to create a new website that would be easy to navigate and update. We also siffed through the old website to find the most relevant information and reworked it to make it more accessible. Lastly, we implemented the information using markdown to allow RuDASA to update the website themselves quickly and efficiently.
+
+---site
+rudasa-site-1.png, rudasa-site-2.png, rudasa-site-3.png, rudasa-site-4.png
+---
+
+Mock content
+
+---result
+title: The Result
+---
+
+The new website is easy to navigate and update. The information is presented in a way that is easy to understand and the website is more visually appealing. The new website is also mobile-friendly and responsive. Lastly, the resource portal is a great addition to the website and allows RuDASA to share information with their members efficiently.

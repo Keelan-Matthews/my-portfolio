@@ -26,7 +26,7 @@ export default function CaseStudy() {
 
     useEffect(() => {
         getMd().then(res => {
-            setMdArray([res.sections[0], res.sections[1], res.sections[2], res.sections[3]])
+            setMdArray([res.sections[0], res.sections[1], res.sections[2], res.sections[3], res.sections[4], res.sections[5]])
         })
     }, [])
 
@@ -58,11 +58,11 @@ export default function CaseStudy() {
                         <Section title={title} japanese={japanese} switchVar={true} visible={true} cta="case study" site={"https://example.com"} />
                     </div>
 
-                    <Col xs={{ span: 6, offset: 3 }}>
+                    <Col xs={{ span: 8, offset: 2 }}>
                         {
                             mdArray.map((md, index) => {
                                 return (
-                                    <MdSection md={md} key={index} index={index} first={index === 0} stack={index === 2} />
+                                    <MdSection md={md} key={index} index={index} />
                                 )
                             })
                         }
@@ -73,34 +73,59 @@ export default function CaseStudy() {
     )
 }
 
-const MdSection = ({ md, index, first = false, stack = false }) => {
+const MdSection = ({ md, index }) => {
+    const first = index === 0;
+    const stack = index === 2;
+    const website = index === 4;
+    let webContent = []
+
+    if (website) {
+        webContent = md.data.split(', ')
+    }
+
     return (
         <Row>
-            <Col xs={1} className={`position-relative p-0 ${first && 'mt-5'}`}>
-                <div className="h-100 border-start border-1 border-muted"></div>
-                <div className={`position-absolute ${!first && 'mt-5'} case-study-circle`}>
-                    <div className={`rounded-circle bg-muted ${!first && 'mt-4'} p-1`}></div>
-                </div>
-            </Col>
-            <Col xs={9} className="py-5">
-                <p className='fs-5 mb-0 pb-0'>0{index}</p>
-                <div className="fw-bold mb-4">
-                    <h2>{getTitle(md.data)}</h2>
-                </div>
-                {
-                    stack ?
-                        <div className="d-flex flex-wrap">
+            {
+                website ?
+                    webContent.map((content, index) => {
+                        return (
+                            <Col xs={12} key={index}>
+                                <div className="border border-1 border-muted rounded-top p-2">
+                                    <p className="text-muted p-o m-0 fs-4">•••</p>
+                                </div>
+                                <img src={`/images/case-studies/${content}`} alt="" width={'100%'} className="border border-1 border-muted mb-3" />
+                            </Col>
+                        )
+                    })
+                    :
+                    <>
+                        <Col xs={{span: 1, offset: 2}} className={`position-relative p-0 ${first && 'mt-5'}`}>
+                            <div className="h-100 border-start border-1 border-muted"></div>
+                            <div className={`position-absolute ${!first && 'mt-5'} case-study-circle`}>
+                                <div className={`rounded-circle bg-muted ${!first && 'mt-4'} p-1`}></div>
+                            </div>
+                        </Col>
+                        <Col xs={7} className="py-5">
+                            <p className='fs-5 mb-0 pb-0'>0{index}</p>
+                            <div className="fw-bold mb-4">
+                                <h2>{getTitle(md.data)}</h2>
+                            </div>
                             {
-                                md.content.split(' ').map((skill, index) => <Skill skill={skill} key={index} basis="40%" />)
+                                stack ?
+                                    <div className="d-flex flex-wrap">
+                                        {
+                                            md.content.split(' ').map((skill, index) => <Skill skill={skill} key={index} basis="40%" />)
+                                        }
+                                    </div>
+                                    :
+                                    <ReactMarkdown children={md.content} remarkPlugins={[remarkGfm]} />
                             }
-                        </div>
-                        :
-                        <ReactMarkdown children={md.content} remarkPlugins={[remarkGfm]} />
-                }
-                <div className={`p-5 ps-0 ${stack && 'd-none'}`}>
-                    <img src={`/images/case-studies/${getImage(md.data)}`} alt="" width={'90%'} />
-                </div>
-            </Col>
+                            <div className={`p-5 ps-0 ${stack && 'd-none'}`}>
+                                <img src={`/images/case-studies/${getImage(md.data)}`} alt="" width={'90%'} />
+                            </div>
+                        </Col>
+                    </>
+            }
         </Row>
     )
 }
@@ -109,7 +134,7 @@ const getTitle = (data) => data.split('title:')[1].split('image:')[0].trim()
 const getImage = (data) => {
     const img = data.split('image:')[1]
     if (img) {
-        return img.trim()
+        return img.split('site:')[0].trim()
     }
     return ''
 }
