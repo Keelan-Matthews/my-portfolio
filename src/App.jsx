@@ -12,6 +12,7 @@ function App() {
 	const cursorRef = useRef(null);
 	useEffect(() => {
         new Cursor(cursorRef.current)
+		console.clear()
     }, [])
 
 	const sections = [

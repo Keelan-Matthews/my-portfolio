@@ -28,11 +28,6 @@ const button2Variants = {
     switch: { y: -20, opacity: 0 }
 }
 
-const buttonTextVariants = {
-    hidden: { opacity: 1, y: 0 },
-    visible: { opacity: 0, y: -10 }
-}
-
 const descVariants = {
     hidden: { opacity: 0, y: 100 },
     visible: { opacity: 1, y: 0 },
