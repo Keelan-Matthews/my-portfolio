@@ -16,6 +16,11 @@ export default function ProjectSection({ activePage }) {
 		// 	// desc: 'An interactive trailer based off of the comic I did in first year. Its purpose is to entice the user to read it.'
 		// },
 		{
+			japanese: 'コーディファイ',
+			title: 'Codify',
+			site: 'http://codify.epizy.com/'
+		},
+		{
 			japanese: 'ルダサ',
 			title: 'RuDASA',
 			site: 'https://rudasa.org.za/',

@@ -62,7 +62,7 @@ export default function CaseStudy() {
                         {
                             mdArray.map((md, index) => {
                                 return (
-                                    <MdSection md={md} key={index} index={index} />
+                                    <MdSection md={md} key={index} index={index} slug={slug} />
                                 )
                             })
                         }
@@ -73,7 +73,7 @@ export default function CaseStudy() {
     )
 }
 
-const MdSection = ({ md, index }) => {
+const MdSection = ({ md, index, slug }) => {
     const first = index === 0;
     const stack = index === 2;
     const website = index === 4;
@@ -93,7 +93,7 @@ const MdSection = ({ md, index }) => {
                                 <div className="border border-1 border-muted rounded-top p-2">
                                     <p className="text-muted p-o m-0 fs-4">•••</p>
                                 </div>
-                                <img src={`/images/case-studies/${content}`} alt="" width={'100%'} className="border border-1 border-muted mb-3" />
+                                <img src={`/images/case-studies/${slug}/${content}`} alt="" width={'100%'} className="border border-1 border-muted mb-3" />
                             </Col>
                         )
                     })
@@ -121,7 +121,7 @@ const MdSection = ({ md, index }) => {
                                     <ReactMarkdown children={md.content} remarkPlugins={[remarkGfm]} />
                             }
                             <div className={`p-5 ps-0 ${stack && 'd-none'}`}>
-                                <img src={`/images/case-studies/${getImage(md.data)}`} alt="" width={'90%'} />
+                                <img src={`/images/case-studies/${slug}/${getImage(md.data)}`} alt="" width={'90%'} />
                             </div>
                         </Col>
                     </>
