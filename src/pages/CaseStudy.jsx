@@ -18,7 +18,8 @@ export default function CaseStudy() {
     const japaneseArray = [
         {
             "rudasa": "ルダサ",
-            "yacht-portfolio": "ヨット"
+            "yacht-portfolio": "ヨット",
+            "codify": "コディファイ",
         }
     ]
 

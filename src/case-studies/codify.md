@@ -14,13 +14,13 @@ title: The Challenge
 image: challenge.png
 ---
 
-We were required to design and develop a full-stack web application. The theme was "event website" and we were required to create the frontend, backend, API and databases within 2 months. We were also required to do so using JQuery, PHP, MySQL and Bootstrap.
+We were required to design and develop a full-stack web application. The theme was "event website" and we were required to create the frontend, backend, API and databases within 2 months. We were also required to do so using jQuery, PHP, MySQL and Bootstrap.
 
 ---stack
 title: Tech Stack
 ---
 
-JQuery PHP MySQL Bootstrap
+jQuery PHP MySQL Bootstrap
 
 ---approach
 title: The Approach

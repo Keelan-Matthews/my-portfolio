@@ -1,5 +1,5 @@
 import React from 'react'
-import { SiReact, SiBootstrap, SiJavascript, SiVuedotjs, SiPhp, SiSass, SiJava, SiCplusplus, SiHtml5, SiCss3, SiBlender, SiFigma, SiVisualstudiocode, SiMongodb, SiNodedotjs, SiExpress, SiNextdotjs, SiPython } from 'react-icons/si'
+import { SiReact, SiJquery, SiBootstrap, SiJavascript, SiVuedotjs, SiPhp, SiSass, SiJava, SiCplusplus, SiHtml5, SiCss3, SiBlender, SiFigma, SiVisualstudiocode, SiMongodb, SiNodedotjs, SiExpress, SiNextdotjs, SiPython } from 'react-icons/si'
 import { DiMysql, DiIllustrator, DiPhotoshop, DiGit, DiGithubBadge } from 'react-icons/di'
 import { FaMarkdown } from 'react-icons/fa'
 import { motion } from 'framer-motion/dist/framer-motion'
@@ -124,6 +124,11 @@ const icons = [
 		name: 'Markdown',
 		level: 'Expert',
 		icon: <FaMarkdown size={37} />
+	},
+	{
+		name: 'jQuery',
+		level: 'Expert',
+		icon: <SiJquery size={37} />
 	}
 ]
 
