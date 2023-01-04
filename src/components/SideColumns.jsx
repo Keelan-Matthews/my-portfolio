@@ -98,6 +98,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                                     transition: { duration: 0.2, ease: 'easeInOut' },
                                 }}
                                 href="https://github.com/Keelan-Matthews"
+                                target="_blank"
                                 className="text-dark mb-3"
                             >
                                 <BsGithub size={30} />
@@ -111,7 +112,8 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                                     scale: 1.05,
                                     transition: { duration: 0.2, ease: 'easeInOut' },
                                 }}
-                                href="https://www.linkedin.com/in/keelan-matthews-645b13201/"
+                                href="https://www.linkedin.com/in/keelan-matthews/"
+                                target="_blank"
                                 className="text-dark mb-5"
                             >
                                 <BsLinkedin size={30} />

@@ -19,7 +19,7 @@ export default function CaseStudy() {
         {
             "rudasa": "ルダサ",
             "yacht-portfolio": "ヨット",
-            "codify": "コディファイ",
+            "codify": "コデフイ",
         }
     ]
 

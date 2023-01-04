@@ -4,7 +4,7 @@ import Section from '../Section'
 export default function ProjectSection({ activePage }) {
 	const projects = [
 		{
-			japanese: 'コーディファイ',
+			japanese: 'コデフイ',
 			title: 'Codify',
 			site: 'http://codify.epizy.com/'
 		},
