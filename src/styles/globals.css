@@ -307,6 +307,13 @@ p {
   height: 80vh;
   transition: 1s ease-in-out;
 }
+@media screen and (max-width: 1560px) {
+  .image-height-extended {
+    width: 90vw;
+    height: 50vh;
+    margin-right: 1.5rem;
+  }
+}
 
 .rotate {
   -ms-writing-mode: tb-rl;
