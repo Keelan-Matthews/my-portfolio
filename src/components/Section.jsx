@@ -91,7 +91,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
         <div>
             <Row className="d-flex align-items-center">
                 {/* Left Side */}
-                <Col xs={12} md={6} className="d-flex position-relative justify-content-end">
+                <Col xs={12} md={6} className="d-flex  position-relative justify-content-center justify-content-md-end">
                     {/* Japanese Accent */}
                     <motion.p
                         variants={japaneseVariants}

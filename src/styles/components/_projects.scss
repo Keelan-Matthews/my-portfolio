@@ -13,6 +13,10 @@
 
 .transform-left {
 	transform: translateX(-150px);
+
+	@media screen and (max-width: 1560px) {
+		transform: translateX(0);
+	}
 }
 
 .lower-opacity {

@@ -50,6 +50,12 @@ p {
 	width: 30vw;
 	height: 80vh;
 	transition: 1s ease-in-out;
+
+	@media screen and (max-width: 1560px) {
+		width: 70vw;
+		height: 50vh;
+		margin-right: 1.5rem;
+	}
 }
 
 .image-height-extended {
@@ -60,6 +66,10 @@ p {
 
 .rotate {
 	writing-mode: vertical-rl;
+
+	@media screen and (max-width: 1560px) {
+		margin: 0.2rem;
+	}
 }
 
 .bigger-text h2 {
@@ -67,8 +77,8 @@ p {
 	transform: translate(-150px, 20px);
 
 	@media screen and (max-width: 1560px) {
-		font-size: 8.5vw;
-		transform: translate(-80px, 20px);
+		font-size: 15vw;
+		transform: translate(0);
 	}
 }
 
@@ -106,6 +116,6 @@ textarea {
 	font-size: 2rem;
 
 	@media screen and (max-width: 1300px) {
-		font-size: 2.5vw;
+		font-size: clamp(1.3rem, 2vw, 1.5rem);
 	}
 }

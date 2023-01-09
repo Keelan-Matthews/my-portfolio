@@ -27,7 +27,7 @@ export default function Home({ sections }) {
 
     return (
         <Layout title="Keelan Matthews | Welcome">
-            {
+            {/* {
                 isMobile ? (
                     <div className="mobile-message">
                         <motion.div
@@ -45,7 +45,7 @@ export default function Home({ sections }) {
                     </div>
                 )
                     : null
-            }
+            } */}
             <SideColumns scrollY={hideScroll} activeSection={activeSection} page={page}>
                 <Col xs={12} sm={10}>
                     <ReactFullPage
