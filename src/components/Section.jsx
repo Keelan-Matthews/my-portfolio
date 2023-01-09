@@ -46,11 +46,27 @@ const circleVariants = {
     switch: { left: '5%', bottom: '5%' }
 }
 
+const circleVariantsMobile = {
+    hidden: { left: '12%', bottom: '60%', opacity: 0 },
+    visible: { left: '12%', bottom: '5%', opacity: 1 },
+    switch: { left: '5%', bottom: '5%' }
+}
+
+const circleArray1 = [circleVariants, circleVariantsMobile]
+
 const circleVariants2 = {
     hidden: { right: '-5%', bottom: '60%', opacity: 0 },
     visible: { right: '-5%', bottom: '-5%', opacity: 1 },
     switch: { right: '-5%', bottom: '-1%' }
 }
+
+const circleVariants2Mobile = {
+    hidden: { right: '5%', bottom: '60%', opacity: 0 },
+    visible: { right: '5%', bottom: '-5%', opacity: 1 },
+    switch: { right: '5%', bottom: '-1%' }
+}
+
+const circleArray2 = [circleVariants2, circleVariants2Mobile]
 
 const scrollTextVariants = {
     visible: { opacity: 0, y: -30, width: 130, rotate: 90 },
@@ -66,6 +82,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
     const ctrls = useAnimation();
     const initial = switchVar ? "visible" : "hidden";
     const [imgDelay, setImgDelay] = useState(false);
+    const [isMobile, setIsMobile] = useState(0);
 
     useEffect(() => {
         setTimeout(() => {
@@ -80,6 +97,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                 : "hidden"
         )
 
+        setIsMobile(window.innerWidth < 1400 ? 1 : 0);
     }, [visible])
 
     const slug = title.toLowerCase().replace(/ /g, '-');
@@ -105,7 +123,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
 
                     {/* Circle */}
                     <motion.div
-                        variants={circleVar === 1 ? circleVariants2 : circleVariants}
+                        variants={circleVar === 1 ? circleArray2[isMobile] : circleArray1[isMobile]}
                         initial={circleVar ? initial : 'hidden'}
                         animate={
                             visible && circleVar ?
@@ -113,7 +131,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                                 : 'hidden'
                         }
                         transition={{ ...transition, delay: 0.3 }}
-                        className='bg-primary rounded-circle circle-container position-absolute'
+                        className='bg-primary rounded-circle circle-container smaller position-absolute'
                         style={{ zIndex: 5 }}
                     ></motion.div>
 
@@ -143,7 +161,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                 {/* Right Side */}
                 <Col xs={12} md={6}>
                     {/* Section Title */}
-                    <div className={site ? 'project-title' : ''}>
+                    <div className={`ps-4 ps-md-0 pt-4 pt-md-0 ${site ? 'project-title' : ''}`}>
                         {
                             titleArrayLength > 2 ?
                                 <div>

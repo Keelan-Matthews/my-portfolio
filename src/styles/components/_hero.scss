@@ -44,6 +44,13 @@
 	}
 }
 
+.smaller {
+	@media (max-width: 1400px) {
+		width: 60px !important;
+		height: 60px !important;
+	}
+}
+
 .envelope {
 	transition: 0.3s ease;
 
