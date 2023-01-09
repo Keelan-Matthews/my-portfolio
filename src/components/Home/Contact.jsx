@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Button from 'react-bootstrap/Button'
 import FormControl from 'react-bootstrap/FormControl';
 import FormGroup from 'react-bootstrap/FormGroup';
@@ -33,18 +33,24 @@ const Schema = Yup.object({
     email: Yup.string()
         .email("Please enter a valid email")
         .required("Please enter an email"),
-    // message: Yup.string()
-    //     .required("Please enter a message")
+    message: Yup.string()
+        .required("Please enter a message")
 });
 
 export default function Contact({ visible }) {
     const [showToast, setShowToast] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        setIsMobile(window.innerWidth < 800);
+    }, [])
 
     const form = useRef();
 
     const sendEmail = () => {
-        emailjs.sendForm('service_8h2e55v', 'template_9fmnbng', form.current, 'EMotZoMbsTqV390uC')
+        emailjs.sendForm('service_xnjoo6j', 'template_9fmnbng', form.current, 'EMotZoMbsTqV390uC')
             .then((result) => {
+                console.log("Sent successfully");
                 setShowToast(true);
             }, (error) => {
                 console.log(error.text);
@@ -86,9 +92,9 @@ export default function Contact({ visible }) {
                 }}
             >
 
-                {({ errors, touched, isSubmitting }) => (
+                {({ errors, touched, isValid, isSubmitting }) => (
 
-                    <Form className="w-50" ref={form}>
+                    <Form className={isMobile ? 'w-75' : 'w-50'} ref={form}>
                         <FormikInput type="Email" errors={errors} touched={touched} visible={visible} />
                         <FormikInput type="Subject" errors={errors} touched={touched} visible={visible} />
                         <FormikInput type="Message" errors={errors} touched={touched} visible={visible} />
@@ -100,7 +106,7 @@ export default function Contact({ visible }) {
                             transition={{ ...transition, delay: 0.8 }}
                             className="w-100 text-end"
                         >
-                            <Button variant="primary" type="submit" size="lg" disabled={isSubmitting}>
+                            <Button variant="primary" type="submit" size="lg" disabled={!isValid}>
                                 {
                                     isSubmitting ?
                                         <div className="spinner-border text-light" role="status">

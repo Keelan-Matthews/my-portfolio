@@ -161,7 +161,7 @@ export default function Section({ visible, japanese, circleVar = false, title, c
                 {/* Right Side */}
                 <Col xs={12} md={6}>
                     {/* Section Title */}
-                    <div className={`ps-4 ps-md-0 pt-4 pt-md-0 ${site ? 'project-title' : ''}`}>
+                    <div className={`ps-5 ps-md-0 pt-4 pt-md-0 ${site ? 'project-title' : ''}`}>
                         {
                             titleArrayLength > 2 ?
                                 <div>
