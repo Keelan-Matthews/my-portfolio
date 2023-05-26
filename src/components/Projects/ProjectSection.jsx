@@ -6,7 +6,7 @@ export default function ProjectSection({ activePage }) {
 		{
 			japanese: 'コデフイ',
 			title: 'Codify',
-			site: 'http://codify.epizy.com/'
+			site: 'na'
 		},
 		{
 			japanese: 'ルダサ',
