@@ -1,5 +1,5 @@
 import React from 'react'
-import { SiReact, SiJquery, SiBootstrap, SiJavascript, SiVuedotjs, SiPhp, SiSass, SiJava, SiCplusplus, SiHtml5, SiCss3, SiBlender, SiFigma, SiVisualstudiocode, SiMongodb, SiNodedotjs, SiExpress, SiNextdotjs, SiPython } from 'react-icons/si'
+import { SiUnity, SiDjango, SiPostgresql, SiCsharp, SiReact, SiJquery, SiBootstrap, SiJavascript, SiVuedotjs, SiPhp, SiSass, SiJava, SiCplusplus, SiHtml5, SiCss3, SiBlender, SiFigma, SiVisualstudiocode, SiMongodb, SiNodedotjs, SiExpress, SiNextdotjs, SiPython } from 'react-icons/si'
 import { DiMysql, DiIllustrator, DiPhotoshop, DiGit, DiGithubBadge } from 'react-icons/di'
 import { FaMarkdown } from 'react-icons/fa'
 import { motion } from 'framer-motion/dist/framer-motion'
@@ -129,6 +129,26 @@ const icons = [
 		name: 'jQuery',
 		level: 'Expert',
 		icon: <SiJquery size={37} />
+	},
+	{
+		name: 'Unity',
+		level: 'Novice',
+		icon: <SiUnity size={37} />
+	},
+	{
+		name: 'Django',
+		level: 'Novice',
+		icon: <SiDjango size={37} />
+	},
+	{
+		name: 'PostgreSQL',
+		level: 'Novice',
+		icon: <SiPostgresql size={37} />
+	},
+	{
+		name: 'C#',
+		level: 'Intermediate',
+		icon: <SiCsharp size={37} />
 	}
 ]
 

@@ -61,19 +61,19 @@ export default function Skills({ inView }) {
 		{
 			name: 'Javascript',
 			level: 'Expert',
-			top: true,
+			top: false,
 			type: 'Frontend'
 		},
 		{
 			name: 'Vue',
 			level: 'Intermediate',
-			top: true,
+			top: false,
 			type: 'Frontend'
 		},
 		{
 			name: 'PHP',
 			level: 'Intermediate',
-			top: true,
+			top: false,
 			type: 'Backend'
 		},
 		{
@@ -157,13 +157,13 @@ export default function Skills({ inView }) {
 		{
 			name: 'MongoDB',
 			level: 'Intermediate',
-			top: false,
+			top: true,
 			type: 'Backend'
 		},
 		{
 			name: 'NodeJS',
 			level: 'Intermediate',
-			top: false,
+			top: true,
 			type: 'Backend'
 		},
 		{
@@ -183,6 +183,30 @@ export default function Skills({ inView }) {
 			level: 'Expert',
 			top: false,
 			type: 'Frontend'
+		},
+		{
+			name: 'Unity',
+			level: 'Novice',
+			top: false,
+			type: 'Software'
+		},
+		{
+			name: 'C#',
+			level: 'Intermediate',
+			top: true,
+			type: 'Programming'
+		},
+		{
+			name: 'PostgreSQL',
+			level: 'Novice',
+			top: false,
+			type: 'Backend'
+		},
+		{
+			name: 'Django',
+			level: 'Novice',
+			top: false,
+			type: 'Backend'
 		}
 	]
 
