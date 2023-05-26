@@ -38,16 +38,16 @@
 	width: 150px;
 	height: 150px;
 
-	@media (max-width: 1400px) {
-		width: 100px;
-		height: 100px;
-	}
+	// @media (max-width: 1400px) {
+	// 	width: 100px;
+	// 	height: 100px;
+	// }
 }
 
 .smaller {
 	@media (max-width: 1400px) {
-		width: 60px !important;
-		height: 60px !important;
+		width: 100px !important;
+		height: 100px !important;
 	}
 }
 

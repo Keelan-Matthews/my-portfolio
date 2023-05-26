@@ -51,11 +51,11 @@ p {
 	height: 80vh;
 	transition: 1s ease-in-out;
 
-	@media screen and (max-width: 1560px) {
-		width: 70vw;
-		height: 50vh;
-		margin-right: 1.5rem;
-	}
+	// @media screen and (max-width: 1560px) {
+	// 	width: 70vw;
+	// 	height: 50vh;
+	// 	margin-right: 1.5rem;
+	// }
 }
 
 .image-height-extended {
@@ -83,8 +83,8 @@ p {
 	transform: translate(-150px, 20px);
 
 	@media screen and (max-width: 1560px) {
-		font-size: 15vw;
-		transform: translate(0);
+		font-size: 9vw;
+		// transform: translate(0);
 	}
 }
 
@@ -92,7 +92,7 @@ p {
 	font-size: 9rem;
 
 	@media screen and (max-width: 1550px) {
-		font-size: 15vw;
+		font-size: 9vw;
 	}
 }
 

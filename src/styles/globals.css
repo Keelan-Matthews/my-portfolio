@@ -36,17 +36,11 @@
   width: 150px;
   height: 150px;
 }
-@media (max-width: 1400px) {
-  .circle-container {
-    width: 100px;
-    height: 100px;
-  }
-}
 
 @media (max-width: 1400px) {
   .smaller {
-    width: 60px !important;
-    height: 60px !important;
+    width: 100px !important;
+    height: 100px !important;
   }
 }
 
@@ -285,21 +279,13 @@ p {
 }
 
 .image-crop {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .image-height {
   width: 30vw;
   height: 80vh;
   transition: 1s ease-in-out;
-}
-@media screen and (max-width: 1560px) {
-  .image-height {
-    width: 70vw;
-    height: 50vh;
-    margin-right: 1.5rem;
-  }
 }
 
 .image-height-extended {
@@ -316,8 +302,7 @@ p {
 }
 
 .rotate {
-  -ms-writing-mode: tb-rl;
-      writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
 }
 @media screen and (max-width: 1560px) {
   .rotate {
@@ -331,8 +316,7 @@ p {
 }
 @media screen and (max-width: 1560px) {
   .bigger-text h2 {
-    font-size: 15vw;
-    transform: translate(0);
+    font-size: 9vw;
   }
 }
 
@@ -341,7 +325,7 @@ p {
 }
 @media screen and (max-width: 1550px) {
   .bigger-text2 h2 {
-    font-size: 15vw;
+    font-size: 9vw;
   }
 }
 
@@ -374,4 +358,6 @@ textarea {
   .description {
     font-size: clamp(1.3rem, 2vw, 1.5rem);
   }
-}/*# sourceMappingURL=globals.css.map */
+}
+
+/*# sourceMappingURL=globals.css.map */
