@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion/dist/framer-motion'
 import { skills } from '../../data/skill-list'
+import { skillVariants } from '../animations/customVariants'
 
 export default function Skill({ skill, basis = '20%' }) {
 	return (
@@ -19,8 +20,3 @@ export default function Skill({ skill, basis = '20%' }) {
 		: null
 	)
 }
-
-const skillVariants = {
-	hidden: { opacity: 0, y: 20 },
-	visible: { opacity: 1, y: 0 }
-};

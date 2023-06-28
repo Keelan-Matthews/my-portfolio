@@ -10,18 +10,7 @@ import { Formik, ErrorMessage, Form, Field } from 'formik'
 import * as Yup from "yup"
 import { motion } from 'framer-motion/dist/framer-motion'
 import emailjs from '@emailjs/browser'
-
-const transition = { duration: 1.5, ease: [0.43, 0.13, 0.23, 0.96] }
-
-const controlVariants = {
-    hidden: { opacity: 0, width: "0%" },
-    visible: { opacity: 1, width: "100%" }
-}
-
-const buttonVariants = {
-    hidden: { opacity: 0, y: 100 },
-    visible: { opacity: 1, y: 0 }
-}
+import { contactTransition, controlVariants, buttonVariants } from '../animations/customVariants'
 
 const Schema = Yup.object({
     subject: Yup.string()
@@ -103,7 +92,7 @@ export default function Contact({ visible }) {
                             variants={buttonVariants}
                             initial="hidden"
                             animate={visible ? "visible" : "hidden"}
-                            transition={{ ...transition, delay: 0.8 }}
+                            transition={{ ...contactTransition, delay: 0.8 }}
                             className="w-100 text-end"
                         >
                             <Button variant="primary" type="submit" size="lg" disabled={!isValid}>
@@ -161,7 +150,7 @@ const FormikInput = ({ type, errors, touched, visible }) => {
             variants={controlVariants}
             initial="hidden"
             animate={visible ? "visible" : "hidden"}
-            transition={{ ...transition, delay: delay }}
+            transition={{ ...contactTransition, delay: delay }}
         >
             <Field name={name}>
                 {({ field }) => (

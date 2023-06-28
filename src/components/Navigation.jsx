@@ -3,6 +3,7 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import { motion } from 'framer-motion/dist/framer-motion'
+import { navVariants, navLineVariants, navbarTransition } from './animations/customVariants'
 
 export default function Navigation({ activeSection }) {
     return (
@@ -29,31 +30,19 @@ const NavLine = ({ section, activeSection }) => {
                 variants={navVariants}
                 initial="hidden"
                 whileHover="visible"
-                transition={transition}
+                transition={navbarTransition}
                 className='m-0 nav-item'
             >
                 {section}
             </motion.p>
             <motion.div 
-                variants={lineVariants}
+                variants={navLineVariants}
                 initial={activeSection === section ? 'active' : 'notActive'}
                 animate={activeSection === section ? 'active' : 'notActive'}
-                transition={{...transition, delay: 0.1}}
+                transition={{...navbarTransition, delay: 0.1}}
                 className="nav-line"
             >
             </motion.div>
         </Nav.Link>
     )
-}
-
-const transition = { duration: 0.7, ease: [0.43, 0.13, 0.23, 0.96] }
-
-const navVariants = {
-    hidden: { opacity: 0, x: -10 },
-    visible: { opacity: 1, x: 0 }
-}
-
-const lineVariants = {
-    notActive: { width: 30 },
-    active: { width: 60 }
 }

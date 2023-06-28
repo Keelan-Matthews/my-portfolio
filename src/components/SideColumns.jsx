@@ -8,6 +8,7 @@ import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
 import { Link } from 'react-router-dom'
 import { BiArrowBack } from 'react-icons/bi'
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
+import { sideColumnTransition, sideColumnLineVariants, sideColumnTextVariants, socialVariants, pageVariants, mailVariants } from './animations/customVariants';
 
 export default function SideColumns({ children, scrollY, activeSection, page, entered = false, caseStudy = false }) {
     const [hover, setHover] = useState(false)
@@ -29,7 +30,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                             variants={mailVariants}
                             initial='hidden'
                             animate='visible'
-                            transition={{...transition, delay: 0.4}}
+                            transition={{...sideColumnTransition, delay: 0.4}}
                             className='d-flex justify-content-center'
                         >
                             {
@@ -63,14 +64,14 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                             variants={pageVariants}
                             initial={entered ? 'visible' : 'hidden'}
                             animate='visible'
-                            transition={{...transition, delay: 0.5}}
+                            transition={{...sideColumnTransition, delay: 0.5}}
                             className="page-number"
                         >
                             <p className='fs-1'>0{page}</p>
                         </motion.div>
                         <div className={`scroll-down d-flex flex-column justify-content-center align-items-center ${entered ? 'd-none' : ''}`}>
                             <motion.div
-                                variants={textVariants}
+                                variants={sideColumnTextVariants}
                                 initial='hidden'
                                 animate={ctrls}
                                 transition={{ duration: 1, ease: 'easeInOut', delay: scrollY ? 2 : 0 }}
@@ -79,7 +80,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                             </motion.div>
 
                             <motion.div
-                                variants={lineVariants}
+                                variants={sideColumnLineVariants}
                                 initial='hidden'
                                 animate={ctrls}
                                 transition={{ duration: 1, ease: 'easeInOut', delay: scrollY ? 3 : 0 }}
@@ -92,7 +93,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                                 variants={socialVariants}
                                 initial='hidden'
                                 animate={footerCtrls}
-                                transition={{ ...transition, delay: 0.2 }}
+                                transition={{ ...sideColumnTransition, delay: 0.2 }}
                                 whileHover={{
                                     scale: 1.05,
                                     transition: { duration: 0.2, ease: 'easeInOut' },
@@ -107,7 +108,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                                 variants={socialVariants}
                                 initial='hidden'
                                 animate={footerCtrls}
-                                transition={{ ...transition, delay: 0.4 }}
+                                transition={{ ...sideColumnTransition, delay: 0.4 }}
                                 whileHover={{
                                     scale: 1.05,
                                     transition: { duration: 0.2, ease: 'easeInOut' },
@@ -124,32 +125,4 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
             </Row>
         </>
     )
-}
-
-
-const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
-
-const lineVariants = {
-    visible: { height: '170px' },
-    hidden: { height: 0 }
-}
-
-const textVariants = {
-    visible: { opacity: 1, rotate: 90, y: 0 },
-    hidden: { opacity: 0, rotate: 90, y: -30 }
-}
-
-const socialVariants = {
-    visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: 50 }
-}
-
-const pageVariants = {
-    visible: { opacity: 1, x: 0 },
-    hidden: { opacity: 0, x: 50 }
-}
-
-const mailVariants = {
-    visible: { opacity: 1, y: 0 },
-    hidden: { opacity: 0, y: 50 }
 }

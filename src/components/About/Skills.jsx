@@ -6,18 +6,7 @@ import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
 import TextReveal from '../animations/TextReveal'
 import Skill from './Skill'
 import { skills } from '../../data/skill-list'
-
-const transition = { duration: 1, ease: [0.43, 0.13, 0.23, 0.96] }
-
-const headingLineVariants = {
-    hidden: {width: 0, opacity: 0},
-    visible: {width: 140, opacity: 1}
-}
-
-const groupVariants = {
-	hidden: {},
-	visible: {},
-};
+import { groupVariants, skillsTransition, headingLineVariants } from '../animations/customVariants'
 
 const SkillGroup = ({skills, basis = '20%', inView}) => {
 	const ctrls = useAnimation();
@@ -35,7 +24,7 @@ const SkillGroup = ({skills, basis = '20%', inView}) => {
 			transition={{
 				staggerChildren: 0.08,
 				delayChildren: 0.4,
-				...transition,
+				...skillsTransition,
 			}}
 		>
 			{skills.map((skill, index) => (
@@ -53,7 +42,7 @@ export default function Skills({ inView }) {
                     variants={headingLineVariants}
                     initial="hidden"
                     animate={inView ? "visible" : "hidden"}
-                    transition={transition}
+                    transition={skillsTransition}
                     className="heading-line me-4 mb-3"
                 ></motion.div>
                 <div className="fw-bold">
