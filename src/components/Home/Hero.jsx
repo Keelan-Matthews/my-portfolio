@@ -7,6 +7,7 @@ import { MouseParallax } from 'react-just-parallax'
 import TextTransition, { presets } from "react-text-transition"
 import TextReveal from '../animations/TextReveal'
 import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
+import { heroTransition, homeJapaneseVariants, sloganVariants, cvVariants, paintingVariants, homeCircleVariants, statueVariants } from '../animations/customVariants'
 
 export default function Hero({ visible }) {
     const ctrls = useAnimation()
@@ -22,10 +23,10 @@ export default function Hero({ visible }) {
                 <Col xs={{span: 12, order: 2}} md={{span: 6, order: 1}} className='px-5 py-0 py-md-5'>
                     {/* Japanese Accent */}
                     <motion.div
-                        variants={japaneseVariants}
+                        variants={homeJapaneseVariants}
                         initial="hidden"
                         animate={ctrls}
-                        transition={{ ...transition, delay: 0.8 }}
+                        transition={{ ...heroTransition, delay: 0.8 }}
                         className="mb-5 mb-md-0"
                     >
                         <p>デザイン</p>
@@ -46,7 +47,7 @@ export default function Hero({ visible }) {
                         variants={sloganVariants}
                         initial="hidden"
                         animate={ctrls}
-                        transition={{ ...transition, delay: 0.7 }}
+                        transition={{ ...heroTransition, delay: 0.7 }}
                         className="fs-2"
                     >
                         <Slogan />
@@ -57,7 +58,7 @@ export default function Hero({ visible }) {
                         variants={cvVariants}
                         initial="hidden"
                         animate={ctrls}
-                        transition={{ ...transition, delay: 1.3 }}
+                        transition={{ ...heroTransition, delay: 1.3 }}
                     >
                         <Button variant="outline-secondary" size="lg" className='mt-4 mt-md-5' href="/keelan-matthews-cv.pdf" target="_blank">download cv</Button>
                     </motion.div>
@@ -69,7 +70,7 @@ export default function Hero({ visible }) {
                             variants={paintingVariants}
                             initial="hidden"
                             animate={ctrls}
-                            transition={{ ...transition }}
+                            transition={{ ...heroTransition }}
                             className="position-absolute painting"
                         >
                             <div className="painting-container">
@@ -79,10 +80,10 @@ export default function Hero({ visible }) {
 
                         {/* Circle */}
                         <motion.div
-                            variants={circleVariants}
+                            variants={homeCircleVariants}
                             initial="hidden"
                             animate={ctrls}
-                            transition={{ ...transition, delay: 1.6 }}
+                            transition={{ ...heroTransition, delay: 1.6 }}
                             className="position-absolute"
                         >
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.03} parallaxContainerRef={parRef}>
@@ -95,7 +96,7 @@ export default function Hero({ visible }) {
                             variants={statueVariants}
                             initial="hidden"
                             animate={ctrls}
-                            transition={{ ...transition, delay: 1.7 }}
+                            transition={{ ...heroTransition, delay: 1.7 }}
                             className="position-absolute statue"
                         >
                             <MouseParallax isAbsolutelyPositioned shouldResetPosition strength={0.05} parallaxContainerRef={parRef}>
@@ -148,34 +149,34 @@ const Slogan = () => {
     )
 }
 
-const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }
+// const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }
 
-const japaneseVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: 100 }
-}
+// const homeJapaneseVariants = {
+//     hidden: { opacity: 0, y: 10 },
+//     visible: { opacity: 1, y: 100 }
+// }
 
-const sloganVariants = {
-    hidden: { opacity: 0, y: 100 },
-    visible: { opacity: 1, y: 0 }
-}
+// const sloganVariants = {
+//     hidden: { opacity: 0, y: 100 },
+//     visible: { opacity: 1, y: 0 }
+// }
 
-const cvVariants = {
-    hidden: { opacity: 0, y: 100 },
-    visible: { opacity: 1, y: 0 }
-}
+// const cvVariants = {
+//     hidden: { opacity: 0, y: 100 },
+//     visible: { opacity: 1, y: 0 }
+// }
 
-const paintingVariants = {
-    hidden: { left: '1000px', opacity: 0.4 },
-    visible: { left: '30%' }
-}
+// const paintingVariants = {
+//     hidden: { left: '1000px', opacity: 0.4 },
+//     visible: { left: '30%' }
+// }
 
-const statueVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 }
-}
+// const statueVariants = {
+//     hidden: { y: 20, opacity: 0 },
+//     visible: { y: 0, opacity: 1 }
+// }
 
-const circleVariants = {
-    hidden: { opacity: 0, y: 100, left: '12%', top: '25%' },
-    visible: { opacity: 1, y: 0 }
-}
+// const homeCircleVariants = {
+//     hidden: { opacity: 0, y: 100, left: '12%', top: '25%' },
+//     visible: { opacity: 1, y: 0 }
+// }

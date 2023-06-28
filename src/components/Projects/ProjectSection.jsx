@@ -1,25 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Section from '../Section'
+import { projects } from '../../data/project-list'
 
 export default function ProjectSection({ activePage }) {
-	const projects = [
-		{
-			japanese: 'コデフイ',
-			title: 'Codify',
-			site: 'na'
-		},
-		{
-			japanese: 'ルダサ',
-			title: 'RuDASA',
-			site: 'https://rudasa.org.za/',
-		},
-		{
-			japanese: 'ヨット',
-			title: 'Yacht Portfolio',
-			site: 'https://alexipapas.com/',
-		}
-	]
-
 	const [currProject, setProject] = useState(projects[0])
 
 	useEffect(() => {
