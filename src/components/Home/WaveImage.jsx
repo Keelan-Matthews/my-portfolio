@@ -26,10 +26,19 @@ export default function WaveImage() {
     return (
         <>
             <Canvas camera={{ fov: 10 }}>
-                <Suspense fallback={null}>
+                <Suspense fallback={<StaticImage />}>
                     <HeroWave  />
                 </Suspense>
             </Canvas>
         </>
+    )
+}
+
+function StaticImage() {
+    return (
+        <mesh>
+            <planeGeometry args={[0.4, 0.6, 10, 10]} />
+            <meshBasicMaterial map={useTexture("/images/home/wave-placeholder.webp")} />
+        </mesh>
     )
 }

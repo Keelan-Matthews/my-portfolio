@@ -1,7 +1,6 @@
 import React from 'react'
 import { SiUnity, SiDjango, SiPostgresql, SiCsharp, SiReact, SiJquery, SiBootstrap, SiJavascript, SiVuedotjs, SiPhp, SiSass, SiJava, SiCplusplus, SiHtml5, SiCss3, SiBlender, SiFigma, SiVisualstudiocode, SiMongodb, SiNodedotjs, SiExpress, SiNextdotjs, SiPython, SiAngular, SiTypescript } from 'react-icons/si'
 import { DiMysql, DiIllustrator, DiPhotoshop, DiGit, DiGithubBadge } from 'react-icons/di'
-import { FaMarkdown } from 'react-icons/fa'
 
 export const skills = [
 		{
