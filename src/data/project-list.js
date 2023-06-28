@@ -12,6 +12,6 @@ export const projects = [
     {
         japanese: 'ヨット',
         title: 'Yacht Portfolio',
-        site: 'https://alexipapas.com/',
+        site: 'https://alexi-portfolio.netlify.app',
     }
 ]

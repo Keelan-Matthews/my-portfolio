@@ -1,5 +1,5 @@
 import React from 'react'
-import { SiUnity, SiDjango, SiPostgresql, SiCsharp, SiReact, SiJquery, SiBootstrap, SiJavascript, SiVuedotjs, SiPhp, SiSass, SiJava, SiCplusplus, SiHtml5, SiCss3, SiBlender, SiFigma, SiVisualstudiocode, SiMongodb, SiNodedotjs, SiExpress, SiNextdotjs, SiPython } from 'react-icons/si'
+import { SiUnity, SiDjango, SiPostgresql, SiCsharp, SiReact, SiJquery, SiBootstrap, SiJavascript, SiVuedotjs, SiPhp, SiSass, SiJava, SiCplusplus, SiHtml5, SiCss3, SiBlender, SiFigma, SiVisualstudiocode, SiMongodb, SiNodedotjs, SiExpress, SiNextdotjs, SiPython, SiAngular, SiTypescript } from 'react-icons/si'
 import { DiMysql, DiIllustrator, DiPhotoshop, DiGit, DiGithubBadge } from 'react-icons/di'
 import { FaMarkdown } from 'react-icons/fa'
 
@@ -22,7 +22,7 @@ export const skills = [
 			name: 'Javascript',
 			level: 'Expert',
 			top: false,
-			type: 'Frontend',
+			type: 'Programming',
 			icon: <SiJavascript size={37} />
 		},
 		{
@@ -83,7 +83,7 @@ export const skills = [
 		},
 		{
 			name: 'Blender',
-			level: 'Novice',
+			level: 'Intermediate',
 			top: false,
 			type: 'Software',
 			icon: <SiBlender size={37} />
@@ -167,7 +167,7 @@ export const skills = [
 		},
 		{
 			name: 'Unity',
-			level: 'Novice',
+			level: 'Intermediate',
 			top: false,
 			type: 'Software',
 			icon: <SiUnity size={37} />
@@ -192,5 +192,26 @@ export const skills = [
 			top: false,
 			type: 'Backend',
 			icon: <SiDjango size={37} />
-		}
+		},
+		{
+			name: 'jQuery',
+			level: 'Expert',
+			top: false,
+			type: 'Frontend',
+			icon: <SiJquery size={37} />
+		},
+		{
+			name: 'TypeScript',
+			level: 'Intermediate',
+			top: false,
+			type: 'Programming',
+			icon: <SiTypescript size={37} />
+		},
+		{
+			name: 'Angular',
+			level: 'Novice',
+			top: false,
+			type: 'Frontend',
+			icon: <SiAngular size={37} />
+		},
 	]
