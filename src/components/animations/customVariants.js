@@ -122,13 +122,13 @@ export const sectionJapaneseVariants = {
     switch: { opacity: 1, y: 0 }
 }
 
-export const sectionCircleVariants = {
+const sectionCircleVariants = {
     hidden: { left: '22%', bottom: '60%', opacity: 0 },
     visible: { left: '22%', bottom: '5%', opacity: 1 },
     switch: { left: '5%', bottom: '5%' }
 }
 
-export const circleVariantsMobile = {
+const circleVariantsMobile = {
     hidden: { left: '12%', bottom: '60%', opacity: 0 },
     visible: { left: '12%', bottom: '5%', opacity: 1 },
     switch: { left: '5%', bottom: '5%' }
@@ -136,13 +136,13 @@ export const circleVariantsMobile = {
 
 export const circleArray1 = [sectionCircleVariants, circleVariantsMobile]
 
-export const sectionCircleVariants2 = {
+const sectionCircleVariants2 = {
     hidden: { right: '-5%', bottom: '60%', opacity: 0 },
     visible: { right: '-5%', bottom: '-5%', opacity: 1 },
     switch: { right: '-5%', bottom: '-1%' }
 }
 
-export const circleVariants2Mobile = {
+const circleVariants2Mobile = {
     hidden: { right: '5%', bottom: '60%', opacity: 0 },
     visible: { right: '5%', bottom: '-5%', opacity: 1 },
     switch: { right: '5%', bottom: '-1%' }

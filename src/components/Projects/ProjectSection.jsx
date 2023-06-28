@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Section from '../Section'
+import Section from '../Section/Section'
 import { projects } from '../../data/project-list'
 
 export default function ProjectSection({ activePage }) {

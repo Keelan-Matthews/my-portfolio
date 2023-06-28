@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import SideColumns from '../components/SideColumns'
-import Section from '../components/Section'
+import Section from '../components/Section/Section'
 import matter from 'gray-matter'
 import Skill from '../components/About/Skill'
 

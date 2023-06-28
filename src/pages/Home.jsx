@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Layout from '../components/Layout';
 import ReactFullPage from '@fullpage/react-fullpage';
-import Section from '../components/Section';
+import Section from '../components/Section/Section';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion/dist/framer-motion';
 

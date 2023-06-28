@@ -1,7 +1,7 @@
 import React from 'react'
 import Col from 'react-bootstrap/Col'
 // import SectionTransition from '../components/SectionTransition'
-import Section from '../components/Section'
+import Section from '../components/Section/Section'
 import Skills from '../components/About/Skills'
 import Layout from '../components/Layout';
 import SideColumns from '../components/SideColumns'

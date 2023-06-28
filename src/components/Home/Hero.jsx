@@ -148,35 +148,3 @@ const Slogan = () => {
         </>
     )
 }
-
-// const transition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }
-
-// const homeJapaneseVariants = {
-//     hidden: { opacity: 0, y: 10 },
-//     visible: { opacity: 1, y: 100 }
-// }
-
-// const sloganVariants = {
-//     hidden: { opacity: 0, y: 100 },
-//     visible: { opacity: 1, y: 0 }
-// }
-
-// const cvVariants = {
-//     hidden: { opacity: 0, y: 100 },
-//     visible: { opacity: 1, y: 0 }
-// }
-
-// const paintingVariants = {
-//     hidden: { left: '1000px', opacity: 0.4 },
-//     visible: { left: '30%' }
-// }
-
-// const statueVariants = {
-//     hidden: { y: 20, opacity: 0 },
-//     visible: { y: 0, opacity: 1 }
-// }
-
-// const homeCircleVariants = {
-//     hidden: { opacity: 0, y: 100, left: '12%', top: '25%' },
-//     visible: { opacity: 1, y: 0 }
-// }
