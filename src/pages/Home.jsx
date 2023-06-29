@@ -9,6 +9,8 @@ import ReactFullPage from '@fullpage/react-fullpage';
 import Section from '../components/Section/Section';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion/dist/framer-motion';
+import Toast from 'react-bootstrap/Toast';
+import ToastContainer from 'react-bootstrap/ToastContainer';
 
 const anchors = ['hero', 'about', 'projects', 'contact', 'footer'];
 
@@ -19,12 +21,27 @@ export default function Home({ sections }) {
     const [page, setPage] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
     const [isPerformance, setIsPerformance] = useState(false);
+    const [showToastOn, setShowToastOn] = useState(false);
+    const [showToastOff, setShowToastOff] = useState(false);
+
+    const [toastTogglePressed, setToastTogglePressed] = useState(false);
 
     useEffect(() => {
         if (window.innerWidth < 768) {
             setIsMobile(true);
         }
     }, [])
+
+    useEffect(() => {
+        if (isPerformance) {
+            setShowToastOn(true);
+            setToastTogglePressed(true);
+        } else if (toastTogglePressed) {
+            setShowToastOff(true);
+        }
+
+        console.log(isPerformance);
+    }, [isPerformance])
 
     return (
         <Layout title="Keelan Matthews | Welcome">
@@ -72,6 +89,14 @@ export default function Home({ sections }) {
 
                             return (
                                 <ReactFullPage.Wrapper>
+                                    <ToastContainer className="p-3" position="top-end">
+                                        <Toast onClose={() => setShowToastOn(false)} show={showToastOn} delay={2000} autohide>
+                                            <Toast.Body>Animations: <span className="fw-bold">disabled</span></Toast.Body>
+                                        </Toast>
+                                        <Toast onClose={() => setShowToastOff(false)} show={showToastOff} delay={2000} autohide>
+                                        <Toast.Body>Animations: <span className="fw-bold">enabled</span></Toast.Body>
+                                        </Toast>
+                                    </ToastContainer>
                                     <div className="section">
                                         <Hero visible={true} isPerformance={isPerformance} />
                                     </div>
