@@ -1,4 +1,4 @@
-import React, { useRef, Suspense } from 'react'
+import React, { useRef, Suspense, useEffect, useState } from 'react'
 import { Canvas, extend, useFrame } from '@react-three/fiber'
 import { WaveMaterial } from '../animations/Shader'
 import { useTexture } from '@react-three/drei'
@@ -23,11 +23,25 @@ const HeroWave = () => {
 }
 
 export default function WaveImage() {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 4000); // Set an appropriate delay time
+
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <>
             <Canvas camera={{ fov: 10 }}>
                 <Suspense fallback={<StaticImage />}>
-                    <HeroWave  />
+                    {!isLoading ? (
+                        <HeroWave />
+                    ) : (
+                        <StaticImage />
+                    )}
                 </Suspense>
             </Canvas>
         </>
