@@ -58,6 +58,27 @@
   transform: translateY(-7px);
 }
 
+.my-tooltip-container {
+  position: relative;
+}
+.my-tooltip-container .my-tooltip {
+  font-weight: light;
+  position: absolute;
+  top: -5px;
+  left: 220%;
+  transform: translateX(-50%);
+  padding: 0.25rem;
+  transition: cubic-bezier(0.43, 0.13, 0.23, 0.96) 0.5s;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+}
+.my-tooltip-container:hover .my-tooltip {
+  opacity: 1;
+  left: 250%;
+  visibility: visible;
+}
+
 .heading-text h2 {
   font-size: 8rem;
 }

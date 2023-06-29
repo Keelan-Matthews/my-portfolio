@@ -8,16 +8,10 @@ import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
 import { Link } from 'react-router-dom'
 import { BiArrowBack } from 'react-icons/bi'
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
 import { sideColumnTransition, sideColumnLineVariants, sideColumnTextVariants, socialVariants, pageVariants, mailVariants } from './animations/customVariants';
 
 export default function SideColumns({ children, scrollY, activeSection, page, entered = false, caseStudy = false, setIsPerformance }) {
-    
-    const tooltip = (
-        <Tooltip id="performance-tooltip">Performance Mode</Tooltip>
-      );
-    
+
     const [hover, setHover] = useState(false)
     const [isPerformanceVar, setIsPerformanceVar] = useState(false)
 
@@ -52,12 +46,20 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                                         <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className="d-flex justify-content-center">
                                             {
                                                 hover ?
-                                                    <IoMailOpenSharp size={37} className="envelope" onClick={() => {
-                                                        if (window.fullpage_api)
-                                                            window.fullpage_api.moveTo(4)
-                                                    }} />
+                                                    <div className="my-tooltip-container">
+                                                        <IoMailOpenSharp size={37} className="envelope" onClick={() => {
+                                                            if (window.fullpage_api)
+                                                                window.fullpage_api.moveTo(4)
+                                                        }} />
+
+                                                        <span className="my-tooltip">contact me</span>
+                                                    </div>
                                                     :
-                                                    <AiOutlineMail size={37} className="envelope" />
+                                                    <div className="my-tooltip-container">
+                                                        <AiOutlineMail size={37} className="envelope" />
+
+                                                        <span className="my-tooltip">contact me</span>
+                                                    </div>
                                             }
                                         </div>
                                 }
@@ -75,10 +77,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                                 >
                                     <div className="d-flex justify-content-center">
                                         {isPerformanceVar ? (
-                                            <OverlayTrigger
-                                                placement="right"
-                                                overlay={tooltip}
-                                            >
+                                            <div className="my-tooltip-container">
                                                 <IoSpeedometerSharp
                                                     size={37}
                                                     className="performance"
@@ -87,12 +86,11 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                                                         setIsPerformance(!isPerformanceVar);
                                                     }}
                                                 />
-                                            </OverlayTrigger>
+
+                                                <span className="my-tooltip">swift mode</span>
+                                            </div>
                                         ) : (
-                                            <OverlayTrigger
-                                                placement="right"
-                                                overlay={tooltip}
-                                            >
+                                            <div className="my-tooltip-container">
                                                 <IoSpeedometerOutline
                                                     size={37}
                                                     className="performance"
@@ -101,7 +99,9 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                                                         setIsPerformance(!isPerformanceVar);
                                                     }}
                                                 />
-                                            </OverlayTrigger>
+
+                                                <span className="my-tooltip">swift mode</span>
+                                            </div>
                                         )}
                                     </div>
                                 </motion.div>
