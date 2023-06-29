@@ -22,7 +22,7 @@ const HeroWave = () => {
     );
 }
 
-export default function WaveImage() {
+export default function WaveImage({ isPerformance }) {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -37,7 +37,7 @@ export default function WaveImage() {
         <>
             <Canvas camera={{ fov: 10 }}>
                 <Suspense fallback={<StaticImage />}>
-                    {!isLoading ? (
+                    {!isLoading && !isPerformance ? (
                         <HeroWave />
                     ) : (
                         <StaticImage />

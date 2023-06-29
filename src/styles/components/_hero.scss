@@ -59,6 +59,15 @@
 	}
 }
 
+.performance {
+	transition: 0.3s ease;
+
+	&:hover {
+		transform: translateY(-7px);
+	}
+}
+  
+
 .heading-text h2 {
 	font-size: 8rem;
 

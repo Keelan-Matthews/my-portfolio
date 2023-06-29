@@ -18,6 +18,7 @@ export default function Home({ sections }) {
     const [activeSection, setActiveSection] = useState('hero');
     const [page, setPage] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
+    const [isPerformance, setIsPerformance] = useState(false);
 
     useEffect(() => {
         if (window.innerWidth < 768) {
@@ -46,7 +47,7 @@ export default function Home({ sections }) {
                 )
                     : null
             }
-            <SideColumns scrollY={hideScroll} activeSection={activeSection} page={page}>
+            <SideColumns scrollY={hideScroll} activeSection={activeSection} setIsPerformance={setIsPerformance} page={page}>
                 <Col xs={12} sm={10}>
                     <ReactFullPage
                         anchors={anchors}
@@ -72,7 +73,7 @@ export default function Home({ sections }) {
                             return (
                                 <ReactFullPage.Wrapper>
                                     <div className="section">
-                                        <Hero visible={true} />
+                                        <Hero visible={true} isPerformance={isPerformance} />
                                     </div>
                                     {
                                         sections.map((section, index) => {

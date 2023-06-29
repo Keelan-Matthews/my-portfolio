@@ -2,16 +2,24 @@ import React, { useState, useEffect } from 'react'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { AiOutlineMail } from 'react-icons/ai'
-import { IoMailOpenSharp } from 'react-icons/io5'
+import { IoMailOpenSharp, IoSpeedometerOutline, IoSpeedometerSharp } from 'react-icons/io5'
 import Navigation from './Navigation'
 import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
 import { Link } from 'react-router-dom'
 import { BiArrowBack } from 'react-icons/bi'
 import { BsGithub, BsLinkedin } from 'react-icons/bs'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 import { sideColumnTransition, sideColumnLineVariants, sideColumnTextVariants, socialVariants, pageVariants, mailVariants } from './animations/customVariants';
 
-export default function SideColumns({ children, scrollY, activeSection, page, entered = false, caseStudy = false }) {
+export default function SideColumns({ children, scrollY, activeSection, page, entered = false, caseStudy = false, setIsPerformance }) {
+    
+    const tooltip = (
+        <Tooltip id="performance-tooltip">Performance Mode</Tooltip>
+      );
+    
     const [hover, setHover] = useState(false)
+    const [isPerformanceVar, setIsPerformanceVar] = useState(false)
 
     const ctrls = useAnimation()
     const footerCtrls = useAnimation()
@@ -26,33 +34,80 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
             <Row className='vh-100'>
                 <Col xs={1} className="d-none d-sm-block">
                     <Row className='d-flex flex-md-column justify-content-between align-items-center ps-4 pt-5 ps-md-0 vh-100'>
-                        <motion.div
-                            variants={mailVariants}
-                            initial='hidden'
-                            animate='visible'
-                            transition={{...sideColumnTransition, delay: 0.4}}
-                            className='d-flex justify-content-center'
-                        >
-                            {
-                                entered ?
-                                    <Link to={`/${caseStudy ? 'projects/' : ''}#${activeSection}`} className="text-dark w-50">
-                                        <BiArrowBack size={37} />
-                                    </Link>
-                                    :
-                                    <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className="d-flex justify-content-center">
-                                        {
-                                            hover ?
-                                                <IoMailOpenSharp size={37} className="envelope" onClick={() => {
-                                                    if (window.fullpage_api)
-                                                        window.fullpage_api.moveTo(4)
-                                                }} />
-                                                :
-                                                <AiOutlineMail size={37} className="envelope" />
-                                        }
-                                    </div>
-                            }
-                        </motion.div>
+                        <div>
+                            {/* Mail Icon */}
+                            <motion.div
+                                variants={mailVariants}
+                                initial='hidden'
+                                animate='visible'
+                                transition={{ ...sideColumnTransition, delay: 0.4 }}
+                                className='d-flex justify-content-center'
+                            >
+                                {
+                                    entered ?
+                                        <Link to={`/${caseStudy ? 'projects/' : ''}#${activeSection}`} className="text-dark w-50">
+                                            <BiArrowBack size={37} />
+                                        </Link>
+                                        :
+                                        <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} className="d-flex justify-content-center">
+                                            {
+                                                hover ?
+                                                    <IoMailOpenSharp size={37} className="envelope" onClick={() => {
+                                                        if (window.fullpage_api)
+                                                            window.fullpage_api.moveTo(4)
+                                                    }} />
+                                                    :
+                                                    <AiOutlineMail size={37} className="envelope" />
+                                            }
+                                        </div>
+                                }
+                            </motion.div>
 
+                            {/* Performance Mode Icon */}
+                            {
+                                !entered &&
+                                <motion.div
+                                    variants={mailVariants}
+                                    initial='hidden'
+                                    animate='visible'
+                                    transition={{ ...sideColumnTransition, delay: 0.4 }}
+                                    className='mt-4'
+                                >
+                                    <div className="d-flex justify-content-center">
+                                        {isPerformanceVar ? (
+                                            <OverlayTrigger
+                                                placement="right"
+                                                overlay={tooltip}
+                                            >
+                                                <IoSpeedometerSharp
+                                                    size={37}
+                                                    className="performance"
+                                                    onClick={() => {
+                                                        setIsPerformanceVar(!isPerformanceVar);
+                                                        setIsPerformance(!isPerformanceVar);
+                                                    }}
+                                                />
+                                            </OverlayTrigger>
+                                        ) : (
+                                            <OverlayTrigger
+                                                placement="right"
+                                                overlay={tooltip}
+                                            >
+                                                <IoSpeedometerOutline
+                                                    size={37}
+                                                    className="performance"
+                                                    onClick={() => {
+                                                        setIsPerformanceVar(!isPerformanceVar);
+                                                        setIsPerformance(!isPerformanceVar);
+                                                    }}
+                                                />
+                                            </OverlayTrigger>
+                                        )}
+                                    </div>
+                                </motion.div>
+                            }
+                        </div>
+                        {/* Navigation lines */}
                         <Navigation activeSection={activeSection} />
                         <div className="d-none d-md-block"></div>
                     </Row>
@@ -60,11 +115,11 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                 {children}
                 <Col xs={1} className="d-none d-sm-block">
                     <Row className="d-flex flex-column justify-content-between align-items-center vh-100 pt-5">
-                        <motion.div 
+                        <motion.div
                             variants={pageVariants}
                             initial={entered ? 'visible' : 'hidden'}
                             animate='visible'
-                            transition={{...sideColumnTransition, delay: 0.5}}
+                            transition={{ ...sideColumnTransition, delay: 0.5 }}
                             className="page-number"
                         >
                             <p className='fs-1'>0{page}</p>

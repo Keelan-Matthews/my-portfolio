@@ -9,7 +9,7 @@ import TextReveal from '../animations/TextReveal'
 import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
 import { heroTransition, homeJapaneseVariants, sloganVariants, cvVariants, paintingVariants, homeCircleVariants, statueVariants } from '../animations/customVariants'
 
-export default function Hero({ visible }) {
+export default function Hero({ visible, isPerformance }) {
     const ctrls = useAnimation()
     const parRef = useRef()
 
@@ -50,7 +50,12 @@ export default function Hero({ visible }) {
                         transition={{ ...heroTransition, delay: 0.7 }}
                         className="fs-2"
                     >
-                        <Slogan />
+                        {
+                            isPerformance ?
+                                <>web developer.</>
+                                :
+                                <Slogan />
+                        }
                     </motion.div>
 
                     {/* CV Button */}
@@ -74,7 +79,7 @@ export default function Hero({ visible }) {
                             className="position-absolute painting"
                         >
                             <div className="painting-container">
-                                <WaveImage />
+                                <WaveImage isPerformance={isPerformance} />
                             </div>
                         </motion.div>
 
