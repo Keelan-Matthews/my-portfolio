@@ -66,7 +66,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                             </motion.div>
 
                             {/* Performance Mode Icon */}
-                            {
+                            {/* {
                                 !entered && activeSection === 'hero' &&
                                 <motion.div
                                     variants={mailVariants}
@@ -105,7 +105,7 @@ export default function SideColumns({ children, scrollY, activeSection, page, en
                                         )}
                                     </div>
                                 </motion.div>
-                            }
+                            } */}
                         </div>
                         {/* Navigation lines */}
                         <Navigation activeSection={activeSection} />
