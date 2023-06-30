@@ -50,6 +50,26 @@ export default function RightSide({ visible, title, desc, switchVar, site, slug,
         }
     };
 
+    const renderButtonTitle = () => {
+        if (site === 'na') {
+            return (
+                <p>coming soon</p>
+            )
+        }
+        // else if the website link contains "figma", return view prototype
+        else if (site.includes('figma')) {
+            return (
+                <p>view prototype <span className='show-arrow'><BsArrowRight size={20} /></span></p>
+            )
+        }
+        // else return view site
+        else {
+            return (
+                <p>view site <span className='show-arrow'><BsArrowRight size={20} /></span></p>
+            )
+        }
+    }
+
     const renderButtons = () => {
         if (site) {
             return (
@@ -81,12 +101,7 @@ export default function RightSide({ visible, title, desc, switchVar, site, slug,
                                 variant="outline-light text-dark"
                                 className="mt-4 site-button"
                             >
-                                <p>
-                                    {site !== 'na' ?
-                                        <>view site <span className='show-arrow'><BsArrowRight size={20} /></span></>
-                                        :
-                                        'coming soon'}
-                                </p>
+                                {renderButtonTitle()}
                             </Button>
                         </motion.div>
                     </div>

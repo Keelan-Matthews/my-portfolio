@@ -48,6 +48,10 @@ export default function LeftSide({ visible, japanese, circleVar, switchVar, imgD
                             width={'100%'}
                             height={'100%'}
                             alt=""
+                            onError={(e) => {
+                                e.target.onerror = null;
+                                e.target.src = `/images/default.png`;
+                            }}
                         >
                         </img>
                     </MouseParallax>
