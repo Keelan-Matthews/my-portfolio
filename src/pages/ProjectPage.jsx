@@ -7,6 +7,7 @@ import Section from '../components/Section/Section'
 import ReactFullPage from '@fullpage/react-fullpage'
 import SideColumns from '../components/SideColumns'
 import Footer from '../components/Footer'
+import { projects } from '../data/project-list'
 
 export default function ProjectPage({ section }) {
 	const [page, setPage] = useState(0)
@@ -19,7 +20,7 @@ export default function ProjectPage({ section }) {
 						onLeave={(origin, destination) => {
 							setPage(destination.index);
 						}}
-						render={({state, fullpageApi}) => {
+						render={({ state, fullpageApi }) => {
 							return (
 								<ReactFullPage.Wrapper>
 									<div className="section">
@@ -27,8 +28,8 @@ export default function ProjectPage({ section }) {
 									</div>
 									<ProjectSection activePage={page} />
 									<div className="section fp-auto-height">
-                                        <Footer scrollToTop={() => fullpageApi.moveTo(1)} />
-                                    </div>
+										<Footer scrollToTop={() => fullpageApi.moveTo(1)} />
+									</div>
 								</ReactFullPage.Wrapper>
 							)
 						}}

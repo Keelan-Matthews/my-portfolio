@@ -8,6 +8,7 @@ import SideColumns from '../components/SideColumns'
 import Section from '../components/Section/Section'
 import matter from 'gray-matter'
 import Skill from '../components/About/Skill'
+import { projects } from '../data/project-list'
 
 export default function CaseStudy() {
     const [mdArray, setMdArray] = useState([])
@@ -15,15 +16,9 @@ export default function CaseStudy() {
     const slug = window.location.pathname.split('/')[2]
     const title = slug === "rudasa" ? "RuDASA" : slug.split('-').join(' ').replace(/\b\w/g, l => l.toUpperCase())
 
-    const japaneseArray = [
-        {
-            "rudasa": "ルダサ",
-            "yacht-portfolio": "ヨット",
-            "codify": "コデフイ",
-        }
-    ]
-
-    const japanese = japaneseArray[0][slug]
+    // get the japanese from "projects" that matches the slug
+    const japanese = projects.filter(project => project.title === title)[0].japanese
+    const site = projects.filter(project => project.title === title)[0].site
 
     useEffect(() => {
         getMd().then(res => {
@@ -56,7 +51,7 @@ export default function CaseStudy() {
             <SideColumns scrollY={true} activeSection="projects" page={2} entered={true} caseStudy={true}>
                 <Col xs={10} className="scrollable vh-100">
                     <div className="vh-100 d-flex align-items-center justify-content-center">
-                        <Section title={title} japanese={japanese} switchVar={true} visible={true} cta="case study" site={"https://example.com"} />
+                        <Section title={title} japanese={japanese} switchVar={true} visible={true} cta="case study" site={site} />
                     </div>
 
                     <Col xs={{ span: 8, offset: 2 }}>
