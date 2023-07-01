@@ -15,7 +15,7 @@
 	transform: translateX(-150px);
 
 	@media screen and (max-width: 1560px) {
-		transform: translateX(0);
+		transform: translateX(0) !important;
 	}
 }
 

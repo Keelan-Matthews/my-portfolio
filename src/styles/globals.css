@@ -37,10 +37,10 @@
   height: 150px;
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 768px) {
   .smaller {
-    width: 100px !important;
-    height: 100px !important;
+    width: 70px !important;
+    height: 70px !important;
   }
 }
 
@@ -167,7 +167,7 @@
 }
 @media screen and (max-width: 1560px) {
   .transform-left {
-    transform: translateX(0);
+    transform: translateX(0) !important;
   }
 }
 
@@ -316,6 +316,13 @@ p {
   height: 80vh;
   transition: 1s ease-in-out;
 }
+@media screen and (max-width: 768px) {
+  .image-height {
+    width: 70vw;
+    height: 50vh;
+    margin-right: 1.5rem;
+  }
+}
 
 .image-height-extended {
   width: 40vw;
@@ -347,6 +354,13 @@ p {
 @media screen and (max-width: 1560px) {
   .bigger-text h2 {
     font-size: 9vw;
+  }
+}
+@media screen and (max-width: 768px) {
+  .bigger-text h2 {
+    font-size: 14vw;
+    transform: translate(0);
+    margin-top: 30px;
   }
 }
 

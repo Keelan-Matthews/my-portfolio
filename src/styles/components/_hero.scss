@@ -45,9 +45,9 @@
 }
 
 .smaller {
-	@media (max-width: 1400px) {
-		width: 100px !important;
-		height: 100px !important;
+	@media (max-width: 768px) {
+		width: 70px !important;
+		height: 70px !important;
 	}
 }
 

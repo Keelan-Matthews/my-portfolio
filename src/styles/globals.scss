@@ -51,11 +51,11 @@ p {
 	height: 80vh;
 	transition: 1s ease-in-out;
 
-	// @media screen and (max-width: 1560px) {
-	// 	width: 70vw;
-	// 	height: 50vh;
-	// 	margin-right: 1.5rem;
-	// }
+	@media screen and (max-width: 768px) {
+		width: 70vw;
+		height: 50vh;
+		margin-right: 1.5rem;
+	}
 }
 
 .image-height-extended {
@@ -85,6 +85,12 @@ p {
 	@media screen and (max-width: 1560px) {
 		font-size: 9vw;
 		// transform: translate(0);
+	}
+
+	@media screen and (max-width: 768px) {
+		font-size: 14vw;
+		transform: translate(0);
+		margin-top: 30px;
 	}
 }
 
