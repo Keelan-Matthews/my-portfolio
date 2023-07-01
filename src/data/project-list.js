@@ -1,13 +1,13 @@
 export const projects = [
     {
-        japanese: 'コデフイ',
-        title: 'Codify',
-        site: 'na'
-    },
-    {
         japanese: 'ルダサ',
         title: 'RuDASA',
         site: 'https://rudasa.org.za/',
+    },
+    {
+        japanese: 'コデフイ',
+        title: 'Codify',
+        site: 'https://github.com/Keelan-Matthews/Codify-Project'
     },
     {
         japanese: '輸送',

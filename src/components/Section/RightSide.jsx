@@ -62,6 +62,12 @@ export default function RightSide({ visible, title, desc, switchVar, site, slug,
                 <p>view prototype <span className='show-arrow'><BsArrowRight size={20} /></span></p>
             )
         }
+        // else if the website link contains "github", return view code
+        else if (site.includes('github')) {
+            return (
+                <p>view github <span className='show-arrow'><BsArrowRight size={20} /></span></p>
+            )
+        }
         // else return view site
         else {
             return (
