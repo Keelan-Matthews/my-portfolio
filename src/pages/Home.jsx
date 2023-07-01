@@ -20,6 +20,7 @@ export default function Home({ sections }) {
     const [activeSection, setActiveSection] = useState('hero');
     const [page, setPage] = useState(0);
     const [isMobile, setIsMobile] = useState(false);
+    const [dismissWarning, setDismissWarning] = useState(false);
     const [isPerformance, setIsPerformance] = useState(false);
     const [showToastOn, setShowToastOn] = useState(false);
     const [showToastOff, setShowToastOff] = useState(false);
@@ -27,10 +28,10 @@ export default function Home({ sections }) {
     const [toastTogglePressed, setToastTogglePressed] = useState(false);
 
     useEffect(() => {
-        if (window.innerWidth < 768) {
+        if (window.innerWidth < 768 && !dismissWarning) {
             setIsMobile(true);
         }
-    }, [])
+    }, [dismissWarning])
 
     useEffect(() => {
         if (isPerformance) {
@@ -46,7 +47,7 @@ export default function Home({ sections }) {
     return (
         <Layout title="Keelan Matthews | Welcome">
             {
-                isMobile ? (
+                isMobile && !dismissWarning ? (
                     <div className="mobile-message">
                         <motion.div
                             initial={{ opacity: 0, y: 100 }}
@@ -54,9 +55,9 @@ export default function Home({ sections }) {
                             transition={{ duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] }}
                         >
                             <h1>Sorry, this site is not mobile friendly yet.</h1>
-                            <p>Please view on a desktop or laptop.</p>
+                            <p>Please view on a landscape device to appreciate all it has to offer.</p>
                             <div className="d-flex">
-                                <Button variant="primary" className='mt-2' href="https://google.com">close</Button>
+                                <Button variant="primary" className='mt-2' onClick={() => setDismissWarning(true)}>continue anyway</Button>
                                 <Button variant="outline-secondary" className='mt-2 ms-2' href="/keelan-matthews-cv.pdf" target="_blank">download cv</Button>
                             </div>
                         </motion.div>
