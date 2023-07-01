@@ -26,7 +26,7 @@ export const portraitImageVariants = {
 
 export const paragraphLineVariants = {
     hidden: { height: 0, opacity: 0 },
-    visible: { height: 330, opacity: 1 }
+    visible: { height: 350, opacity: 1 }
 }
 
 export const skillVariants = {

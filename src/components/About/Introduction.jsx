@@ -63,9 +63,8 @@ export default function Introduction({ inView }) {
                                 transition={{...aboutTransition, delay: 1}}
                                 className="fs-5 ps-3"
                             >
-                                I am an aspiring Full Stack Developer from <span className="fw-bold">Johannesburg, South Africa</span>. Growing up, I have always had an insatiable desire for creativity and perfection. This, coupled up with my thorough enjoyment in coding, lead me down my current path.
-                                The idea of being able to produce anything from scratch intrigues me. This also includes designing vector graphics, 3D renders, animations and even music.<br /><br />
-                                I am able to pick up new skills very quickly, and always complete my deadlines early. In the event of time constraints, I <span className="fw-bold">thrive</span> under pressure.
+                                I am an aspiring Full Stack Developer from <span className="fw-bold">Johannesburg, South Africa</span>. Throughout my upbringing, I have harbored an insatiable thirst for creativity and a relentless pursuit of perfection. These qualities, coupled with my genuine passion for coding, have paved the way for my current path. <br /><br />
+                                With a remarkable ability to rapidly acquire new skills, I consistently deliver projects well ahead of schedule, <span className="fw-bold">thriving</span> under pressure. By seamlessly blending creative prowess with technical expertise, I am eager to contribute as a Full Stack Developer, leaving a lasting impact in the industry.
                             </motion.p>
                         </div>
                     </div>
