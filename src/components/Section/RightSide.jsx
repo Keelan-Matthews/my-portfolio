@@ -53,7 +53,7 @@ export default function RightSide({ visible, title, desc, switchVar, site, slug,
     const renderButtonTitle = () => {
         if (site === 'na') {
             return (
-                <p>coming soon</p>
+                <p>site unavailable</p>
             )
         }
         // else if the website link contains "figma", return view prototype
@@ -87,7 +87,7 @@ export default function RightSide({ visible, title, desc, switchVar, site, slug,
                     </motion.div>
 
                     {/* View Site Button */}
-                    <div className="overflow-hidden view-site">
+                    <div className={`overflow-hidden ${site !== 'na' && 'view-site'}`}>
                         <motion.div
                             variants={button2Variants}
                             initial={initial}
