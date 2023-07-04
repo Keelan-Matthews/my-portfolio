@@ -64,7 +64,7 @@ export default function Introduction({ inView }) {
                                 className="fs-5 ps-3"
                             >
                                 I am an aspiring Full Stack Developer from <span className="fw-bold">Johannesburg, South Africa</span>. Throughout my upbringing, I have harbored an insatiable thirst for creativity and a relentless pursuit of perfection. These qualities, coupled with my genuine passion for coding, have paved the way for my current path. <br /><br />
-                                With a remarkable ability to rapidly acquire new skills, I consistently deliver projects well ahead of schedule, <span className="fw-bold">thriving</span> under pressure. By seamlessly blending creative prowess with technical expertise, I am eager to contribute as a Full Stack Developer, leaving a lasting impact in the industry.
+                                With a remarkable ability to rapidly acquire new skills, I consistently deliver projects well ahead of schedule, thriving under pressure. By seamlessly blending creative prowess with technical expertise, I am eager to contribute as a Full Stack Developer, leaving a lasting impact in the industry.
                             </motion.p>
                         </div>
                     </div>
