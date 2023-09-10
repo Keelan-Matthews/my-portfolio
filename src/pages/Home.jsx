@@ -40,8 +40,6 @@ export default function Home({ sections }) {
         } else if (toastTogglePressed) {
             setShowToastOff(true);
         }
-
-        console.log(isPerformance);
     }, [isPerformance])
 
     return (
