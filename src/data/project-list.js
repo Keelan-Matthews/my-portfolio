@@ -1,14 +1,14 @@
 export const projects = [
-    {
-        japanese: 'マンガ',
-        title: 'Motion Comic',
-        site: 'https://motion-comic.netlify.app',
-    },
-    {
-        japanese: 'トレーラー',
-        title: 'Comic Trailer',
-        site: 'https://k9-instinct.netlify.app',
-    },
+    // {
+    //     japanese: 'マンガ',
+    //     title: 'Motion Comic',
+    //     site: 'https://motion-comic.netlify.app',
+    // },
+    // {
+    //     japanese: 'トレーラー',
+    //     title: 'Comic Trailer',
+    //     site: 'https://k9-instinct.netlify.app',
+    // },
     {
         japanese: 'ルダサ',
         title: 'RuDASA',
