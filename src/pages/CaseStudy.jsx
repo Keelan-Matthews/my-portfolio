@@ -84,7 +84,7 @@ export default function CaseStudy() {
                             :
                             <Col xs={{ span: 8, offset: 2 }}>
                                 <div className='d-flex w-100 justify-content-center align-items-center my-5'>
-                                    <h1>No Case Study has been written for this project</h1>
+                                    <h1>in progress...</h1>
                                 </div>
 
                             </Col>

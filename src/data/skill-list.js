@@ -1,25 +1,25 @@
 import React from 'react'
-import { SiUnity, SiDjango, SiPostgresql, SiCsharp, SiReact, SiJquery, SiBootstrap, SiJavascript, SiVuedotjs, SiPhp, SiSass, SiJava, SiCplusplus, SiHtml5, SiCss3, SiBlender, SiFigma, SiVisualstudiocode, SiMongodb, SiNodedotjs, SiExpress, SiNextdotjs, SiPython, SiAngular, SiTypescript } from 'react-icons/si'
+import { SiUnity, SiDjango, SiNeo4J, SiPostgresql, SiCsharp, SiReact, SiJquery, SiBootstrap, SiJavascript, SiVuedotjs, SiPhp, SiSass, SiJava, SiCplusplus, SiHtml5, SiCss3, SiBlender, SiFigma, SiVisualstudiocode, SiMongodb, SiNodedotjs, SiExpress, SiNextdotjs, SiPython, SiAngular, SiTypescript } from 'react-icons/si'
 import { DiMysql, DiIllustrator, DiPhotoshop, DiGit, DiGithubBadge } from 'react-icons/di'
 
 export const skills = [
 		{
 			name: 'React',
-			level: 'Expert',
+			level: 'Advanced',
 			top: true,
 			type: 'Frontend',
 			icon: <SiReact size={37} />
 		},
 		{
 			name: 'Bootstrap',
-			level: 'Expert',
+			level: 'Advanced',
 			top: true,
 			type: 'Frontend',
 			icon: <SiBootstrap size={37} />
 		},
 		{
 			name: 'Javascript',
-			level: 'Expert',
+			level: 'Advanced',
 			top: false,
 			type: 'Programming',
 			icon: <SiJavascript size={37} />
@@ -40,7 +40,7 @@ export const skills = [
 		},
 		{
 			name: 'SASS',
-			level: 'Expert',
+			level: 'Advanced',
 			top: true,
 			type: 'Frontend',
 			icon: <SiSass size={37} />
@@ -68,14 +68,14 @@ export const skills = [
 		},
 		{
 			name: 'HTML',
-			level: 'Expert',
+			level: 'Advanced',
 			top: false,
 			type: 'Frontend',
 			icon: <SiHtml5 size={37} />
 		},
 		{
 			name: 'CSS',
-			level: 'Expert',
+			level: 'Advanced',
 			top: false,
 			type: 'Frontend',
 			icon: <SiCss3 size={37} />
@@ -96,7 +96,7 @@ export const skills = [
 		},
 		{
 			name: 'VS Code',
-			level: 'Expert',
+			level: 'Advanced',
 			top: false,
 			type: 'Software',
 			icon: <SiVisualstudiocode size={37} />
@@ -159,7 +159,7 @@ export const skills = [
 		},
 		{
 			name: 'NextJS',
-			level: 'Expert',
+			level: 'Advanced',
 			top: false,
 			type: 'Frontend',
 			icon: <SiNextdotjs size={37} />
@@ -180,7 +180,7 @@ export const skills = [
 		},
 		{
 			name: 'PostgreSQL',
-			level: 'Novice',
+			level: 'Intermediate',
 			top: false,
 			type: 'Backend',
 			icon: <SiPostgresql size={37} />
@@ -193,8 +193,15 @@ export const skills = [
 			icon: <SiDjango size={37} />
 		},
 		{
+			name: 'Neo4j',
+			level: 'Intermediate',
+			top: false,
+			type: 'Backend',
+			icon: <SiNeo4J size={37} />
+		},
+		{
 			name: 'jQuery',
-			level: 'Expert',
+			level: 'Advanced',
 			top: false,
 			type: 'Frontend',
 			icon: <SiJquery size={37} />
