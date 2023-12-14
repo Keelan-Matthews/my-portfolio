@@ -11,20 +11,37 @@ import Skill from '../components/About/Skill'
 import { projects } from '../data/project-list'
 
 export default function CaseStudy() {
-    const [mdArray, setMdArray] = useState([])
+    const [mdArray, setMdArray] = useState([]);
+    const [hasMd, setHasMd] = useState(true);
 
-    const slug = window.location.pathname.split('/')[2]
-    const title = slug === "rudasa" ? "RuDASA" : slug.split('-').join(' ').replace(/\b\w/g, l => l.toUpperCase())
+    const slug = window.location.pathname.split('/')[2];
+    // const title = slug === "rudasa" ? "RuDASA" : slug.split('-').join(' ').replace(/\b\w/g, l => l.toUpperCase())
+
+    const project = projects.filter(p => {
+        const projectSlug = p.title.split(' ').join('-').toLowerCase()
+        if (projectSlug === slug) return p;
+    })[0];
 
     // get the japanese from "projects" that matches the slug
-    const japanese = projects.filter(project => project.title === title)[0].japanese
-    const site = projects.filter(project => project.title === title)[0].site
+    const japanese = project.japanese;
+    const site = project.site;
+    const title = project.title;
 
     useEffect(() => {
-        getMd().then(res => {
-            setMdArray([res.sections[0], res.sections[1], res.sections[2], res.sections[3], res.sections[4], res.sections[5]])
-        })
-    }, [])
+        getMd()
+            .then(res => {
+                setMdArray([
+                    res.sections[0],
+                    res.sections[1],
+                    res.sections[2],
+                    res.sections[3],
+                    res.sections[4],
+                    res.sections[5]
+                ]);
+            })
+            .catch(error => setHasMd(false));
+    }, []);
+
 
     const getMd = () => {
         return new Promise((resolve, reject) => {
@@ -53,16 +70,25 @@ export default function CaseStudy() {
                     <div className="vh-100 d-flex align-items-center justify-content-center">
                         <Section title={title} japanese={japanese} switchVar={true} visible={true} cta="case study" site={site} />
                     </div>
+                    {
+                        hasMd ?
+                            <Col xs={{ span: 8, offset: 2 }}>
+                                {
+                                    mdArray.map((md, index) => {
+                                        return (
+                                            <MdSection md={md} key={index} index={index} slug={slug} />
+                                        )
+                                    })
+                                }
+                            </Col>
+                            :
+                            <Col xs={{ span: 8, offset: 2 }}>
+                                <div className='d-flex w-100 justify-content-center align-items-center my-5'>
+                                    <h1>No Case Study has been written for this project</h1>
+                                </div>
 
-                    <Col xs={{ span: 8, offset: 2 }}>
-                        {
-                            mdArray.map((md, index) => {
-                                return (
-                                    <MdSection md={md} key={index} index={index} slug={slug} />
-                                )
-                            })
-                        }
-                    </Col>
+                            </Col>
+                    }
                 </Col>
             </SideColumns>
         </Layout>
@@ -95,7 +121,7 @@ const MdSection = ({ md, index, slug }) => {
                     })
                     :
                     <>
-                        <Col xs={{span: 1, offset: 2}} className={`position-relative p-0 ${first && 'mt-5'}`}>
+                        <Col xs={{ span: 1, offset: 2 }} className={`position-relative p-0 ${first && 'mt-5'}`}>
                             <div className="h-100 border-start border-1 border-muted"></div>
                             <div className={`position-absolute ${!first && 'mt-5'} case-study-circle`}>
                                 <div className={`rounded-circle bg-muted ${!first && 'mt-4'} p-1`}></div>
