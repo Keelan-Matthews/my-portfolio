@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { AiOutlineMail } from 'react-icons/ai'
-import { IoMailOpenSharp, IoSpeedometerOutline, IoSpeedometerSharp } from 'react-icons/io5'
+import { IoMailOpenSharp } from 'react-icons/io5'
 import Navigation from './Navigation'
 import { motion, useAnimation } from 'framer-motion/dist/framer-motion'
 import { Link } from 'react-router-dom'
@@ -13,7 +13,7 @@ import { sideColumnTransition, sideColumnLineVariants, sideColumnTextVariants, s
 export default function SideColumns({ children, scrollY, activeSection, page, entered = false, caseStudy = false, setIsPerformance }) {
 
     const [hover, setHover] = useState(false)
-    const [isPerformanceVar, setIsPerformanceVar] = useState(false)
+    // const [isPerformanceVar, setIsPerformanceVar] = useState(false)
 
     const ctrls = useAnimation()
     const footerCtrls = useAnimation()

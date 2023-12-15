@@ -19,7 +19,10 @@ export default function CaseStudy() {
 
     const project = projects.filter(p => {
         const projectSlug = p.title.split(' ').join('-').toLowerCase()
-        if (projectSlug === slug) return p;
+        if (projectSlug === slug) 
+            return p;
+
+        return null;
     })[0];
 
     // get the japanese from "projects" that matches the slug

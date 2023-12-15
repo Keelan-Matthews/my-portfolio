@@ -7,7 +7,7 @@ import Section from '../components/Section/Section'
 import ReactFullPage from '@fullpage/react-fullpage'
 import SideColumns from '../components/SideColumns'
 import Footer from '../components/Footer'
-import { projects } from '../data/project-list'
+// import { projects } from '../data/project-list'
 
 export default function ProjectPage({ section }) {
 	const [page, setPage] = useState(0)
